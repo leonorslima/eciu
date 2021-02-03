@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
+import Navbar from "./components/Navbar/index";
+import Header from "./components/Header/index";
+import Feed from "./pages/Feed/index"
+import Categories from "./pages/Categories/index"
+import Community from "./pages/Community/index"
+import Chat from "./pages/Chat/index"
+import Profile from "./pages/Profile/index"
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+        <Router>
+        <Header />
+            <Switch>
+                <Route exact path={"/feed"} component={Feed} />
+                <Route exact path={"/categories"} component={Categories} />
+                <Route exact path={"/community"} component={Community} />
+                <Route exact path={"/chat"} component={Chat}/>
+                <Route exact path={"/profile"} component={Profile}/>
+            </Switch>
+            <Navbar />
+        </Router>
     </div>
   );
 }
