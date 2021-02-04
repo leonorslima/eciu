@@ -7,12 +7,18 @@ const Navtext = styled.p`
 
 font-size: 11px;
 color: #002337;
+padding-bottom: 0;
+margin-bottom: 0;
+
   `
+
+
+
 
 export default () => {
 
     return (
-    <Navbar justify defaultActiveKey="/feed" className="fixed-bottom">
+    <Navbar justify defaultActiveKey="/feed" className="fixed-bottom bg-white">
         <Navbar.Item>
                 <Navbar.Link href="/feed">
                     <FaHome color="#002337"/>

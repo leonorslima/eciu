@@ -15,6 +15,13 @@ text-align: center;
 
   `
 
+const Title = styled.h4`
+
+font-size: 28px;
+font-weight: 800;
+color: #002337;
+  `
+
 const Restaurants = styled.div`
 
 background-image: url(${imgRestaurants});
@@ -58,7 +65,8 @@ background-size: cover;
 
 export default () => {
     return (
-        <div className="mt-3">
+        <div className="mt-2 mb-2">
+            <Title>CATEGORIES</Title>
             <Restaurants>
                <Label className="p-4">RESTAURANTS</Label>
             </Restaurants>

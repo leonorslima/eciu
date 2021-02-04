@@ -14,12 +14,12 @@ import Categories from "./pages/Categories/index"
 import Community from "./pages/Community/index"
 import Chat from "./pages/Chat/index"
 import Profile from "./pages/Profile/index"
-
+import styled from "styled-components";
 
 
 function App() {
   return (
-    <div>
+    <div className="mr-3 ml-3">
         <Router>
         <Header />
             <Switch>
@@ -29,8 +29,8 @@ function App() {
                 <Route exact path={"/chat"} component={Chat}/>
                 <Route exact path={"/profile"} component={Profile}/>
             </Switch>
-            <Navbar />
         </Router>
+        <Navbar />
     </div>
   );
 }

@@ -13,13 +13,17 @@ height: 46px;
 export default () => {
 
     return (
-
-            <div>
-
-            <LogEciu src={logoEciu} />
-
-            <LogUa src={logoUa}/>
-
+            <div className="container mt-3">
+                <div className="row align-items-center">
+                    <div className="col-4">
+                    </div>
+                    <div className="col-4">
+                        <LogEciu src={logoEciu} />
+                    </div>
+                    <div className="col-4 ">
+                        <LogUa src={logoUa}/>
+                    </div>
+                </div>
             </div>
     )
 
