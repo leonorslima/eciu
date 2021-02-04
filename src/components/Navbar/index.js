@@ -4,15 +4,16 @@ import styled from 'styled-components'
 import { FaHome, FaThList, FaUsers, FaComments, FaUser } from "react-icons/fa";
 
 const Navtext = styled.p`
-
-font-size: 11px;
+font-size: 13px;
 color: #002337;
 padding-bottom: 0;
 margin-bottom: 0;
-
+  font-weight: 600;
   `
-
-
+const IconNav = styled(Navbar.Link)`
+  padding: .5rem 0.5rem;
+    
+`
 
 
 export default () => {
@@ -20,39 +21,39 @@ export default () => {
     return (
     <Navbar justify defaultActiveKey="/feed" className="fixed-bottom bg-white">
         <Navbar.Item>
-                <Navbar.Link href="/feed">
-                    <FaHome color="#002337"/>
+                <IconNav href="/feed">
+                    <FaHome color="#002337" style={{width: '100%'}}/>
                     <br />
                     <Navtext>Feed</Navtext>
-                </Navbar.Link>
+                </IconNav>
         </Navbar.Item>
         <Navbar.Item>
-            <Navbar.Link href="/categories">
-                <FaThList color="#002337" />
+            <IconNav href="/categories">
+                <FaThList color="#002337" style={{width: '100%'}} />
                 <br />
                 <Navtext>Categories</Navtext>
-            </Navbar.Link>
+            </IconNav>
         </Navbar.Item>
         <Navbar.Item>
-            <Navbar.Link href="/community">
-                <FaUsers color="#002337" />
+            <IconNav href="/community">
+                <FaUsers color="#002337" style={{width: '100%'}} />
                 <br />
                 <Navtext>Community</Navtext>
-            </Navbar.Link>
+            </IconNav>
         </Navbar.Item>
         <Navbar.Item>
-            <Navbar.Link href="/chat">
-                <FaComments  color="#002337" />
+            <IconNav href="/chat">
+                <FaComments color="#002337" style={{width: '100%'}} />
                 <br />
                 <Navtext>Chat</Navtext>
-            </Navbar.Link>
+            </IconNav>
         </Navbar.Item >
         <Navbar.Item>
-            <Navbar.Link href="/profile">
-                <FaUser  color="#002337" />
+            <IconNav href="/profile">
+                <FaUser color="#002337" style={{width: '100%'}} />
                 <br />
                 <Navtext>Profile</Navtext>
-            </Navbar.Link>
+            </IconNav>
         </Navbar.Item>
     </Navbar>
 )}
