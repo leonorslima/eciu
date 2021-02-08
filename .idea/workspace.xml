@@ -19,10 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1b38ebb-c39a-4241-a6e2-bac041dc4679" name="Default Changelist" comment="comunidade + perfil">
-      <change afterPath="$PROJECT_DIR$/src/pages/Restaurants/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="d1b38ebb-c39a-4241-a6e2-bac041dc4679" name="Default Changelist" comment="restaurants + app" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,7 +58,7 @@
       <option name="presentableId" value="Default" />
       <updated>1612355207667</updated>
       <workItem from="1612355210051" duration="23045000" />
-      <workItem from="1612799454214" duration="352000" />
+      <workItem from="1612799454214" duration="692000" />
     </task>
     <task id="LOCAL-00001" summary="1st">
       <created>1612356061472</created>
@@ -98,7 +95,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612461963343</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="restaurants + app">
+      <created>1612800453513</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1612800453513</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,7 +126,8 @@
     <MESSAGE value="3rd" />
     <MESSAGE value="4th" />
     <MESSAGE value="comunidade + perfil" />
-    <option name="LAST_COMMIT_MESSAGE" value="comunidade + perfil" />
+    <MESSAGE value="restaurants + app" />
+    <option name="LAST_COMMIT_MESSAGE" value="restaurants + app" />
   </component>
   <component name="WindowStateProjectService">
     <state x="221" y="89" key="SettingsEditor" timestamp="1612799571460">
