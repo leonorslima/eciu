@@ -14,6 +14,8 @@ import Categories from "./pages/Categories/index"
 import Community from "./pages/Community/index"
 import Chat from "./pages/Chat/index"
 import Profile from "./pages/Profile/index"
+import Restaurants from "./pages/Restaurants/index"
+
 import styled from "styled-components";
 
 
@@ -28,6 +30,8 @@ function App() {
                 <Route exact path={"/community"} component={Community} />
                 <Route exact path={"/chat"} component={Chat}/>
                 <Route exact path={"/profile"} component={Profile}/>
+                <Route exact path={"/restaurants"} component={Restaurants}/>
+
             </Switch>
         </Router>
         <Navbar />

@@ -12,7 +12,6 @@ margin-bottom: 0;
   `
 const IconNav = styled(Navbar.Link)`
   padding: .5rem 0.5rem;
-    
 `
 
 

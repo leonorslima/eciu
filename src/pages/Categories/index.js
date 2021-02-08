@@ -67,7 +67,7 @@ export default () => {
     return (
         <div className="mt-2 mb-2">
             <Title>CATEGORIES</Title>
-            <Restaurants>
+            <Restaurants href="/restaurants">
                <Label className="p-4">RESTAURANTS</Label>
             </Restaurants>
             <Accomodation>
