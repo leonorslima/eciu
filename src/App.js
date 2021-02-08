@@ -31,7 +31,6 @@ function App() {
                 <Route exact path={"/chat"} component={Chat}/>
                 <Route exact path={"/profile"} component={Profile}/>
                 <Route exact path={"/restaurants"} component={Restaurants}/>
-
             </Switch>
         </Router>
         <Navbar />
