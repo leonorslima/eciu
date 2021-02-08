@@ -19,16 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1b38ebb-c39a-4241-a6e2-bac041dc4679" name="Default Changelist" comment="4th">
-      <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Categories/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Categories/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Community/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Community/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Profile/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/index.js" afterDir="false" />
-    </list>
+    <list default="true" id="d1b38ebb-c39a-4241-a6e2-bac041dc4679" name="Default Changelist" comment="restaurants + app" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,6 +46,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -65,7 +57,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612355207667</updated>
-      <workItem from="1612355210051" duration="22720000" />
+      <workItem from="1612355210051" duration="23045000" />
+      <workItem from="1612799454214" duration="692000" />
     </task>
     <task id="LOCAL-00001" summary="1st">
       <created>1612356061472</created>
@@ -95,7 +88,21 @@
       <option name="project" value="LOCAL" />
       <updated>1612448756997</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="comunidade + perfil">
+      <created>1612461963341</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1612461963343</updated>
+    </task>
+    <task id="LOCAL-00006" summary="restaurants + app">
+      <created>1612800453513</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1612800453513</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -111,22 +118,29 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1st" />
     <MESSAGE value="2nd" />
     <MESSAGE value="3rd" />
     <MESSAGE value="4th" />
-    <option name="LAST_COMMIT_MESSAGE" value="4th" />
+    <MESSAGE value="comunidade + perfil" />
+    <MESSAGE value="restaurants + app" />
+    <option name="LAST_COMMIT_MESSAGE" value="restaurants + app" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1612448764383">
+    <state x="221" y="89" key="SettingsEditor" timestamp="1612799571460">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1612448764383" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1612460857425">
+    <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1612799571460" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1612461970391">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1612460857425" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1612461970391" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1612461838783">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1612461838783" />
   </component>
 </project>
