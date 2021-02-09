@@ -19,10 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1b38ebb-c39a-4241-a6e2-bac041dc4679" name="Default Changelist" comment="vegan + feed">
+    <list default="true" id="d1b38ebb-c39a-4241-a6e2-bac041dc4679" name="Default Changelist" comment="vegan">
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Restaurants/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Restaurants/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignUp/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignUp/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +53,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -69,7 +73,8 @@
       <workItem from="1612355210051" duration="23045000" />
       <workItem from="1612799454214" duration="2559000" />
       <workItem from="1612804094889" duration="7133000" />
-      <workItem from="1612875307411" duration="7721000" />
+      <workItem from="1612875307411" duration="8568000" />
+      <workItem from="1612893192882" duration="1637000" />
     </task>
     <task id="LOCAL-00001" summary="1st">
       <created>1612356061472</created>
@@ -134,7 +139,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612887711565</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="vegan">
+      <created>1612892107542</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1612892107542</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,17 +173,18 @@
     <MESSAGE value="restaurants + app" />
     <MESSAGE value="restaurants" />
     <MESSAGE value="vegan + feed" />
-    <option name="LAST_COMMIT_MESSAGE" value="vegan + feed" />
+    <MESSAGE value="vegan" />
+    <option name="LAST_COMMIT_MESSAGE" value="vegan" />
   </component>
   <component name="WindowStateProjectService">
     <state x="221" y="89" key="SettingsEditor" timestamp="1612799571460">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1612799571460" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1612887729350">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1612892120068">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1612887729350" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1612892120068" />
     <state x="0" y="170" key="git4idea.branch.GitSmartOperationDialog" timestamp="1612801135038">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
