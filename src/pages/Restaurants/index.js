@@ -1,5 +1,7 @@
 import '../../App.css'
 import React from 'react';
+import Accordion from 'react-bootstrap/Accordion';
+import Button from "react-bootstrap/Button";
 import styled from 'styled-components'
 import {Link} from "react-router-dom";
 import { FaEdit, FaSearch, FaChevronDown } from "react-icons/fa";
@@ -195,9 +197,16 @@ export default () => {
                                 Anne-Marie
                             </Name>
                         </div>
-                        <div className="align-self-center col-2 pr-0">
-                            <FaChevronDown />
-                        </div>
+
+                        <Accordion className="align-self-center col-2 pr-0">
+                            <Accordion.Toggle eventKey="0">
+                                <FaChevronDown />
+                            </Accordion.Toggle>
+
+                            <Accordion.Collapse eventKey="0">
+                            <h5>jdijijiejd</h5>
+                            </Accordion.Collapse>
+                        </Accordion>
                     </TopTip>
 
                     <TopTip className="d-flex row mb-3">
