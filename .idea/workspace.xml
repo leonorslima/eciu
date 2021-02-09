@@ -19,10 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1b38ebb-c39a-4241-a6e2-bac041dc4679" name="Default Changelist" comment="restaurants + app">
+    <list default="true" id="d1b38ebb-c39a-4241-a6e2-bac041dc4679" name="Default Changelist" comment="restaurants">
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Feed/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Feed/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Restaurants/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Restaurants/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,6 +54,11 @@
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/images/subcategories" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -64,7 +69,8 @@
       <updated>1612355207667</updated>
       <workItem from="1612355210051" duration="23045000" />
       <workItem from="1612799454214" duration="2559000" />
-      <workItem from="1612804094889" duration="6769000" />
+      <workItem from="1612804094889" duration="7133000" />
+      <workItem from="1612875307411" duration="5617000" />
     </task>
     <task id="LOCAL-00001" summary="1st">
       <created>1612356061472</created>
@@ -115,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612800685856</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="restaurants">
+      <created>1612816057720</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1612816057720</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,17 +153,18 @@
     <MESSAGE value="4th" />
     <MESSAGE value="comunidade + perfil" />
     <MESSAGE value="restaurants + app" />
-    <option name="LAST_COMMIT_MESSAGE" value="restaurants + app" />
+    <MESSAGE value="restaurants" />
+    <option name="LAST_COMMIT_MESSAGE" value="restaurants" />
   </component>
   <component name="WindowStateProjectService">
     <state x="221" y="89" key="SettingsEditor" timestamp="1612799571460">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1612799571460" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1612801198823">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1612816080559">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1612801198823" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1612816080559" />
     <state x="0" y="170" key="git4idea.branch.GitSmartOperationDialog" timestamp="1612801135038">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

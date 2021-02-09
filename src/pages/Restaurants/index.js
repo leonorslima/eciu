@@ -4,6 +4,10 @@ import styled from 'styled-components'
 import {Link} from "react-router-dom";
 import { FaEdit, FaSearch, FaChevronDown } from "react-icons/fa";
 import imgUser from "../../images/user.png"
+import imgVegan from "../../images/subcategories/restaurants_vegan.png"
+import imgAll from "../../images/subcategories/restaurants_all.png"
+import imgFastFood from "../../images/subcategories/restaurants_fastfood.png"
+import imgChinese from "../../images/subcategories/restaurants_chinese.png"
 
 
 const Title = styled.h4`
@@ -50,7 +54,6 @@ height: 50px;
 
 const Tips = styled.div`
   `
-
 const TopTips = styled.div`
 background-color: #F7A70A;
 padding-bottom: 5px;
@@ -95,6 +98,34 @@ const TitleTopTips = styled.h5`
 font-weight: 700;
   `
 
+const Subcategories = styled.div`
+overflow: auto;
+white-space: nowrap;
+
+& img {
+height: 60px;
+
+padding: 10px;
+
+}
+  `
+
+const Sub = styled.div`
+text-align: center;
+justify-content: center;
+border-radius: 50%;
+height: 70px;
+width: 70px;
+// border: 3px solid #F7A70A;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  `
+
+const Label = styled.p`
+font-size: 16px;
+font-weight: 700;
+text-align: center;
+  `
 
 export default () => {
     return (
@@ -113,6 +144,42 @@ export default () => {
                     <FaSearch />
                 </BtnSearch>
             </div>
+
+            <Subcategories className="d-flex mt-3">
+                <div className="mr-3 text-center">
+                <Sub className="justify-content-center">
+                    <img src={imgAll} />
+                </Sub>
+                    <Label>All</Label>
+                </div>
+                <div className="mr-3 text-center">
+                    <Sub>
+                        <img src={imgVegan} />
+                    </Sub>
+                    <Label>Vegan</Label>
+                </div>
+                <div className="mr-3 text-center">
+                    <Sub>
+                        <img src={imgFastFood} />
+                    </Sub>
+                    <Label>Fast-Food</Label>
+                </div>
+                <div className="mr-3 text-center">
+                    <Sub>
+                        <img src={imgChinese} />
+                    </Sub>
+                    <Label>Chinese</Label>
+                </div>
+                <div className="text-center">
+                <Sub>
+                    <img src={imgChinese} />
+                </Sub>
+                <Label>Chinese</Label>
+            </div>
+
+            </Subcategories>
+
+
             <Tips>
                 <TopTips className="mb-3">
                     <TitleTopTips className="mt-0 pt-2 pl-3">TOP-TIPS</TitleTopTips>

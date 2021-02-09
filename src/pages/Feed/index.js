@@ -7,10 +7,15 @@ import { AiOutlineLike } from "react-icons/ai";
 const Name = styled.p`
 font-weight: 400;
 font-size: 16px;
+
+padding: 0;
+margin: 0;
   `
-const Titulo = styled.p`
+const ReviewTitle = styled.p`
 font-weight: 700;
 font-size: 16px;
+padding: 0;
+margin: 0;
   `
 
 const Post = styled.div`
@@ -19,22 +24,21 @@ display: inline-flex;
 `
 
 const NameAndTitle = styled.div`
-  margin-top: 9%;
-  margin-left: 5%;
+padding: 0;
+margin: 0;
 `
 
-const Publicacao = styled.div`
+const Review = styled.div`
 `
 
-const Texto = styled.p`
+const ReviewText = styled.p`
   font-size: 16px;
   font-weight: 500;
-  font-family: "TT Norms Pro";
 `
-const Categoria = styled.p`
+const Categorie = styled.p`
   font-size: 16px;
   font-weight: 700;
-  font-family: "TT Norms Pro";
+  margin-bottom: 0;
 `
 
 const Likes = styled.p`
@@ -43,55 +47,54 @@ const Likes = styled.p`
     color: #8B8A8A;
 `
 
-const Data = styled.p`
+const Date = styled.p`
   font-size: 14px;
   color: #8B8A8A;
 `
 
-const Menu = styled.h1`
+const Title = styled.h1`
   font-size: 28px;
   font-weight: 800;
   color: #002337;`
 
 const InfoAdd = styled.div`
-display: inline-flex;
 `
 
-const Prof = styled.div`
+const Profile = styled.div`
 width: 17%;
 `
 
 export default () => {
     return (
-        <div>
-            <Menu>Feed</Menu>
-            <div className="mr-0 ml-0">
-            <Post>
-                <Prof >
-                    <img className="mt-4 mb-3 rounded-circle" width="100%" src={profilepic1} />
-                </Prof>
-                <NameAndTitle>
-                    <Titulo className="mb-0 pb-0">I loved the DaTerra in Aveiro</Titulo>
-                    <Name className="mb-0 pb-0">John Smith</Name>
+        <div className="mt-2 mb-2">
+            <Title>FEED</Title>
+            <div>
+            <Post className="d-flex align-items-center mt-3">
+                <Profile className="col-3">
+                    <img className="rounded-circle w-100" src={profilepic1} />
+                </Profile>
+                <NameAndTitle className="col-9">
+                    <ReviewTitle>I loved the DaTerra in Aveiro</ReviewTitle>
+                    <Name>John Smith</Name>
                 </NameAndTitle>
             </Post>
-            <Publicacao>
-                    <img className="mt-4 mb-3" width="100%" src={publicao1} />
-                    <Categoria>Restaurants \ Vegan</Categoria>
-                    <Texto>
+            <Review>
+                    <img className="mt-2 mb-3 w-100" src={publicao1} />
+                    <Categorie>Restaurants \ Vegan</Categorie>
+                    <ReviewText>
                         Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                    </Texto>
+                    </ReviewText>
 
-                <InfoAdd>
-                    <Data>
+                <InfoAdd className="d-flex">
+                    <Date>
                         04-01-2020 at 23:12
-                    </Data>
-                    <Likes>
+                    </Date>
+                    <Likes className="ml-5">
                         <p>2376</p>
                         <AiOutlineLike />
                     </Likes>
                 </InfoAdd>
-            </Publicacao>
+            </Review>
             </div>
 
 
