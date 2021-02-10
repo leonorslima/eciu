@@ -16,6 +16,7 @@ import Chat from "./pages/Chat/index"
 import Profile from "./pages/Profile/index"
 import Restaurants from "./pages/Restaurants/index"
 import SignUp from "./pages/SignUp/index"
+import CreatePost from "./pages/CreatePost/index"
 
 
 import styled from "styled-components";
@@ -34,6 +35,8 @@ function App() {
                 <Route exact path={"/profile"} component={Profile}/>
                 <Route exact path={"/restaurants"} component={Restaurants}/>
                 <Route exact path={"/signup"} component={SignUp}/>
+                <Route exact path={"/createpost"} component={CreatePost}/>
+
 
             </Switch>
         </Router>

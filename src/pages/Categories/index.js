@@ -1,5 +1,6 @@
 import '../../App.css'
 import React from 'react';
+import {Link} from "react-router-dom";
 import styled from 'styled-components'
 import imgRestaurants from "../../images/restaurants.jpg"
 import imgAccomodation from "../../images/accomodation.png"
@@ -28,6 +29,11 @@ background-image: url(${imgRestaurants});
 background-size: cover;
 }
   `
+const StyledLink = styled(Link)`
+text-decoration: none;
+}
+  `
+
 const Accomodation = styled.div`
 
 background-image: url(${imgAccomodation});
@@ -67,24 +73,37 @@ export default () => {
     return (
         <div className="mt-2 mb-2">
             <Title>CATEGORIES</Title>
-            <Restaurants href="/restaurants">
-               <Label className="p-4">RESTAURANTS</Label>
-            </Restaurants>
-            <Accomodation>
-                <Label className="p-4">ACCOMODATION</Label>
-            </Accomodation>
-            <Transports>
-                <Label className="p-4">TRANSPORTS</Label>
-            </Transports>
-            <Jobs>
-                <Label className="p-4">JOBS</Label>
-            </Jobs>
-            <Leisure>
-                <Label className="p-4">LEISURE</Label>
-            </Leisure>
-            <Health>
-                <Label className="p-4">HEALTH</Label>
-            </Health>
+            <StyledLink to={"/restaurants"}>
+                <Restaurants>
+                    <Label className="p-4">RESTAURANTS</Label>
+                </Restaurants>
+            </StyledLink>
+            <StyledLink to={"/"}>
+                <Accomodation>
+                    <Label className="p-4">ACCOMODATION</Label>
+                </Accomodation>
+            </StyledLink>
+            <StyledLink to={"/"}>
+                <Transports>
+                    <Label className="p-4">TRANSPORTS</Label>
+                </Transports>
+            </StyledLink>
+            <StyledLink to={"/"}>
+                <Jobs>
+                    <Label className="p-4">JOBS</Label>
+                </Jobs>
+            </StyledLink>
+            <StyledLink to={"/"}>
+                <Leisure>
+                    <Label className="p-4">LEISURE</Label>
+                </Leisure>
+            </StyledLink>
+            <StyledLink to={"/"}>
+                <Health>
+                    <Label className="p-4">HEALTH</Label>
+                </Health>
+            </StyledLink>
+
 
         </div>
     )
