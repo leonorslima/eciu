@@ -47,6 +47,11 @@ const Likes = styled.p`
     color: #8B8A8A;
 `
 
+const BotaoLike = styled.div`
+width: 1.5rem;
+  height: 1.5rem;
+`
+
 const Date = styled.p`
   font-size: 14px;
   color: #8B8A8A;
@@ -68,7 +73,7 @@ export default () => {
     return (
         <div className="mt-2 mb-2">
             <Title>FEED</Title>
-            <div>
+            <div className="mt-5">
             <Post className="d-flex align-items-center mt-3">
                 <Profile className="col-3">
                     <img className="rounded-circle w-100" src={profilepic1} />
@@ -86,15 +91,85 @@ export default () => {
                     </ReviewText>
 
                 <InfoAdd className="d-flex">
-                    <Date>
+                    <Date className="col-8 pl-0 ml-0">
                         04-01-2020 at 23:12
                     </Date>
-                    <Likes className="ml-5">
+                    <Likes className="ml-5 col-md-4">
                         <p>2376</p>
-                        <AiOutlineLike />
+                        <BotaoLike>
+                            <AiOutlineLike className={"w-100"} />
+                        </BotaoLike>
+
                     </Likes>
                 </InfoAdd>
             </Review>
+            </div>
+
+
+            <div>
+                <Post className="d-flex align-items-center mt-3">
+                    <Profile className="col-3">
+                        <img className="rounded-circle w-100" src={profilepic1} />
+                    </Profile>
+                    <NameAndTitle className="col-9">
+                        <ReviewTitle>I loved the DaTerra in Aveiro</ReviewTitle>
+                        <Name>John Smith</Name>
+                    </NameAndTitle>
+                </Post>
+                <Review>
+                    <img className="mt-2 mb-3 w-100" src={publicao1} />
+                    <Categorie>Restaurants \ Vegan</Categorie>
+                    <ReviewText>
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                    </ReviewText>
+
+                    <InfoAdd className="d-flex">
+                        <Date className="col-8 pl-0 ml-0">
+                            04-01-2020 at 23:12
+                        </Date>
+                        <Likes className="ml-5 col-md-4">
+                            <p>2376</p>
+                            <BotaoLike>
+                                <AiOutlineLike className={"w-100"} />
+                            </BotaoLike>
+
+                        </Likes>
+                    </InfoAdd>
+                </Review>
+            </div>
+
+
+
+            <div className="mb-5">
+                <Post className="d-flex align-items-center mt-3">
+                    <Profile className="col-3">
+                        <img className="rounded-circle w-100" src={profilepic1} />
+                    </Profile>
+                    <NameAndTitle className="col-9">
+                        <ReviewTitle>I loved the DaTerra in Aveiro</ReviewTitle>
+                        <Name>John Smith</Name>
+                    </NameAndTitle>
+                </Post>
+                <Review>
+                    <img className="mt-2 mb-3 w-100" src={publicao1} />
+                    <Categorie>Restaurants \ Vegan</Categorie>
+                    <ReviewText>
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                    </ReviewText>
+
+                    <InfoAdd className="d-flex">
+                        <Date className="col-8 pl-0 ml-0">
+                            04-01-2020 at 23:12
+                        </Date>
+                        <Likes className="ml-5 col-md-4">
+                            <p>2376</p>
+                            <BotaoLike>
+                                <AiOutlineLike className={"w-100"} />
+                            </BotaoLike>
+
+                        </Likes>
+                    </InfoAdd>
+                </Review>
             </div>
 
 
