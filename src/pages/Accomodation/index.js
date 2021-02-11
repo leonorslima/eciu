@@ -158,25 +158,25 @@ export default () => {
                     <Sub>
                         <img src={imgVegan} />
                     </Sub>
-                    <Label>Vegan</Label>
+                    <Label>Hotels</Label>
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
                         <img src={imgFastFood} />
                     </Sub>
-                    <Label>Fast-Food</Label>
+                    <Label>Rooms</Label>
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
                         <img src={imgChinese} />
                     </Sub>
-                    <Label>Chinese</Label>
+                    <Label>Apartments</Label>
                 </div>
                 <div className="text-center">
                     <Sub>
                         <img src={imgChinese} />
                     </Sub>
-                    <Label>Chinese</Label>
+                    <Label>Apartments</Label>
                 </div>
 
             </Subcategories>
