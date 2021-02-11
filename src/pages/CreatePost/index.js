@@ -7,6 +7,8 @@ const ButtonConfirm = styled(Link)`
 background-color: #002337;
 color: white;
 border-radius: 2px;
+
+font-weight: 600;
   `
 
 const ButtonCancel = styled(Link)`
@@ -14,6 +16,8 @@ border: 2px solid #002337;
 border-radius: 2px;
 
 color: #002337;
+font-weight: 500;
+
   `
 
 const Title = styled.h4`

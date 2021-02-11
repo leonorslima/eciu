@@ -15,7 +15,9 @@ import Community from "./pages/Community/index"
 import Chat from "./pages/Chat/index"
 import Profile from "./pages/Profile/index"
 import Restaurants from "./pages/Restaurants/index"
+import Accomodation from "./pages/Accomodation/index"
 import SignUp from "./pages/SignUp/index"
+import SignIn from "./pages/SignIn/index"
 import CreatePost from "./pages/CreatePost/index"
 
 
@@ -34,7 +36,9 @@ function App() {
                 <Route exact path={"/chat"} component={Chat}/>
                 <Route exact path={"/profile"} component={Profile}/>
                 <Route exact path={"/restaurants"} component={Restaurants}/>
+                <Route exact path={"/accomodation"} component={Accomodation}/>
                 <Route exact path={"/signup"} component={SignUp}/>
+                <Route exact path={"/signin"} component={SignIn}/>
                 <Route exact path={"/createpost"} component={CreatePost}/>
 
 
