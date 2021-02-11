@@ -6,6 +6,13 @@ import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Form from "react-bootstrap/Form"
+import styled from "styled-components";
+import {colors} from "@material-ui/core";
+
+const Uni = styled.p`
+  font-weight: 700;
+  margin-bottom: 0;
+  font-size: 16px;`
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -27,7 +34,7 @@ function getSteps() {
 function getStepContent(stepIndex) {
     switch (stepIndex) {
         case 0:
-            return [<Form>
+            return [<Form className="mt-4">
                 <Form.Group controlId="formBasicName">
                     <Form.Control type="text" placeholder="Name" />
                 </Form.Group>
@@ -55,6 +62,8 @@ function getStepContent(stepIndex) {
             </Form>];
         case 1:
             return [
+                <div>
+                <Uni>Home University</Uni>
                 <Form>
                 {['radio'].map((type) => (
                 <div key={`default-${type}`} className="mb-3">
@@ -72,9 +81,31 @@ function getStepContent(stepIndex) {
 
                 </div>
             ))}</Form>
+                </div>
             ];
         case 2:
-            return 'This is the bit I really care about!';
+             return [
+            <div>
+                <Uni>Destination University</Uni>
+                <Form>
+                    {['radio'].map((type) => (
+                        <div key={`default-${type}`} className="mb-3">
+                            <Form.Check
+                                type={type}
+                                id={`default-${type}`}
+                                label={`default ${type}`}
+                            />
+
+                            <Form.Check
+                                type={type}
+                                id={`${type}`}
+                                label={`${type}`}
+                            />
+
+                        </div>
+                    ))}</Form>
+            </div>
+        ];
         default:
             return 'Unknown stepIndex';
     }
@@ -98,6 +129,7 @@ export default function HorizontalLabelPositionBelowStepper() {
     };
 
     return (
+        <div className="col-12">
         <div className={classes.root}>
             <Stepper activeStep={activeStep} alternativeLabel>
                 {steps.map((label) => (
@@ -115,7 +147,8 @@ export default function HorizontalLabelPositionBelowStepper() {
                 ) : (
                     <div>
                         <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
-                        <div>
+                        <div className="d-flex">
+                            <div className="col-6">
                             <Button
                                 disabled={activeStep === 0}
                                 onClick={handleBack}
@@ -123,13 +156,17 @@ export default function HorizontalLabelPositionBelowStepper() {
                             >
                                 Back
                             </Button>
+                            </div>
+                            <div className="col-6" style={{textAlign: "end"}}>
                             <Button variant="contained" onClick={handleNext}>
                                 {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
                             </Button>
+                            </div>
                         </div>
                     </div>
                 )}
             </div>
+        </div>
         </div>
     );
 }

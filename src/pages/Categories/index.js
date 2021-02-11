@@ -73,6 +73,7 @@ export default () => {
     return (
         <div className="mt-2 mb-2">
             <Title>CATEGORIES</Title>
+            <div className="mt-4">
             <StyledLink to={"/restaurants"}>
                 <Restaurants>
                     <Label className="p-4">RESTAURANTS</Label>
@@ -103,6 +104,7 @@ export default () => {
                     <Label className="p-4">HEALTH</Label>
                 </Health>
             </StyledLink>
+            </div>
 
 
         </div>

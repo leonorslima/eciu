@@ -138,7 +138,8 @@ export default () => {
                 </Title>
                 <BtnFollow className="align-self-center">Follow</BtnFollow>
             </div>
-            <div className="d-flex text-center">
+
+            <div className="d-flex text-center mt-4">
                 <BtnCreate className="col-9 mr-4">
                     <FaEdit className="mr-2"/> Create Post
                 </BtnCreate>

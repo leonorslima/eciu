@@ -32,6 +32,7 @@ function App() {
         <Router>
         <Header />
             <Switch>
+                <Route exact path={"/"} component={Feed}/>
                 <Route exact path={"/feed"} component={Feed} />
                 <Route exact path={"/categories"} component={Categories} />
                 <Route exact path={"/community"} component={Community} />

@@ -36,7 +36,7 @@ export default () => {
             <Title>COMMUNITY</Title>
             <Description>Here you can find a list of buddies that are available to help you!</Description>
 
-            <div className="container">
+            <div className="container mt-4">
 
                 <div className="row text-center">
                     <div className="col-6">

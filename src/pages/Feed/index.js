@@ -73,7 +73,7 @@ export default () => {
     return (
         <div className="mt-2 mb-2">
             <Title>FEED</Title>
-            <div className="mt-5">
+            <div className="mt-4">
             <Post className="d-flex align-items-center mt-3">
                 <Profile className="col-3">
                     <img className="rounded-circle w-100" src={profilepic1} />
