@@ -48,7 +48,7 @@ export default () => {
             </IconNav>
         </Navbar.Item >
         <Navbar.Item>
-            <IconNav href="/profile">
+            <IconNav href="/myprofile">
                 <FaUser color="#002337" style={{width: '100%'}} />
                 <br />
                 <Navtext>Profile</Navtext>

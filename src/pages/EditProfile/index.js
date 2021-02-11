@@ -11,6 +11,15 @@ border-radius: 2px;
 font-weight: 600;
   `
 
+const ButtonCancel = styled(Link)`
+border: 2px solid #002337;
+border-radius: 2px;
+
+color: #002337;
+font-weight: 500;
+
+  `
+
 const Title = styled.h1`
   font-size: 28px;
   font-weight: 800;
@@ -65,10 +74,14 @@ export default () => {
                 </Form.Group>
 
             </div>
-            <div className="mt-5">
-                <ButtonConfirm className="p-3" to={"/feed"}>
-                    Sign In
-                </ButtonConfirm>
+            <div className="mb-5 text-center">
+            <ButtonCancel className="mt-5 mr-4 p-2" to={"/"}>
+                Cancel
+            </ButtonCancel>
+
+            <ButtonConfirm className="mt-5 ml-4 p-2" to={"/"}>
+                Publish
+            </ButtonConfirm>
             </div>
         </div>
     )
