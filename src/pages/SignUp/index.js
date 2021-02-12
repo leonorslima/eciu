@@ -8,6 +8,9 @@ import Typography from '@material-ui/core/Typography';
 import Form from "react-bootstrap/Form"
 import styled from "styled-components";
 import {colors} from "@material-ui/core";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
 
 
 
@@ -65,8 +68,8 @@ function getStepContent(stepIndex) {
         case 1:
             return [
                 <div>
-                <Uni>Home University</Uni>
-                <Form>
+
+                    {/*<Form>
                 {['radio'].map((type) => (
                 <div key={`default-${type}`} className="mb-3">
                     <Form.Check
@@ -82,14 +85,41 @@ function getStepContent(stepIndex) {
                     />
 
                 </div>
-            ))}</Form>
+            ))}</Form>*/}
+
+                    <fieldset>
+                        <Form.Group as={Row}>
+                            <Form.Label as="legend" column sm={2}>
+                                <Uni>Home University</Uni>
+                            </Form.Label>
+                            <Col sm={10}>
+                                <Form.Check
+                                    type="radio"
+                                    label="Universidade "
+                                    name="formHorizontalRadios"
+                                    id="formHorizontalRadios1"
+                                />
+                                <Form.Check
+                                    type="radio"
+                                    label="second radio"
+                                    name="formHorizontalRadios"
+                                    id="formHorizontalRadios2"
+                                />
+                                <Form.Check
+                                    type="radio"
+                                    label="third radio"
+                                    name="formHorizontalRadios"
+                                    id="formHorizontalRadios3"
+                                />
+                            </Col>
+                        </Form.Group>
+                    </fieldset>
                 </div>
             ];
         case 2:
              return [
             <div>
-                <Uni>Destination University</Uni>
-                <Form>
+                {/*<Form>
                     {['radio'].map((type) => (
                         <div key={`default-${type}`} className="mb-3">
                             <Form.Check
@@ -105,7 +135,40 @@ function getStepContent(stepIndex) {
                             />
 
                         </div>
-                    ))}</Form>
+                    ))}</Form>*/}
+
+
+                <fieldset>
+                    <Form.Group as={Row}>
+                        <Form.Label as="legend" column sm={2}>
+                            <Uni>Destination University</Uni>
+                        </Form.Label>
+                        <Col sm={10}>
+                            <Form.Check
+                                type="radio"
+                                label="Universidade "
+                                name="formHorizontalRadios"
+                                id="formHorizontalRadios1"
+                            />
+                            <Form.Check
+                                type="radio"
+                                label="second radio"
+                                name="formHorizontalRadios"
+                                id="formHorizontalRadios2"
+                            />
+                            <Form.Check
+                                type="radio"
+                                label="third radio"
+                                name="formHorizontalRadios"
+                                id="formHorizontalRadios3"
+                            />
+                        </Col>
+                    </Form.Group>
+                </fieldset>
+
+
+
+
             </div>
         ];
         default:
@@ -142,9 +205,9 @@ export default function HorizontalLabelPositionBelowStepper() {
             </Stepper>
             <div>
                 {activeStep === steps.length ? (
-                    <div>
-                        <Typography className={classes.instructions}>All steps completed</Typography>
-                        <Button onClick={handleReset}>Reset</Button>
+                    <div style={{textAlign:"center"}}>
+                        <Typography className={classes.instructions}>Registo efetuado com sucesso!</Typography>
+                        <Button >Continuar</Button>
                     </div>
                 ) : (
                     <div>
