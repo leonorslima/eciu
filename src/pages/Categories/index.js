@@ -84,7 +84,7 @@ export default () => {
                     <Label className="p-4">ACCOMODATION</Label>
                 </Accomodation>
             </StyledLink>
-            <StyledLink to={"/"}>
+            <StyledLink to={"/transports"}>
                 <Transports>
                     <Label className="p-4">TRANSPORTS</Label>
                 </Transports>

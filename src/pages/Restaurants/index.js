@@ -38,7 +38,7 @@ border-radius: 2px;
 
 font-weight: 700;
 font-size: 18px;
-ext-align: center;
+text-align: center;
 line-height: 50px;
 
 height: 50px;
@@ -161,10 +161,10 @@ export default () => {
             </div>
 
             <div className="d-flex text-center mt-4">
-                <BtnCreate className="col-9 mr-4">
+                <BtnCreate className="col-9 mr-4" to={"/createpost"}>
                     <FaEdit className="mr-2"/> Create Post
                 </BtnCreate>
-                <BtnSearch className="col-2">
+                <BtnSearch className="col-2" to={"/searchresults"}>
                     <FaSearch />
                 </BtnSearch>
             </div>
@@ -195,11 +195,11 @@ export default () => {
                     <Label>Chinese</Label>
                 </div>
                 <div className="text-center">
-                <Sub>
-                    <img src={imgChinese} />
-                </Sub>
-                <Label>Chinese</Label>
-            </div>
+                    <Sub>
+                        <img src={imgChinese} />
+                    </Sub>
+                    <Label>Japanese</Label>
+                </div>
 
             </Subcategories>
 

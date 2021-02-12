@@ -43,12 +43,10 @@ export default () => {
 
             <Form.Control as="select" className="my-1 mr-sm-2" id="inlineFormCustomSelectPref" custom>
                 <option value="0">Choose the subcategory</option>
-                <option value="1">Restaurants</option>
-                <option value="2">Accomodation</option>
-                <option value="3">Transports</option>
-                <option value="4">Jobs</option>
-                <option value="5">Leisure</option>
-                <option value="6">Health</option>
+                <option value="1">Vegan</option>
+                <option value="2">Fast-Food</option>
+                <option value="3">Chinese</option>
+                <option value="4">Japanese</option>
             </Form.Control>
 
             <Form.Group controlId="formBasicTitle" className="mt-5">
