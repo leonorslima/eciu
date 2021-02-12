@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import {Link} from "react-router-dom";
 import { FaEdit, FaSearch, FaChevronDown } from "react-icons/fa";
 import imgUser from "../../images/user.png"
-import imgVegan from "../../images/subcategories/restaurants_vegan.png"
+import imgPlane from "../../images/subcategories/transports_plane.png"
 import imgAll from "../../images/subcategories/restaurants_all.png"
 import imgFastFood from "../../images/subcategories/restaurants_fastfood.png"
 import imgChinese from "../../images/subcategories/restaurants_chinese.png"
@@ -156,7 +156,7 @@ export default () => {
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
-                        <img src={imgVegan} />
+                        <img src={imgPlane} />
                     </Sub>
                     <Label>Hotels</Label>
                 </div>
