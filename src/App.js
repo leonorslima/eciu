@@ -19,6 +19,8 @@ import EditProfile from "./pages/EditProfile/index"
 import Restaurants from "./pages/Restaurants/index"
 import Accomodation from "./pages/Accomodation/index"
 import Transports from "./pages/Transports/index"
+import Health from "./pages/Health/index"
+import Leisure from "./pages/Leisure/index"
 import SignUp from "./pages/SignUp/index"
 import SignIn from "./pages/SignIn/index"
 import CreatePost from "./pages/CreatePost/index"
@@ -44,6 +46,9 @@ function App() {
                 <Route exact path={"/profile"} component={Profile}/>
                 <Route exact path={"/restaurants"} component={Restaurants}/>
                 <Route exact path={"/accomodation"} component={Accomodation}/>
+                <Route exact path={"/transports"} component={Transports}/>
+                <Route exact path={"/leisure"} component={Leisure}/>
+                <Route exact path={"/health"} component={Health}/>
                 <Route exact path={"/signup"} component={SignUp}/>
                 <Route exact path={"/signin"} component={SignIn}/>
                 <Route exact path={"/createpost"} component={CreatePost}/>
