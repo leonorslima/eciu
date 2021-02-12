@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import {Link} from "react-router-dom";
 import { FaEdit, FaSearch, FaChevronDown } from "react-icons/fa";
 import imgUser from "../../images/user.png"
-import imgPlane from "../../images/subcategories/transports_plane.png"
+import imgVegan from "../../images/subcategories/restaurants_vegan.png"
 import imgAll from "../../images/subcategories/restaurants_all.png"
 import imgFastFood from "../../images/subcategories/restaurants_fastfood.png"
 import imgChinese from "../../images/subcategories/restaurants_chinese.png"
@@ -20,8 +20,8 @@ color: #002337;
   `
 
 const BtnFollow = styled(Link)`
-color: #F7A70A;
-border: solid 1px #F7A70A;
+color: #739EB6;
+border: solid 1px #739EB6;
 border-radius: 2px;
 
 text-align: center;
@@ -57,7 +57,7 @@ height: 50px;
 const Tips = styled.div`
   `
 const TopTips = styled.div`
-background-color: #F7A70A;
+background-color: #739EB6;
 padding-bottom: 5px;
 
   `
@@ -134,11 +134,12 @@ export default () => {
         <div>
             <div className="d-flex">
                 <Title className="mt-2 mb-2 mr-5">
-                    ACCOMODATION
+                    HEALTH
                 </Title>
                 <BtnFollow className="align-self-center">Follow</BtnFollow>
             </div>
-            <div className="d-flex text-center">
+
+            <div className="d-flex text-center mt-4">
                 <BtnCreate className="col-9 mr-4">
                     <FaEdit className="mr-2"/> Create Post
                 </BtnCreate>
@@ -149,35 +150,35 @@ export default () => {
 
             <Subcategories className="d-flex mt-3">
                 <div className="mr-3 text-center">
-                    <Sub className="justify-content-center">
-                        <img src={imgAll} />
-                    </Sub>
+                <Sub className="justify-content-center">
+                    <img src={imgAll} />
+                </Sub>
                     <Label>All</Label>
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
-                        <img src={imgPlane} />
+                        <img src={imgVegan} />
                     </Sub>
-                    <Label>Hotels</Label>
+                    <Label>Hospitals</Label>
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
                         <img src={imgFastFood} />
                     </Sub>
-                    <Label>Rooms</Label>
+                    <Label>Covid-19</Label>
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
                         <img src={imgChinese} />
                     </Sub>
-                    <Label>Apartments</Label>
+                    <Label>Pharmacy</Label>
                 </div>
                 <div className="text-center">
-                    <Sub>
-                        <img src={imgChinese} />
-                    </Sub>
-                    <Label>Apartments</Label>
-                </div>
+                <Sub>
+                    <img src={imgChinese} />
+                </Sub>
+                <Label>Doctor</Label>
+            </div>
 
             </Subcategories>
 
@@ -191,10 +192,10 @@ export default () => {
                         </div>
                         <div className="col-7 pl-0">
                             <Text>
-                                Best restaurant in Aveiro
+                                Special services are open 24h...
                             </Text>
                             <Name>
-                                Anne-Marie
+                                Shen Smith
                             </Name>
                         </div>
 
@@ -204,7 +205,7 @@ export default () => {
                             </Accordion.Toggle>
 
                             <Accordion.Collapse eventKey="0">
-                                <h5>jdijijiejd</h5>
+                            <h5>jdijijiejd</h5>
                             </Accordion.Collapse>
                         </Accordion>
                     </TopTip>
@@ -215,10 +216,10 @@ export default () => {
                         </div>
                         <div className="col-7 pl-0">
                             <Text>
-                                Best restaurant in Aveiro
+                                Special services are open 24h...
                             </Text>
                             <Name>
-                                Anne-Marie
+                                Shen Smith
                             </Name>
                         </div>
                         <div className="align-self-center col-2 pr-0">
@@ -232,10 +233,10 @@ export default () => {
                         </div>
                         <div className="col-7 pl-0">
                             <Text>
-                                Best restaurant in Aveiro
+                                Special services are open 24h...
                             </Text>
                             <Name>
-                                Anne-Marie
+                                Shen Smith
                             </Name>
                         </div>
                         <div className="align-self-center col-2 pr-0">
@@ -249,10 +250,10 @@ export default () => {
                     </div>
                     <div className="col-7 pl-0">
                         <Text>
-                            Best restaurant in Aveiro
+                            Special services are open 24h...
                         </Text>
                         <Name>
-                            Anne-Marie
+                            Shen Smith
                         </Name>
                     </div>
                     <div className="align-self-center col-2 pr-0">
@@ -266,10 +267,10 @@ export default () => {
                     </div>
                     <div className="col-7 pl-0">
                         <Text>
-                            Best restaurant in Aveiro
+                            Special services are open 24h...
                         </Text>
                         <Name>
-                            Anne-Marie
+                            Shen Smith
                         </Name>
                     </div>
                     <div className="align-self-center col-2 pr-0">
@@ -283,10 +284,10 @@ export default () => {
                     </div>
                     <div className="col-7 pl-0">
                         <Text>
-                            Best restaurant in Aveiro
+                            Special services are open 24h...
                         </Text>
                         <Name>
-                            Anne-Marie
+                            Shen Smith
                         </Name>
                     </div>
                     <div className="align-self-center col-2 pr-0">
@@ -300,10 +301,10 @@ export default () => {
                     </div>
                     <div className="col-7 pl-0">
                         <Text>
-                            Best restaurant in Aveiro
+                            Special services are open 24h...
                         </Text>
                         <Name>
-                            Anne-Marie
+                            Shen Smith
                         </Name>
                     </div>
                     <div className="align-self-center col-2 pr-0">

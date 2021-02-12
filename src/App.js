@@ -48,7 +48,6 @@ function App() {
                 <Route exact path={"/signin"} component={SignIn}/>
                 <Route exact path={"/createpost"} component={CreatePost}/>
                 <Route exact path={"/searchresults"} component={SearchResults}/>
-                <Route exact path={"/transports"} component={Transports}/>
             </Switch>
         </Router>
         <Navbar />
