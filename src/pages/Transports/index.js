@@ -6,10 +6,10 @@ import styled from 'styled-components'
 import {Link} from "react-router-dom";
 import { FaEdit, FaSearch, FaChevronDown } from "react-icons/fa";
 import imgUser from "../../images/user.png"
-import imgVegan from "../../images/subcategories/restaurants_vegan.png"
-import imgAll from "../../images/subcategories/restaurants_all.png"
-import imgFastFood from "../../images/subcategories/restaurants_fastfood.png"
-import imgChinese from "../../images/subcategories/restaurants_chinese.png"
+import imgTaxi from "../../images/subcategories/transports_taxi.png"
+import imgAll from "../../images/subcategories/transports_all.png"
+import imgTrain from "../../images/subcategories/transports_train.png"
+import imgPlane from "../../images/subcategories/transports_plane.png"
 
 
 const Title = styled.h4`
@@ -157,25 +157,25 @@ export default () => {
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
-                        <img src={imgVegan} />
+                        <img src={imgTaxi} />
                     </Sub>
                     <Label>Taxi</Label>
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
-                        <img src={imgFastFood} />
+                        <img src={imgTrain} />
                     </Sub>
                     <Label>Train</Label>
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
-                        <img src={imgChinese} />
+                        <img src={imgPlane} />
                     </Sub>
                     <Label>Paane</Label>
                 </div>
                 <div className="text-center">
                 <Sub>
-                    <img src={imgChinese} />
+                    <img src={imgPlane} />
                 </Sub>
                 <Label>Bike</Label>
             </div>
