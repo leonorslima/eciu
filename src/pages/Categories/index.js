@@ -79,7 +79,7 @@ export default () => {
                     <Label className="p-4">RESTAURANTS</Label>
                 </Restaurants>
             </StyledLink>
-            <StyledLink to={"/"}>
+            <StyledLink to={"/accomodation"}>
                 <Accomodation>
                     <Label className="p-4">ACCOMODATION</Label>
                 </Accomodation>
@@ -94,12 +94,12 @@ export default () => {
                     <Label className="p-4">JOBS</Label>
                 </Jobs>
             </StyledLink>
-            <StyledLink to={"/"}>
+            <StyledLink to={"/leisure"}>
                 <Leisure>
                     <Label className="p-4">LEISURE</Label>
                 </Leisure>
             </StyledLink>
-            <StyledLink to={"/"}>
+            <StyledLink to={"/health"}>
                 <Health>
                     <Label className="p-4">HEALTH</Label>
                 </Health>
