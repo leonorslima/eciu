@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -10,7 +10,7 @@ import styled from "styled-components";
 import {colors} from "@material-ui/core";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-
+import FirebaseConfig from "../../scripts/FirebaseConfig";
 
 
 
@@ -35,6 +35,9 @@ const useStyles = makeStyles((theme) => ({
 function getSteps() {
     return ['', '', ''];
 }
+
+
+
 
 function getStepContent(stepIndex) {
     switch (stepIndex) {
@@ -180,6 +183,32 @@ export default function HorizontalLabelPositionBelowStepper() {
     const classes = useStyles();
     const [activeStep, setActiveStep] = React.useState(0);
     const steps = getSteps();
+
+  /*  const [user, setUser] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [emailError, setEmailError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
+    const [hasAccount, setHasAccount] = useState(false);
+
+    const handleSignUp = () =>{
+        FirebaseConfig
+            .auth()
+            .createUserWithEmailAndPassword(email, password)
+            .catch(err => {
+                switch (err.code){
+                    case "auth/email-already-in-use":
+                    case "auth/invalid-email":
+                        setEmailError(err.message);
+                        break;
+                    case "auth/weak-password":
+                        setPasswordError(err.message);
+                        break;
+                }
+
+            })
+    }*/
+
 
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
