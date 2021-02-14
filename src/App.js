@@ -25,6 +25,7 @@ import SignUp from "./pages/SignUp/index"
 import SignIn from "./pages/SignIn/index"
 import CreatePost from "./pages/CreatePost/index"
 import SearchResults from "./pages/SearchResults/index"
+import Home from "./pages/Home/index"
 
 
 import styled from "styled-components";
@@ -53,6 +54,7 @@ function App() {
                 <Route exact path={"/signin"} component={SignIn}/>
                 <Route exact path={"/createpost"} component={CreatePost}/>
                 <Route exact path={"/searchresults"} component={SearchResults}/>
+                <Route exact path={"/home"} component={Home}/>
             </Switch>
         </Router>
         <Navbar />
