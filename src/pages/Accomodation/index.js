@@ -5,11 +5,12 @@ import styled from 'styled-components'
 import {Link} from "react-router-dom";
 import { FaEdit, FaSearch, FaChevronDown } from "react-icons/fa";
 import imgUser from "../../images/user.png"
-import imgPlane from "../../images/subcategories/transports_plane.png"
-import imgAll from "../../images/subcategories/restaurants_all.png"
-import imgFastFood from "../../images/subcategories/restaurants_fastfood.png"
-import imgChinese from "../../images/subcategories/restaurants_chinese.png"
 
+import imgAll from "../../images/subcategories/accomodation_all.png"
+import imgHotels from "../../images/subcategories/Accomodation_hotel.png"
+
+import imgRooms from "../../images/subcategories/restaurants_chinese.png"
+import imgApartments from "../../images/subcategories/restaurants_chinese.png"
 
 const Title = styled.h4`
 font-size: 28px;
@@ -157,25 +158,25 @@ export default () => {
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
-                        <img src={imgPlane} alt="hotels"/>
+                        <img src={imgHotels} alt="hotels"/>
                     </Sub>
                     <Label>Hotels</Label>
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
-                        <img src={imgFastFood}  alt="rooms"/>
+                        <img src={imgRooms}  alt="rooms"/>
                     </Sub>
                     <Label>Rooms</Label>
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
-                        <img src={imgChinese}  alt="apartments"/>
+                        <img src={imgApartments}  alt="apartments"/>
                     </Sub>
                     <Label>Apartments</Label>
                 </div>
                 <div className="text-center">
                     <Sub>
-                        <img src={imgChinese}  alt="apartments"/>
+                        <img src={imgApartments}  alt="apartments"/>
                     </Sub>
                     <Label>Apartments</Label>
                 </div>

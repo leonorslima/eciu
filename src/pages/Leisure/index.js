@@ -5,11 +5,11 @@ import styled from 'styled-components'
 import {Link} from "react-router-dom";
 import { FaEdit, FaSearch, FaChevronDown } from "react-icons/fa";
 import imgUser from "../../images/user.png"
-import imgVegan from "../../images/subcategories/restaurants_vegan.png"
-import imgAll from "../../images/subcategories/restaurants_all.png"
-import imgFastFood from "../../images/subcategories/restaurants_fastfood.png"
-import imgChinese from "../../images/subcategories/restaurants_chinese.png"
 
+import imgAll from "../../images/subcategories/restaurants_all.png"
+import imgNigthlife from "../../images/subcategories/restaurants_fastfood.png"
+import imgCulture from "../../images/subcategories/restaurants_chinese.png"
+import imgSports from "../../images/subcategories/restaurants_vegan.png"
 
 const Title = styled.h4`
 font-size: 28px;
@@ -155,25 +155,25 @@ export default () => {
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
-                        <img src={imgVegan}  alt="nightlife"/>
+                        <img src={imgNigthlife}  alt="nightlife"/>
                     </Sub>
                     <Label>Night Life</Label>
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
-                        <img src={imgFastFood}  alt="culture"/>
+                        <img src={imgCulture}  alt="culture"/>
                     </Sub>
                     <Label>Culture</Label>
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
-                        <img src={imgChinese}  alt="sports"/>
+                        <img src={imgSports}  alt="sports"/>
                     </Sub>
                     <Label>Sports</Label>
                 </div>
                 <div className="text-center">
                 <Sub>
-                    <img src={imgChinese}  alt="workshops"/>
+                    <img src={imgSports}  alt="workshops"/>
                 </Sub>
                 <Label>Workshops</Label>
             </div>
