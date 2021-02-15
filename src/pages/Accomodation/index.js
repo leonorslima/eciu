@@ -7,10 +7,10 @@ import { FaEdit, FaSearch, FaChevronDown } from "react-icons/fa";
 import imgUser from "../../images/user.png"
 
 import imgAll from "../../images/subcategories/accomodation_all.png"
-import imgHotels from "../../images/subcategories/Accomodation_hotel.png"
+import imgHotels from "../../images/subcategories/accomodation_hotels.png"
 
-import imgRooms from "../../images/subcategories/restaurants_chinese.png"
-import imgApartments from "../../images/subcategories/restaurants_chinese.png"
+import imgRooms from "../../images/subcategories/acoomodation_rooms.png"
+import imgApartments from "../../images/subcategories/accomodation_apartments.png"
 
 const Title = styled.h4`
 font-size: 28px;

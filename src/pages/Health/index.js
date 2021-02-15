@@ -6,10 +6,10 @@ import styled from 'styled-components'
 import {Link} from "react-router-dom";
 import { FaEdit, FaSearch, FaChevronDown } from "react-icons/fa";
 import imgUser from "../../images/user.png"
-import imgAll from "../../images/subcategories/restaurants_all.png"
-import imgHospitals from "../../images/subcategories/restaurants_fastfood.png"
-import imgCovid from "../../images/subcategories/restaurants_chinese.png"
-import imgPharmacy from "../../images/subcategories/restaurants_vegan.png"
+import imgAll from "../../images/subcategories/health_all.png"
+import imgHospitals from "../../images/subcategories/health_hospitals.png"
+import imgCovid from "../../images/subcategories/health_covid.png"
+import imgPharmacy from "../../images/subcategories/health_pharmacy.png"
 
 const Title = styled.h4`
 font-size: 28px;

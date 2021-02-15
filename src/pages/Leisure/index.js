@@ -6,10 +6,10 @@ import {Link} from "react-router-dom";
 import { FaEdit, FaSearch, FaChevronDown } from "react-icons/fa";
 import imgUser from "../../images/user.png"
 
-import imgAll from "../../images/subcategories/restaurants_all.png"
-import imgNigthlife from "../../images/subcategories/restaurants_fastfood.png"
-import imgCulture from "../../images/subcategories/restaurants_chinese.png"
-import imgSports from "../../images/subcategories/restaurants_vegan.png"
+import imgAll from "../../images/subcategories/leisure_all.png"
+import imgNigthlife from "../../images/subcategories/leisure_nigthlife.png"
+import imgCulture from "../../images/subcategories/leisure_culture.png"
+import imgSports from "../../images/subcategories/leisure_sports.png"
 
 const Title = styled.h4`
 font-size: 28px;
