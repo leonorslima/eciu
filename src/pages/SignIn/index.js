@@ -12,13 +12,9 @@ const ButtonConfirm = styled.button`
   font-weight: 600;
   border-color: transparent;`
 
-
 const ButtonSignup = styled(Link)`
   font-weight: bold;
-  color: #002337;
-  
-  `
-
+  color: #002337;`
 
 export default () => {
     const [user, setUser] = useState('');
@@ -26,7 +22,7 @@ export default () => {
     const [password, setPassword] = useState('');
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
-    const [hasAccount, setHasAccount] = useState(false);
+//    const [hasAccount, setHasAccount] = useState(false);
 
 
     const handleLogin = () => {
@@ -46,25 +42,16 @@ export default () => {
                         setPasswordError(err.message);
                         break;
                 }
+            }
 
-            })
-        console.log(user);
-
-
+            )
+        console.log(email, password);
     }
-
-   /* const clearInputs = () => {
-        setEmail('');
-        setPassword('');
-    }*/
 
     const clearErrors = () => {
         setEmailError('');
         setPasswordError('');
     }
-
-
-
 
     return (
         <div className="text-center">
@@ -73,21 +60,17 @@ export default () => {
             </div>
         <div className="mt-2">
             <Form.Group controlId="formBasicEmail" className="mt-5">
-                <Form.Control type="email" id="email" required placeholder="E-mail" value={email} onChange={(e)=> setEmail(e.target.value)}/>
+                <Form.Control type="email"  required placeholder="E-mail" value={email} onChange={(e)=> setEmail(e.target.value)}/>
            <p className="errorMsg">{emailError}</p>
             </Form.Group>
             <Form.Group controlId="formBasicPassword">
-                <Form.Control type="password" id="password" required placeholder="Password" value={password} onChange={(e)=> setPassword(e.target.value)} />
+                <Form.Control type="password"  required placeholder="Password" value={password} onChange={(e)=> setPassword(e.target.value)} />
             <p className="errorMsg">{passwordError}</p>
             </Form.Group>
         </div>
             <div className="mt-5">
-
-
                      <ButtonConfirm className="p-3" onClick={handleLogin}>
                         Sign In
-
-
                     </ButtonConfirm>
                 <p className="mt-5">Don't have an account? <ButtonSignup to={"/signup"}>Sign up!</ButtonSignup></p>
 

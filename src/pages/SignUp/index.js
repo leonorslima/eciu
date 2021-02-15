@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -11,8 +11,6 @@ import {colors} from "@material-ui/core";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import FirebaseConfig from "../../scripts/FirebaseConfig";
-
-
 
 const Uni = styled.p`
   font-weight: 700;
@@ -36,190 +34,184 @@ function getSteps() {
     return ['', '', ''];
 }
 
-
-
-
-function getStepContent(stepIndex) {
-    switch (stepIndex) {
-        case 0:
-            return [<Form className="mt-4">
-                <Form.Group controlId="formBasicName">
-                    <Form.Control type="text" id="name" placeholder="Name" />
-                </Form.Group>
-
-                <Form.Group controlId="formBasicEmail">
-                    <Form.Control type="email" id="email" placeholder="E-mail" />
-                </Form.Group>
-
-                <Form.Group controlId="formBasicPassword">
-                    <Form.Control type="password" id="password" placeholder="Create Password" />
-                </Form.Group>
-
-                <Form.Group controlId="formBasicPassword">
-                    <Form.Control type="password" id="confirmpassword" placeholder="Confirm Password" />
-                </Form.Group>
-
-
-                <Form.Control as="select" className="my-1 mr-sm-2" id="inlineFormCustomSelectPref" custom>
-                    <option value="0">Profile</option>
-                    <option value="1">Travel Student</option>
-                    <option value="2">Buddy</option>
-                    <option value="3">Travel Student & Buddy</option>
-                </Form.Control>
-
-            </Form>];
-        case 1:
-            return [
-                <div>
-
-                    {/*<Form>
-                {['radio'].map((type) => (
-                <div key={`default-${type}`} className="mb-3">
-                    <Form.Check
-                        type={type}
-                        id={`default-${type}`}
-                        label={`default ${type}`}
-                    />
-
-                    <Form.Check
-                        type={type}
-                        id={`${type}`}
-                        label={`${type}`}
-                    />
-
-                </div>
-            ))}</Form>*/}
-
-                    <fieldset>
-                        <Form.Group as={Row}>
-                            <Form.Label as="legend" column sm={2}>
-                                <Uni>Home University</Uni>
-                            </Form.Label>
-                            <Col sm={10}>
-                                <Form.Check
-                                    type="radio"
-                                    label="Universidade "
-                                    name="formHorizontalRadios"
-                                    id="formHorizontalRadios1"
-                                />
-                                <Form.Check
-                                    type="radio"
-                                    label="second radio"
-                                    name="formHorizontalRadios"
-                                    id="formHorizontalRadios2"
-                                />
-                                <Form.Check
-                                    type="radio"
-                                    label="third radio"
-                                    name="formHorizontalRadios"
-                                    id="formHorizontalRadios3"
-                                />
-                            </Col>
-                        </Form.Group>
-                    </fieldset>
-                </div>
-            ];
-        case 2:
-             return [
-            <div>
-                {/*<Form>
-                    {['radio'].map((type) => (
-                        <div key={`default-${type}`} className="mb-3">
-                            <Form.Check
-                                type={type}
-                                id={`default-${type}`}
-                                label={`default ${type}`}
-                            />
-
-                            <Form.Check
-                                type={type}
-                                id={`${type}`}
-                                label={`${type}`}
-                            />
-
-                        </div>
-                    ))}</Form>*/}
-
-
-                <fieldset>
-                    <Form.Group as={Row}>
-                        <Form.Label as="legend" column sm={2}>
-                            <Uni>Destination University</Uni>
-                        </Form.Label>
-                        <Col sm={10}>
-                            <Form.Check
-                                type="radio"
-                                label="Universidade "
-                                name="formHorizontalRadios"
-                                id="formHorizontalRadios1"
-                            />
-                            <Form.Check
-                                type="radio"
-                                label="second radio"
-                                name="formHorizontalRadios"
-                                id="formHorizontalRadios2"
-                            />
-                            <Form.Check
-                                type="radio"
-                                label="third radio"
-                                name="formHorizontalRadios"
-                                id="formHorizontalRadios3"
-                            />
-                        </Col>
-                    </Form.Group>
-                </fieldset>
-            </div>
-        ];
-        default:
-            return 'Unknown stepIndex';
-    }
-}
-
 export default function HorizontalLabelPositionBelowStepper() {
     const classes = useStyles();
     const [activeStep, setActiveStep] = React.useState(0);
     const steps = getSteps();
 
-    const [user, setUser] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [passwordConfirmation, setPasswordConfirmation] = useState('');
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
-    const [hasAccount, setHasAccount] = useState(false);
 
     const handleSignUp = () =>{
-        FirebaseConfig
-            .auth()
-            .createUserWithEmailAndPassword(email, password)
-            .catch(err => {
-                switch (err.code){
-                    case "auth/email-already-in-use":
-                    case "auth/invalid-email":
-                        setEmailError(err.message);
-                        break;
-                    case "auth/weak-password":
-                        setPasswordError(err.message);
-                        break;
-                }
+        clearErrors();
 
-            })
+        if (password === passwordConfirmation){
+            FirebaseConfig
+                .auth()
+                .createUserWithEmailAndPassword(email, password)
+                .catch((err) => {
+                    switch (err.code){
+                        case "auth/email-already-in-use":
+                        case "auth/invalid-email":
+                            setEmailError(err.message);
+                            break;
+                        case "auth/weak-password":
+                            setPasswordError(err.message);
+                            break;
+                    }
+
+                })
+        }else{
+            console.log("não são iguais")
+        }
+
+
     }
+    /* const [user, setUser] = useState('');
 
+
+    const [hasAccount, setHasAccount] = useState(false);
+
+    */
 
     const handleNext = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
-        if (activeStep === 3){
-            console.log("está a entrar aquiiii")
-        }
+        if (activeStep === 2){
+        handleSignUp();
+    }
+        setActiveStep((prevActiveStep) => prevActiveStep + 1)
     };
 
     const handleBack = () => {
         setActiveStep((prevActiveStep) => prevActiveStep - 1);
     };
 
-    const handleReset = () => {
+
+    const clearErrors = () => {
+        setEmailError('');
+        setPasswordError('');
+    } /*
+   const handleReset = () => {
         setActiveStep(0);
     };
+
+    const authListener =() =>{
+        FirebaseConfig.auth().onAuthStateChanged((user)=>{
+            if(user){
+                setUser(user);
+            }else {
+                setUser('');
+            }
+
+
+        })
+    }
+
+    useEffect(()=>{
+        authListener();
+    }, []);
+
+
+*/
+
+
+
+    function getStepContent(stepIndex) {
+        switch (stepIndex) {
+            case 0:
+                return [<Form className="mt-4">
+                    <Form.Group controlId="formBasicName">
+                        <Form.Control type="text"  placeholder="Name" />
+                    </Form.Group>
+
+                    <Form.Group controlId="formBasicEmail">
+                        <Form.Control type="email"
+                                      placeholder="E-mail"
+                                      value={email}
+                                      onChange={(e)=> setEmail(e.target.value)}/>
+                        <p className="errorMsg">{emailError}</p>
+                    </Form.Group>
+
+                    <Form.Group controlId="formBasicPassword">
+                        <Form.Control type="password"
+                                      value={password}
+                                      onChange={(e) => setPassword(e.target.value)}
+                                      placeholder="Create Password" />
+                        <p className="errorMsg">{passwordError}</p>
+
+                    </Form.Group>
+
+                    <Form.Group controlId="formBasicPassword">
+                        <Form.Control type="password"
+                                      value={passwordConfirmation}
+                                      onChange={e => setPasswordConfirmation(e.target.value)}
+                                      placeholder="Confirm Password" />
+                    </Form.Group>
+
+                    <Form.Control as="select" className="my-1 mr-sm-2" id="inlineFormCustomSelectPref" custom>
+                        <option value="0">Profile</option>
+                        <option value="1">Travel Student</option>
+                        <option value="2">Buddy</option>
+                        <option value="3">Travel Student & Buddy</option>
+                    </Form.Control>
+
+                </Form>];
+            case 1:
+                return [
+                    <div>
+                        <fieldset>
+                            <Form.Group as={Row}>
+                                <Form.Label as="legend" column sm={2}>
+                                    <Uni>Home University</Uni>
+                                </Form.Label>
+                                <Col sm={10}>
+                                    <Form.Check type="radio" label="Universidade " name="formHorizontalRadios" id="formHorizontalRadios1"/>
+                                    <Form.Check type="radio" label="second radio" name="formHorizontalRadios" id="formHorizontalRadios2"/>
+                                    <Form.Check type="radio" label="third radio" name="formHorizontalRadios" id="formHorizontalRadios3"/>
+                                </Col>
+                            </Form.Group>
+                        </fieldset>
+                    </div>
+                ];
+            case 2:
+                return [
+                    <div>
+                        <fieldset>
+                            <Form.Group as={Row}>
+                                <Form.Label as="legend" column sm={2}>
+                                    <Uni>Destination University</Uni>
+                                </Form.Label>
+                                <Col sm={10}>
+                                    <Form.Check
+                                        type="radio"
+                                        label="Universidade "
+                                        name="formHorizontalRadios"
+                                        id="formHorizontalRadios1"
+                                    />
+                                    <Form.Check
+                                        type="radio"
+                                        label="second radio"
+                                        name="formHorizontalRadios"
+                                        id="formHorizontalRadios2"
+                                    />
+                                    <Form.Check
+                                        type="radio"
+                                        label="third radio"
+                                        name="formHorizontalRadios"
+                                        id="formHorizontalRadios3"
+                                    />
+                                </Col>
+                            </Form.Group>
+                        </fieldset>
+                    </div>
+                ];
+            default:
+                return 'Unknown stepIndex';
+        }
+    }
+
 
     return (
         <div className="col-12">
@@ -242,11 +234,7 @@ export default function HorizontalLabelPositionBelowStepper() {
                         <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
                         <div className="d-flex">
                             <div className="col-6">
-                            <Button
-                                disabled={activeStep === 0}
-                                onClick={handleBack}
-                                className={classes.backButton}
-                            >
+                            <Button disabled={activeStep === 0} onClick={handleBack} className={classes.backButton}>
                                 Back
                             </Button>
                             </div>

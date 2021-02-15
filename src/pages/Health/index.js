@@ -1,7 +1,6 @@
 import '../../App.css'
 import React from 'react';
 import Accordion from 'react-bootstrap/Accordion';
-import Button from "react-bootstrap/Button";
 import styled from 'styled-components'
 import {Link} from "react-router-dom";
 import { FaEdit, FaSearch, FaChevronDown } from "react-icons/fa";
