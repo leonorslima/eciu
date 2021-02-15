@@ -58,6 +58,7 @@ const Tips = styled.div`
   `
 const TopTips = styled.div`
 background-color: #739EB6;
+  color: white;
 padding-bottom: 5px;
 
   `

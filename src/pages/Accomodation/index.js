@@ -57,12 +57,14 @@ height: 50px;
 const Tips = styled.div`
   `
 const TopTips = styled.div`
-background-color: #F7A70A;
+background-color: #2E4B5B;
+  color: white;
 padding-bottom: 5px;
 
   `
 const TopTip = styled.div`
 background-color: white;
+ 
 
 & img {
 height: 57px;
