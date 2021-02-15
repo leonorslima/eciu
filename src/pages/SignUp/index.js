@@ -7,10 +7,11 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Form from "react-bootstrap/Form"
 import styled from "styled-components";
-import {colors} from "@material-ui/core";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import FirebaseConfig from "../../scripts/FirebaseConfig";
+import {Link} from "react-router-dom";
+
 
 const Uni = styled.p`
   font-weight: 700;
@@ -44,6 +45,7 @@ export default function HorizontalLabelPositionBelowStepper() {
     const [passwordConfirmation, setPasswordConfirmation] = useState('');
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
+    const [passwordConfirmationError, setPasswordConfirmationError] = useState('');
 
     const handleSignUp = () =>{
         clearErrors();
@@ -65,23 +67,30 @@ export default function HorizontalLabelPositionBelowStepper() {
 
                 })
         }else{
-            console.log("não são iguais")
+            setPasswordConfirmationError("Your passwords are different!");
+
         }
 
 
     }
     /* const [user, setUser] = useState('');
-
-
     const [hasAccount, setHasAccount] = useState(false);
 
     */
 
+
     const handleNext = () => {
         if (activeStep === 2){
-        handleSignUp();
-    }
-        setActiveStep((prevActiveStep) => prevActiveStep + 1)
+            if(passwordConfirmation === ''){
+                handleSignUp();
+            }else {
+                console.log("está aqui ")
+                setActiveStep(0);
+
+            }
+        }else{
+            setActiveStep((prevActiveStep) => prevActiveStep + 1)
+        }
     };
 
     const handleBack = () => {
@@ -93,9 +102,6 @@ export default function HorizontalLabelPositionBelowStepper() {
         setEmailError('');
         setPasswordError('');
     } /*
-   const handleReset = () => {
-        setActiveStep(0);
-    };
 
     const authListener =() =>{
         FirebaseConfig.auth().onAuthStateChanged((user)=>{
@@ -148,6 +154,7 @@ export default function HorizontalLabelPositionBelowStepper() {
                                       value={passwordConfirmation}
                                       onChange={e => setPasswordConfirmation(e.target.value)}
                                       placeholder="Confirm Password" />
+                        <p className="errorMsg" > </p>
                     </Form.Group>
 
                     <Form.Control as="select" className="my-1 mr-sm-2" id="inlineFormCustomSelectPref" custom>
@@ -216,32 +223,36 @@ export default function HorizontalLabelPositionBelowStepper() {
     return (
         <div className="col-12">
         <div className={classes.root}>
-            <Stepper activeStep={activeStep} alternativeLabel>
-                {steps.map((label) => (
-                    <Step key={label}>
-                        <StepLabel>{label}</StepLabel>
-                    </Step>
-                ))}
-            </Stepper>
+
             <div>
                 {activeStep === steps.length ? (
-                    <div style={{textAlign:"center"}}>
+                    <div style={{textAlign:"center", marginTop: 270}}>
                         <Typography className={classes.instructions}>Registo efetuado com sucesso!</Typography>
-                        <Button >Continuar</Button>
+                        <Button> <Link to={"/feed"}> Continuar</Link></Button>
                     </div>
                 ) : (
                     <div>
-                        <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
-                        <div className="d-flex">
-                            <div className="col-6">
-                            <Button disabled={activeStep === 0} onClick={handleBack} className={classes.backButton}>
-                                Back
-                            </Button>
-                            </div>
-                            <div className="col-6" style={{textAlign: "end"}}>
-                            <Button variant="contained" onClick={handleNext}>
-                                {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-                            </Button>
+                        <Stepper activeStep={activeStep} alternativeLabel>
+                            {steps.map((label) => (
+                                <Step key={label}>
+                                    <StepLabel>{label}</StepLabel>
+                                </Step>
+                            ))}
+                        </Stepper>
+
+                        <div>
+                            <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
+                            <div className="d-flex">
+                                <div className="col-6">
+                                <Button disabled={activeStep === 0} onClick={handleBack} className={classes.backButton}>
+                                    Back
+                                </Button>
+                                </div>
+                                <div className="col-6" style={{textAlign: "end"}}>
+                                <Button variant="contained" onClick={handleNext}>
+                                    {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                                </Button>
+                                </div>
                             </div>
                         </div>
                     </div>
