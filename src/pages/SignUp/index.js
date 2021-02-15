@@ -180,7 +180,7 @@ export default function HorizontalLabelPositionBelowStepper() {
     const [activeStep, setActiveStep] = React.useState(0);
     const steps = getSteps();
 
-  /*  const [user, setUser] = useState('');
+    const [user, setUser] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [emailError, setEmailError] = useState('');
@@ -203,7 +203,7 @@ export default function HorizontalLabelPositionBelowStepper() {
                 }
 
             })
-    }*/
+    }
 
 
     const handleNext = () => {
