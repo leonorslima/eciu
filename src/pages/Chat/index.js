@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components'
-import imgUser from "../../images/user.png";
-import {FaEdit, FaMapMarkerAlt} from "react-icons/fa";
 
 
 const Title = styled.h1`

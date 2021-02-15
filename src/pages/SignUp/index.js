@@ -44,19 +44,19 @@ function getStepContent(stepIndex) {
         case 0:
             return [<Form className="mt-4">
                 <Form.Group controlId="formBasicName">
-                    <Form.Control type="text" placeholder="Name" />
+                    <Form.Control type="text" id="name" placeholder="Name" />
                 </Form.Group>
 
                 <Form.Group controlId="formBasicEmail">
-                    <Form.Control type="email" placeholder="E-mail" />
+                    <Form.Control type="email" id="email" placeholder="E-mail" />
                 </Form.Group>
 
                 <Form.Group controlId="formBasicPassword">
-                    <Form.Control type="password" placeholder="Create Password" />
+                    <Form.Control type="password" id="password" placeholder="Create Password" />
                 </Form.Group>
 
                 <Form.Group controlId="formBasicPassword">
-                    <Form.Control type="password" placeholder="Confirm Password" />
+                    <Form.Control type="password" id="confirmpassword" placeholder="Confirm Password" />
                 </Form.Group>
 
 
@@ -168,10 +168,6 @@ function getStepContent(stepIndex) {
                         </Col>
                     </Form.Group>
                 </fieldset>
-
-
-
-
             </div>
         ];
         default:
@@ -184,7 +180,7 @@ export default function HorizontalLabelPositionBelowStepper() {
     const [activeStep, setActiveStep] = React.useState(0);
     const steps = getSteps();
 
-  /*  const [user, setUser] = useState('');
+    const [user, setUser] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [emailError, setEmailError] = useState('');
@@ -207,11 +203,14 @@ export default function HorizontalLabelPositionBelowStepper() {
                 }
 
             })
-    }*/
+    }
 
 
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
+        if (activeStep === 3){
+            console.log("está a entrar aquiiii")
+        }
     };
 
     const handleBack = () => {

@@ -18,10 +18,10 @@ export default () => {
                     <div className="col-4">
                     </div>
                     <div className="col-4">
-                        <LogEciu src={logoEciu} />
+                        <LogEciu src={logoEciu}  alt="logoeciu"/>
                     </div>
                     <div className="col-4 ">
-                        <LogUa src={logoUa}/>
+                        <LogUa src={logoUa}  alt="logoua"/>
                     </div>
                 </div>
             </div>
