@@ -1,5 +1,4 @@
 import React from 'react';
-import Form from "react-bootstrap/Form";
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 import logoEciu from "../../images/logoeciu.png"
@@ -17,7 +16,7 @@ export default () => {
     return (
         <div className="text-center">
             <div>
-                <img src={logoEciu} className="w-50 mb-5"/>
+                <img src={logoEciu} className="w-50 mb-5"  alt="logoeciu"/>
             </div>
             <div className="mt-5 mb-5">
                 <Button className="p-3">

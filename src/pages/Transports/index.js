@@ -1,7 +1,6 @@
 import '../../App.css'
 import React from 'react';
 import Accordion from 'react-bootstrap/Accordion';
-import Button from "react-bootstrap/Button";
 import styled from 'styled-components'
 import {Link} from "react-router-dom";
 import { FaEdit, FaSearch, FaChevronDown } from "react-icons/fa";
@@ -151,31 +150,31 @@ export default () => {
             <Subcategories className="d-flex mt-3">
                 <div className="mr-3 text-center">
                 <Sub className="justify-content-center">
-                    <img src={imgAll} />
+                    <img src={imgAll}  alt="all"/>
                 </Sub>
                     <Label>All</Label>
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
-                        <img src={imgTaxi} />
+                        <img src={imgTaxi}  alt="taxi"/>
                     </Sub>
                     <Label>Taxi</Label>
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
-                        <img src={imgTrain} />
+                        <img src={imgTrain}  alt="train"/>
                     </Sub>
                     <Label>Train</Label>
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
-                        <img src={imgPlane} />
+                        <img src={imgPlane}  alt="plane"/>
                     </Sub>
-                    <Label>Paane</Label>
+                    <Label>Plane</Label>
                 </div>
                 <div className="text-center">
                 <Sub>
-                    <img src={imgPlane} />
+                    <img src={imgPlane}  alt="bike"/>
                 </Sub>
                 <Label>Bike</Label>
             </div>
@@ -188,7 +187,7 @@ export default () => {
                     <TitleTopTips className="mt-0 pt-2 pl-3">TOP-TIPS</TitleTopTips>
                     <TopTip className="d-flex row mb-3">
                         <div className="col-3 pl-0">
-                            <img className="rounded-circle" src={imgUser} />
+                            <img className="rounded-circle" src={imgUser}  alt="profile"/>
                         </div>
                         <div className="col-7 pl-0">
                             <Text>
@@ -212,7 +211,7 @@ export default () => {
 
                     <TopTip className="d-flex row mb-3">
                         <div className="col-3 pl-0">
-                            <img className="rounded-circle" src={imgUser} />
+                            <img className="rounded-circle" src={imgUser}  alt="profile"/>
                         </div>
                         <div className="col-7 pl-0">
                             <Text>
@@ -229,7 +228,7 @@ export default () => {
 
                     <TopTip className="d-flex row mb-3">
                         <div className="col-3 pl-0">
-                            <img className="rounded-circle" src={imgUser} />
+                            <img className="rounded-circle" src={imgUser}  alt="profile"/>
                         </div>
                         <div className="col-7 pl-0">
                             <Text>
@@ -246,7 +245,7 @@ export default () => {
                 </TopTips>
                 <Tip className="d-flex mb-3">
                     <div className="col-3 pl-0">
-                        <img className="rounded-circle" src={imgUser} />
+                        <img className="rounded-circle" src={imgUser} alt="profile" />
                     </div>
                     <div className="col-7 pl-0">
                         <Text>
@@ -263,7 +262,7 @@ export default () => {
 
                 <Tip className="d-flex mb-3">
                     <div className="col-3 pl-0">
-                        <img className="rounded-circle" src={imgUser} />
+                        <img className="rounded-circle" src={imgUser}  alt="profile"/>
                     </div>
                     <div className="col-7 pl-0">
                         <Text>
@@ -280,7 +279,7 @@ export default () => {
 
                 <Tip className="d-flex mb-3">
                     <div className="col-3 pl-0">
-                        <img className="rounded-circle" src={imgUser} />
+                        <img className="rounded-circle" src={imgUser}  alt="profile"/>
                     </div>
                     <div className="col-7 pl-0">
                         <Text>
@@ -297,7 +296,7 @@ export default () => {
 
                 <Tip className="d-flex mb-3">
                     <div className="col-3 pl-0">
-                        <img className="rounded-circle" src={imgUser} />
+                        <img className="rounded-circle" src={imgUser}  alt="profile"/>
                     </div>
                     <div className="col-7 pl-0">
                         <Text>

@@ -1,34 +1,28 @@
 import './App.css'
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+
+
 import Navbar from "./components/Navbar/index";
 import Header from "./components/Header/index";
-import Feed from "./pages/Feed/index"
-import Categories from "./pages/Categories/index"
-import Community from "./pages/Community/index"
-import Chat from "./pages/Chat/index"
-import Profile from "./pages/Profile/index"
-import MyProfile from "./pages/MyProfile/index"
-import EditProfile from "./pages/EditProfile/index"
-import Restaurants from "./pages/Restaurants/index"
-import Accomodation from "./pages/Accomodation/index"
-import Transports from "./pages/Transports/index"
-import Health from "./pages/Health/index"
-import Leisure from "./pages/Leisure/index"
-import SignUp from "./pages/SignUp/index"
-import SignIn from "./pages/SignIn/index"
-import CreatePost from "./pages/CreatePost/index"
-import SearchResults from "./pages/SearchResults/index"
-import Home from "./pages/Home/index"
-
-
-import styled from "styled-components";
+import Feed from "./pages/Feed/index";
+import Categories from "./pages/Categories/index";
+import Community from "./pages/Community/index";
+import Chat from "./pages/Chat/index";
+import Profile from "./pages/Profile/index";
+import MyProfile from "./pages/MyProfile/index";
+import EditProfile from "./pages/EditProfile/index";
+import Restaurants from "./pages/Restaurants/index";
+import Accomodation from "./pages/Accomodation/index";
+import Transports from "./pages/Transports/index";
+import Health from "./pages/Health/index";
+import Leisure from "./pages/Leisure/index";
+import SignUp from "./pages/SignUp/index";
+import SignIn from "./pages/SignIn";
+import CreatePost from "./pages/CreatePost/index";
+import SearchResults from "./pages/SearchResults/index";
+import Home from "./pages/Home/index";
 
 
 function App() {

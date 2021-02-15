@@ -4,7 +4,6 @@ import styled from "styled-components";
 import {Link} from "react-router-dom";
 import logoEciu from "../../images/logoeciu.png"
 import FirebaseConfig from "../../scripts/FirebaseConfig";
-import {blue} from "@material-ui/core/colors";
 
 const ButtonConfirm = styled.button`
   background-color: #002337;
@@ -70,7 +69,7 @@ export default () => {
     return (
         <div className="text-center">
             <div className="mt-5">
-                <img src={logoEciu} className="w-50"/>
+                <img src={logoEciu} className="w-50"  alt="logo"/>
             </div>
         <div className="mt-2">
             <Form.Group controlId="formBasicEmail" className="mt-5">

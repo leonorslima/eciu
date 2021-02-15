@@ -76,7 +76,7 @@ export default () => {
             <div className="mt-4">
             <Post className="d-flex align-items-center mt-3">
                 <Profile className="col-3">
-                    <img className="rounded-circle w-100" src={profilepic1} />
+                    <img className="rounded-circle w-100" src={profilepic1}  alt="profilepic"/>
                 </Profile>
                 <NameAndTitle className="col-9">
                     <ReviewTitle>I loved the DaTerra in Aveiro</ReviewTitle>
@@ -84,7 +84,7 @@ export default () => {
                 </NameAndTitle>
             </Post>
             <Review>
-                    <img className="mt-2 mb-3 w-100" src={publicao1} />
+                    <img className="mt-2 mb-3 w-100" src={publicao1} alt="postimage" />
                     <Categorie>Restaurants \ Vegan</Categorie>
                     <ReviewText>
                         Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
@@ -109,7 +109,7 @@ export default () => {
             <div>
                 <Post className="d-flex align-items-center mt-3">
                     <Profile className="col-3">
-                        <img className="rounded-circle w-100" src={profilepic1} />
+                        <img className="rounded-circle w-100" src={profilepic1}  alt="profile"/>
                     </Profile>
                     <NameAndTitle className="col-9">
                         <ReviewTitle>I loved the DaTerra in Aveiro</ReviewTitle>
@@ -117,7 +117,7 @@ export default () => {
                     </NameAndTitle>
                 </Post>
                 <Review>
-                    <img className="mt-2 mb-3 w-100" src={publicao1} />
+                    <img className="mt-2 mb-3 w-100" src={publicao1}  alt="postimage" />
                     <Categorie>Restaurants \ Vegan</Categorie>
                     <ReviewText>
                         Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
@@ -143,7 +143,7 @@ export default () => {
             <div className="mb-5">
                 <Post className="d-flex align-items-center mt-3">
                     <Profile className="col-3">
-                        <img className="rounded-circle w-100" src={profilepic1} />
+                        <img className="rounded-circle w-100" src={profilepic1}  alt="profile"/>
                     </Profile>
                     <NameAndTitle className="col-9">
                         <ReviewTitle>I loved the DaTerra in Aveiro</ReviewTitle>
@@ -151,7 +151,7 @@ export default () => {
                     </NameAndTitle>
                 </Post>
                 <Review>
-                    <img className="mt-2 mb-3 w-100" src={publicao1} />
+                    <img className="mt-2 mb-3 w-100" src={publicao1}  alt="postimage" />
                     <Categorie>Restaurants \ Vegan</Categorie>
                     <ReviewText>
                         Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.

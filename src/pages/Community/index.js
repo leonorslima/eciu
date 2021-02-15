@@ -40,12 +40,12 @@ export default () => {
 
                 <div className="row text-center">
                     <div className="col-6">
-                        <img className="rounded-circle w-100" src={imgUser}/>
+                        <img className="rounded-circle w-100" src={imgUser} alt="profile"/>
                         <Name>Joana Sousa</Name>
                         <Uni>University of Aveiro</Uni>
                     </div>
                     <div className="col-6">
-                        <img className="rounded-circle w-100" src={imgUser}/>
+                        <img className="rounded-circle w-100" src={imgUser} alt="profile"/>
                         <Name>Joana Sousa</Name>
                         <Uni>University of Aveiro</Uni>
 
@@ -54,12 +54,12 @@ export default () => {
 
                 <div className="row text-center">
                     <div className="col-6">
-                        <img className="rounded-circle w-100" src={imgUser}/>
+                        <img className="rounded-circle w-100" src={imgUser} alt="profile"/>
                         <Name>Joana Sousa</Name>
                         <Uni>University of Aveiro</Uni>
                     </div>
                     <div className="col-6">
-                        <img className="rounded-circle w-100" src={imgUser}/>
+                        <img className="rounded-circle w-100" src={imgUser} alt="profile"/>
                         <Name>Joana Sousa</Name>
                         <Uni>University of Aveiro</Uni>
                     </div>
@@ -67,12 +67,12 @@ export default () => {
 
                 <div className="row text-center">
                     <div className="col-6">
-                        <img className="rounded-circle w-100" src={imgUser}/>
+                        <img className="rounded-circle w-100" src={imgUser} alt="profile"/>
                         <Name>Joana Sousa</Name>
                         <Uni>University of Aveiro</Uni>
                     </div>
                     <div className="col-6">
-                        <img className="rounded-circle w-100" src={imgUser}/>
+                        <img className="rounded-circle w-100" src={imgUser} alt="profile"/>
                         <Name>Joana Sousa</Name>
                         <Uni>University of Aveiro</Uni>
                     </div>
