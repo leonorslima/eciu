@@ -5,11 +5,10 @@ import styled from 'styled-components'
 import {Link} from "react-router-dom";
 import { FaEdit, FaSearch, FaChevronDown } from "react-icons/fa";
 import imgUser from "../../images/user.png"
-import imgVegan from "../../images/subcategories/restaurants_vegan.png"
-import imgAll from "../../images/subcategories/restaurants_all.png"
-import imgFastFood from "../../images/subcategories/restaurants_fastfood.png"
-import imgChinese from "../../images/subcategories/restaurants_chinese.png"
-
+import imgAll from "../../images/subcategories/health_all.png"
+import imgHospitals from "../../images/subcategories/health_hospitals.png"
+import imgCovid from "../../images/subcategories/health_covid.png"
+import imgPharmacy from "../../images/subcategories/health_pharmacy.png"
 
 const Title = styled.h4`
 font-size: 28px;
@@ -57,6 +56,7 @@ const Tips = styled.div`
   `
 const TopTips = styled.div`
 background-color: #739EB6;
+  color: white;
 padding-bottom: 5px;
 
   `
@@ -156,25 +156,25 @@ export default () => {
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
-                        <img src={imgVegan}  alt="hospital"/>
+                        <img src={imgHospitals}  alt="hospital"/>
                     </Sub>
                     <Label>Hospitals</Label>
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
-                        <img src={imgFastFood}  alt="covid"/>
+                        <img src={imgCovid}  alt="covid"/>
                     </Sub>
                     <Label>Covid-19</Label>
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
-                        <img src={imgChinese}  alt="pharmacy"/>
+                        <img src={imgPharmacy}  alt="pharmacy"/>
                     </Sub>
                     <Label>Pharmacy</Label>
                 </div>
                 <div className="text-center">
                 <Sub>
-                    <img src={imgChinese}  alt="doctor"/>
+                    <img src={imgPharmacy}  alt="doctor"/>
                 </Sub>
                 <Label>Doctor</Label>
             </div>

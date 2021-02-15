@@ -5,11 +5,12 @@ import styled from 'styled-components'
 import {Link} from "react-router-dom";
 import { FaEdit, FaSearch, FaChevronDown } from "react-icons/fa";
 import imgUser from "../../images/user.png"
-import imgPlane from "../../images/subcategories/transports_plane.png"
-import imgAll from "../../images/subcategories/restaurants_all.png"
-import imgFastFood from "../../images/subcategories/restaurants_fastfood.png"
-import imgChinese from "../../images/subcategories/restaurants_chinese.png"
 
+import imgAll from "../../images/subcategories/accomodation_all.png"
+import imgHotels from "../../images/subcategories/accomodation_hotels.png"
+
+import imgRooms from "../../images/subcategories/acoomodation_rooms.png"
+import imgApartments from "../../images/subcategories/accomodation_apartments.png"
 
 const Title = styled.h4`
 font-size: 28px;
@@ -56,12 +57,14 @@ height: 50px;
 const Tips = styled.div`
   `
 const TopTips = styled.div`
-background-color: #F7A70A;
+background-color: #2E4B5B;
+  color: white;
 padding-bottom: 5px;
 
   `
 const TopTip = styled.div`
 background-color: white;
+ 
 
 & img {
 height: 57px;
@@ -155,25 +158,25 @@ export default () => {
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
-                        <img src={imgPlane} alt="hotels"/>
+                        <img src={imgHotels} alt="hotels"/>
                     </Sub>
                     <Label>Hotels</Label>
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
-                        <img src={imgFastFood}  alt="rooms"/>
+                        <img src={imgRooms}  alt="rooms"/>
                     </Sub>
                     <Label>Rooms</Label>
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
-                        <img src={imgChinese}  alt="apartments"/>
+                        <img src={imgApartments}  alt="apartments"/>
                     </Sub>
                     <Label>Apartments</Label>
                 </div>
                 <div className="text-center">
                     <Sub>
-                        <img src={imgChinese}  alt="apartments"/>
+                        <img src={imgApartments}  alt="apartments"/>
                     </Sub>
                     <Label>Apartments</Label>
                 </div>
