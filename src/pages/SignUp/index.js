@@ -46,6 +46,7 @@ export default function HorizontalLabelPositionBelowStepper() {
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
     const [passwordConfirmationError, setPasswordConfirmationError] = useState('');
+    const [name, setName] = useState('');
 
     const handleSignUp = () =>{
         clearErrors();
@@ -65,10 +66,12 @@ export default function HorizontalLabelPositionBelowStepper() {
                             break;
                     }
 
-                })
+                });
+               console.log(name);
+
         }else{
             setPasswordConfirmationError("Your passwords are different!");
-
+            console.log(passwordConfirmationError);
         }
 
 
@@ -81,15 +84,20 @@ export default function HorizontalLabelPositionBelowStepper() {
 
     const handleNext = () => {
         if (activeStep === 2){
-            if(passwordConfirmation === ''){
+            if(passwordConfirmation === password){
                 handleSignUp();
+                console.log(steps.length);
+                setActiveStep((prevActiveStep) => prevActiveStep + 1)
             }else {
-                console.log("está aqui ")
+                console.log("não são iguais")
                 setActiveStep(0);
+                console.log(activeStep)
 
             }
         }else{
             setActiveStep((prevActiveStep) => prevActiveStep + 1)
+            console.log(activeStep)
+
         }
     };
 
@@ -129,7 +137,11 @@ export default function HorizontalLabelPositionBelowStepper() {
             case 0:
                 return [<Form className="mt-4">
                     <Form.Group controlId="formBasicName">
-                        <Form.Control type="text"  placeholder="Name" />
+                        <Form.Control type="text"
+                                      placeholder="Name"
+                                      value={name}
+                                      onChange={(e)=> setName(e.target.value)}
+                        />
                     </Form.Group>
 
                     <Form.Group controlId="formBasicEmail">

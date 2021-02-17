@@ -1,5 +1,5 @@
 import './App.css'
-import React from 'react';
+import React, {useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
@@ -26,7 +26,27 @@ import Home from "./pages/Home/index";
 
 
 function App() {
-  return (
+
+    /*useEffect(() => {
+
+        let CheckUserAuth = null;
+
+        CheckUserAuth = auth.onAuthStateChanged(user => {
+            if (user) {
+
+                props.setCurrentUser(user);
+
+            }
+        });
+
+        return () => {
+            CheckUserAuth()
+        }
+
+    }, [props.users, props.setCurrentUser]);
+*/
+
+    return (
     <div className="mr-3 ml-3">
         <Router>
         <Header />
