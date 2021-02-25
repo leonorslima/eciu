@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d1b38ebb-c39a-4241-a6e2-bac041dc4679" name="Default Changelist" comment="Edit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Transports/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Transports/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +102,7 @@
       <workItem from="1612893192882" duration="1856000" />
       <workItem from="1612953349395" duration="10172000" />
       <workItem from="1613131091776" duration="2212000" />
-      <workItem from="1613142375155" duration="4376000" />
+      <workItem from="1613142375155" duration="4948000" />
     </task>
     <task id="LOCAL-00001" summary="1st">
       <created>1612356061472</created>
@@ -245,7 +244,21 @@
       <option name="project" value="LOCAL" />
       <updated>1613146408328</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Edit">
+      <created>1613148959408</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1613148959408</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Edit">
+      <created>1613148997554</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1613148997554</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
