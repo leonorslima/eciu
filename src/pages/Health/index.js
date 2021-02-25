@@ -9,6 +9,9 @@ import imgAll from "../../images/subcategories/health_all.png"
 import imgHospitals from "../../images/subcategories/health_hospitals.png"
 import imgCovid from "../../images/subcategories/health_covid.png"
 import imgPharmacy from "../../images/subcategories/health_pharmacy.png"
+import Navbar from "../../components/Navbar"
+import HeaderBack from "../../components/HeaderBack"
+
 
 const Title = styled.h4`
 font-size: 28px;
@@ -131,6 +134,7 @@ text-align: center;
 export default () => {
     return (
         <div>
+            <HeaderBack />
             <div className="d-flex">
                 <Title className="mt-2 mb-2 mr-5">
                     HEALTH
@@ -312,7 +316,7 @@ export default () => {
                 </Tip>
 
             </Tips>
-
+        <Navbar />
         </div>
 
     )

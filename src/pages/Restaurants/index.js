@@ -10,6 +10,9 @@ import imgAll from "../../images/subcategories/restaurants_all.png"
 import imgFastFood from "../../images/subcategories/restaurants_fastfood.png"
 import imgChinese from "../../images/subcategories/restaurants_chinese.png"
 import {AiOutlineLike} from "react-icons/ai";
+import Navbar from "../../components/Navbar"
+import HeaderBack from "../../components/HeaderBack"
+
 
 
 const Title = styled.h4`
@@ -152,6 +155,7 @@ const Date = styled.p`
 export default () => {
     return (
         <div>
+            <HeaderBack />
             <div className="d-flex">
                 <Title className="mt-2 mb-2 mr-5">
                     RESTAURANTS
@@ -349,7 +353,7 @@ export default () => {
                 </Tip>
 
             </Tips>
-
+        <Navbar />
         </div>
 
     )

@@ -8,6 +8,9 @@ import imgTransports from "../../images/transports.png"
 import imgJobs from "../../images/jobs.png"
 import imgLeisure from "../../images/leisure.png"
 import imgHealth from "../../images/health.png"
+import Navbar from "../../components/Navbar"
+import Header from "../../components/Header"
+
 
 const Label = styled.h3`
 color: white;
@@ -71,7 +74,9 @@ background-size: cover;
 
 export default () => {
     return (
-        <div className="mt-2 mb-2">
+        <div>
+            <Header />
+            <div className="mt-2 mb-2">
             <Title>CATEGORIES</Title>
             <div className="mt-4">
             <StyledLink to={"/restaurants"}>
@@ -106,8 +111,8 @@ export default () => {
             </StyledLink>
             </div>
 
-
-        </div>
+<Navbar />
+        </div></div>
     )
 
 }

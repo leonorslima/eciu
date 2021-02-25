@@ -3,6 +3,9 @@ import styled from 'styled-components'
 import profilepic1 from "../../images/Ellipse 1.png";
 import publicao1 from "../../images/Rectangle 16.png"
 import { AiOutlineLike } from "react-icons/ai";
+import Navbar from "../../components/Navbar"
+import Header from "../../components/Header"
+
 
 const Name = styled.p`
 font-weight: 400;
@@ -71,7 +74,9 @@ width: 17%;
 
 export default () => {
     return (
-        <div className="mt-2 mb-2">
+        <div>
+            <Header />
+            <div className="mt-2 mb-2">
             <Title>FEED</Title>
             <div className="mt-4">
             <Post className="d-flex align-items-center mt-3">
@@ -174,8 +179,8 @@ export default () => {
 
 
 
-
-        </div>
+<Navbar />
+        </div></div>
     )
 
 }

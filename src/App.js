@@ -49,7 +49,6 @@ function App() {
     return (
     <div className="mr-3 ml-3">
         <Router>
-        <Header />
             <Switch>
                 <Route exact path={"/"} component={Feed}/>
                 <Route exact path={"/feed"} component={Feed} />
@@ -71,7 +70,6 @@ function App() {
                 <Route exact path={"/home"} component={Home}/>
             </Switch>
         </Router>
-        <Navbar />
     </div>
   );
 }

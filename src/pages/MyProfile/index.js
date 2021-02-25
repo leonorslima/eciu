@@ -3,6 +3,9 @@ import styled from 'styled-components'
 import imgUser from "../../images/user.png"
 import { FaMapMarkerAlt, FaEdit } from "react-icons/fa";
 import {Link} from "react-router-dom";
+import Navbar from "../../components/Navbar"
+import Header from "../../components/Header"
+
 
 
 const Button = styled(Link)`
@@ -28,6 +31,7 @@ const Title = styled.h1`
 export default () => {
     return (
         <div>
+            <Header />
             <Title className="mt-2 mb-2">MY PROFILE</Title>
             <div className="text-center mt-5">
                 <img className="mt-4 mb-3 rounded-circle w-50" src={imgUser}  alt="profile" />
@@ -40,6 +44,7 @@ export default () => {
                     </Button>
                 </div>
             </div>
+            <Navbar />
         </div>
 
 

@@ -9,6 +9,9 @@ import imgTaxi from "../../images/subcategories/transports_taxi.png"
 import imgAll from "../../images/subcategories/transports_all.png"
 import imgTrain from "../../images/subcategories/transports_train.png"
 import imgPlane from "../../images/subcategories/transports_plane.png"
+import Navbar from "../../components/Navbar"
+import HeaderBack from "../../components/HeaderBack"
+
 
 
 const Title = styled.h4`
@@ -132,6 +135,7 @@ text-align: center;
 export default () => {
     return (
         <div>
+            <HeaderBack />
             <div className="d-flex">
                 <Title className="mt-2 mb-2 mr-5">
                     TRANSPORTS
@@ -313,7 +317,7 @@ export default () => {
                 </Tip>
 
             </Tips>
-
+        <Navbar />
         </div>
 
     )

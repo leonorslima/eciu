@@ -5,6 +5,9 @@ import styled from 'styled-components'
 import {Link} from "react-router-dom";
 import { FaEdit, FaSearch, FaChevronDown } from "react-icons/fa";
 import imgUser from "../../images/user.png"
+import Navbar from "../../components/Navbar"
+import HeaderBack from "../../components/HeaderBack"
+
 
 import imgAll from "../../images/subcategories/leisure_all.png"
 import imgNigthlife from "../../images/subcategories/leisure_nigthlife.png"
@@ -130,6 +133,7 @@ text-align: center;
 export default () => {
     return (
         <div>
+            <HeaderBack />
             <div className="d-flex">
                 <Title className="mt-2 mb-2 mr-5">
                     LEISURE
@@ -311,7 +315,7 @@ export default () => {
                 </Tip>
 
             </Tips>
-
+        <Navbar />
         </div>
 
     )
