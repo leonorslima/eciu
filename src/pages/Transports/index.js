@@ -3,7 +3,7 @@ import React from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import styled from 'styled-components'
 import {Link} from "react-router-dom";
-import { FaEdit, FaSearch, FaChevronDown } from "react-icons/fa";
+import {FaEdit, FaSearch, FaChevronDown} from "react-icons/fa";
 import imgUser from "../../images/user.png"
 import imgTaxi from "../../images/subcategories/transports_taxi.png"
 import imgAll from "../../images/subcategories/transports_all.png"
@@ -11,7 +11,7 @@ import imgTrain from "../../images/subcategories/transports_train.png"
 import imgPlane from "../../images/subcategories/transports_plane.png"
 import Navbar from "../../components/Navbar"
 import HeaderBack from "../../components/HeaderBack"
-
+import {AiOutlineLike} from "react-icons/ai";
 
 
 const Title = styled.h4`
@@ -60,7 +60,6 @@ const Tips = styled.div`
   `
 const TopTips = styled.div`
 background-color: #00A984;
-  color: white;
 padding-bottom: 5px;
 
   `
@@ -83,6 +82,7 @@ background-color: white;
 height: 57px;
 }
 
+margin: 0 0.2rem 0 0.2rem;
 padding: 10px;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   `
@@ -101,6 +101,7 @@ margin-bottom: 0;
   `
 const TitleTopTips = styled.h5`
 font-weight: 700;
+color: white;
   `
 
 const Subcategories = styled.div`
@@ -132,10 +133,30 @@ font-weight: 700;
 text-align: center;
   `
 
+const InfoAdd = styled.div`
+`
+
+const Likes = styled.p`
+    display: inline-flex;
+    font-size: 14px;
+    color: #8B8A8A;
+`
+
+const BotaoLike = styled.div`
+width: 1.5rem;
+  height: 1.5rem;
+`
+
+const Date = styled.p`
+  font-size: 14px;
+  color: #8B8A8A;
+`
+
+
 export default () => {
     return (
         <div>
-            <HeaderBack />
+            <HeaderBack/>
             <div className="d-flex">
                 <Title className="mt-2 mb-2 mr-5">
                     TRANSPORTS
@@ -148,41 +169,41 @@ export default () => {
                     <FaEdit className="mr-2"/> Create Post
                 </BtnCreate>
                 <BtnSearch className="col-2">
-                    <FaSearch />
+                    <FaSearch/>
                 </BtnSearch>
             </div>
 
             <Subcategories className="d-flex mt-3">
                 <div className="mr-3 text-center">
-                <Sub className="justify-content-center">
-                    <img src={imgAll}  alt="all"/>
-                </Sub>
+                    <Sub className="justify-content-center">
+                        <img src={imgAll} alt="all"/>
+                    </Sub>
                     <Label>All</Label>
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
-                        <img src={imgTaxi}  alt="taxi"/>
+                        <img src={imgTaxi} alt="taxi"/>
                     </Sub>
                     <Label>Taxi</Label>
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
-                        <img src={imgTrain}  alt="train"/>
+                        <img src={imgTrain} alt="train"/>
                     </Sub>
                     <Label>Train</Label>
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
-                        <img src={imgPlane}  alt="plane"/>
+                        <img src={imgPlane} alt="plane"/>
                     </Sub>
                     <Label>Plane</Label>
                 </div>
                 <div className="text-center">
-                <Sub>
-                    <img src={imgPlane}  alt="bike"/>
-                </Sub>
-                <Label>Bike</Label>
-            </div>
+                    <Sub>
+                        <img src={imgPlane} alt="bike"/>
+                    </Sub>
+                    <Label>Bike</Label>
+                </div>
 
             </Subcategories>
 
@@ -190,134 +211,305 @@ export default () => {
             <Tips>
                 <TopTips className="mb-3">
                     <TitleTopTips className="mt-0 pt-2 pl-3">TOP-TIPS</TitleTopTips>
-                    <TopTip className="d-flex row mb-3">
-                        <div className="col-3 pl-0">
-                            <img className="rounded-circle" src={imgUser}  alt="profile"/>
-                        </div>
-                        <div className="col-7 pl-0">
-                            <Text>
-                                I ride Buga while in Aveiro
-                            </Text>
-                            <Name>
-                                Charlotte de la Croix
-                            </Name>
-                        </div>
 
-                        <Accordion className="align-self-center col-2 pr-0">
-                            <Accordion.Toggle eventKey="0">
-                                <FaChevronDown />
+                    <Accordion className="align-self-center col-12 pl-0 pr-0">
+
+                        <TopTip className="d-flex row mb-3">
+                            <div className="col-3 pl-0 mt-2">
+                                <img className="rounded-circle" src={imgUser} alt="profile"/>
+                            </div>
+                            <div className="col-7 pl-0 mt-2">
+                                <Text>
+                                    I ride Buga while in Aveiro
+                                </Text>
+                                <Name>
+                                    Charlotte de la Croix
+                                </Name>
+                            </div>
+
+                            <Accordion.Toggle eventKey="0" style={{border: "transparent", backgroundColor: "white"}}
+                                              className="col-2">
+                                <FaChevronDown/>
                             </Accordion.Toggle>
 
                             <Accordion.Collapse eventKey="0">
-                            <h5>jdijijiejd</h5>
+                                <div>
+                                    <h6 className="mt-3">This was the best restaurant I've been, it was a wonderful
+                                        experience, the food is wonderful, the saft is very friendly and very
+                                        attentive. </h6>
+                                    <InfoAdd className="d-flex">
+                                        <Date className="col-8 pl-0 ml-0 mb-0">
+                                            04-01-2020 at 23:12
+                                        </Date>
+                                        <Likes className="ml-4 col-md-4 mb-0">
+                                            <p>2376</p>
+                                            <BotaoLike>
+                                                <AiOutlineLike className={"w-100"}/>
+                                            </BotaoLike>
+
+                                        </Likes>
+                                    </InfoAdd>
+                                </div>
                             </Accordion.Collapse>
-                        </Accordion>
-                    </TopTip>
+                        </TopTip>
+                    </Accordion>
 
-                    <TopTip className="d-flex row mb-3">
-                        <div className="col-3 pl-0">
-                            <img className="rounded-circle" src={imgUser}  alt="profile"/>
-                        </div>
-                        <div className="col-7 pl-0">
-                            <Text>
-                                I ride Buga while in Aveiro
-                            </Text>
-                            <Name>
-                                Charlotte de la Croix
-                            </Name>
-                        </div>
-                        <div className="align-self-center col-2 pr-0">
-                            <FaChevronDown />
-                        </div>
-                    </TopTip>
+                    <Accordion className="align-self-center col-12 pl-0 pr-0">
 
-                    <TopTip className="d-flex row mb-3">
-                        <div className="col-3 pl-0">
-                            <img className="rounded-circle" src={imgUser}  alt="profile"/>
-                        </div>
-                        <div className="col-7 pl-0">
-                            <Text>
-                                I ride Buga while in Aveiro
-                            </Text>
-                            <Name>
-                                Charlotte de la Croix
-                            </Name>
-                        </div>
-                        <div className="align-self-center col-2 pr-0">
-                            <FaChevronDown />
-                        </div>
-                    </TopTip>
+                        <TopTip className="d-flex row mb-3">
+                            <div className="col-3 pl-0 mt-2">
+                                <img className="rounded-circle" src={imgUser} alt="profile"/>
+                            </div>
+                            <div className="col-7 pl-0 mt-2">
+                                <Text>
+                                    I ride Buga while in Aveiro
+                                </Text>
+                                <Name>
+                                    Charlotte de la Croix
+                                </Name>
+                            </div>
+
+                            <Accordion.Toggle eventKey="0" style={{border: "transparent", backgroundColor: "white"}}
+                                              className="col-2">
+                                <FaChevronDown/>
+                            </Accordion.Toggle>
+
+                            <Accordion.Collapse eventKey="0">
+                                <div>
+                                    <h6 className="mt-3">This was the best restaurant I've been, it was a wonderful
+                                        experience, the food is wonderful, the saft is very friendly and very
+                                        attentive. </h6>
+                                    <InfoAdd className="d-flex">
+                                        <Date className="col-8 pl-0 ml-0 mb-0">
+                                            04-01-2020 at 23:12
+                                        </Date>
+                                        <Likes className="ml-4 col-md-4 mb-0">
+                                            <p>2376</p>
+                                            <BotaoLike>
+                                                <AiOutlineLike className={"w-100"}/>
+                                            </BotaoLike>
+
+                                        </Likes>
+                                    </InfoAdd>
+                                </div>
+                            </Accordion.Collapse>
+                        </TopTip>
+                    </Accordion>
+
+                    <Accordion className="align-self-center col-12 pl-0 pr-0">
+
+                        <TopTip className="d-flex row mb-3">
+                            <div className="col-3 pl-0 mt-2">
+                                <img className="rounded-circle" src={imgUser} alt="profile"/>
+                            </div>
+                            <div className="col-7 pl-0 mt-2">
+                                <Text>
+                                    I ride Buga while in Aveiro
+                                </Text>
+                                <Name>
+                                    Charlotte de la Croix
+                                </Name>
+                            </div>
+
+                            <Accordion.Toggle eventKey="0" style={{border: "transparent", backgroundColor: "white"}}
+                                              className="col-2">
+                                <FaChevronDown/>
+                            </Accordion.Toggle>
+
+                            <Accordion.Collapse eventKey="0">
+                                <div>
+                                    <h6 className="mt-3">This was the best restaurant I've been, it was a wonderful
+                                        experience, the food is wonderful, the saft is very friendly and very
+                                        attentive. </h6>
+                                    <InfoAdd className="d-flex">
+                                        <Date className="col-8 pl-0 ml-0 mb-0">
+                                            04-01-2020 at 23:12
+                                        </Date>
+                                        <Likes className="ml-4 col-md-4 mb-0">
+                                            <p>2376</p>
+                                            <BotaoLike>
+                                                <AiOutlineLike className={"w-100"}/>
+                                            </BotaoLike>
+
+                                        </Likes>
+                                    </InfoAdd>
+                                </div>
+                            </Accordion.Collapse>
+                        </TopTip>
+                    </Accordion>
                 </TopTips>
-                <Tip className="d-flex mb-3">
-                    <div className="col-3 pl-0">
-                        <img className="rounded-circle" src={imgUser} alt="profile" />
-                    </div>
-                    <div className="col-7 pl-0">
-                        <Text>
-                            I ride Buga while in Aveiro
-                        </Text>
-                        <Name>
-                            Charlotte de la Croix
-                        </Name>
-                    </div>
-                    <div className="align-self-center col-2 pr-0">
-                        <FaChevronDown />
-                    </div>
-                </Tip>
 
-                <Tip className="d-flex mb-3">
-                    <div className="col-3 pl-0">
-                        <img className="rounded-circle" src={imgUser}  alt="profile"/>
-                    </div>
-                    <div className="col-7 pl-0">
-                        <Text>
-                            I ride Buga while in Aveiro
-                        </Text>
-                        <Name>
-                            Charlotte de la Croix
-                        </Name>
-                    </div>
-                    <div className="align-self-center col-2 pr-0">
-                        <FaChevronDown />
-                    </div>
-                </Tip>
 
-                <Tip className="d-flex mb-3">
-                    <div className="col-3 pl-0">
-                        <img className="rounded-circle" src={imgUser}  alt="profile"/>
-                    </div>
-                    <div className="col-7 pl-0">
-                        <Text>
-                            I ride Buga while in Aveiro
-                        </Text>
-                        <Name>
-                            Charlotte de la Croix
-                        </Name>
-                    </div>
-                    <div className="align-self-center col-2 pr-0">
-                        <FaChevronDown />
-                    </div>
-                </Tip>
+                <Accordion className="align-self-center col-12 pl-0 pr-0">
 
-                <Tip className="d-flex mb-3">
-                    <div className="col-3 pl-0">
-                        <img className="rounded-circle" src={imgUser}  alt="profile"/>
-                    </div>
-                    <div className="col-7 pl-0">
-                        <Text>
-                            I ride Buga while in Aveiro
-                        </Text>
-                        <Name>
-                            Charlotte de la Croix
-                        </Name>
-                    </div>
-                    <div className="align-self-center col-2 pr-0">
-                        <FaChevronDown />
-                    </div>
-                </Tip>
+                    <Tip className="d-flex row mb-3">
+                        <div className="col-3 pl-0 mt-2">
+                            <img className="rounded-circle" src={imgUser} alt="profile"/>
+                        </div>
+                        <div className="col-7 pl-0 mt-2">
+                            <Text>
+                                Best restaurant in Aveiro
+                            </Text>
+                            <Name>
+                                Anne-Marie
+                            </Name>
+                        </div>
+
+                        <Accordion.Toggle eventKey="0" style={{border: "transparent", backgroundColor: "white"}}
+                                          className="col-2">
+                            <FaChevronDown/>
+                        </Accordion.Toggle>
+
+                        <Accordion.Collapse eventKey="0">
+                            <div>
+                                <h6 className="mt-3">This was the best restaurant I've been, it was a wonderful
+                                    experience, the food is wonderful, the saft is very friendly and very
+                                    attentive. </h6>
+                                <InfoAdd className="d-flex">
+                                    <Date className="col-8 pl-0 ml-0 mb-0">
+                                        04-01-2020 at 23:12
+                                    </Date>
+                                    <Likes className="ml-4 col-md-4 mb-0">
+                                        <p>2376</p>
+                                        <BotaoLike>
+                                            <AiOutlineLike className={"w-100"}/>
+                                        </BotaoLike>
+
+                                    </Likes>
+                                </InfoAdd>
+                            </div>
+                        </Accordion.Collapse>
+                    </Tip>
+                </Accordion>
+
+                <Accordion className="align-self-center col-12 pl-0 pr-0">
+
+                    <Tip className="d-flex row mb-3">
+                        <div className="col-3 pl-0 mt-2">
+                            <img className="rounded-circle" src={imgUser} alt="profile"/>
+                        </div>
+                        <div className="col-7 pl-0 mt-2">
+                            <Text>
+                                Best restaurant in Aveiro
+                            </Text>
+                            <Name>
+                                Anne-Marie
+                            </Name>
+                        </div>
+
+                        <Accordion.Toggle eventKey="0" style={{border: "transparent", backgroundColor: "white"}}
+                                          className="col-2">
+                            <FaChevronDown/>
+                        </Accordion.Toggle>
+
+                        <Accordion.Collapse eventKey="0">
+                            <div>
+                                <h6 className="mt-3">This was the best restaurant I've been, it was a wonderful
+                                    experience, the food is wonderful, the saft is very friendly and very
+                                    attentive. </h6>
+                                <InfoAdd className="d-flex">
+                                    <Date className="col-8 pl-0 ml-0 mb-0">
+                                        04-01-2020 at 23:12
+                                    </Date>
+                                    <Likes className="ml-4 col-md-4 mb-0">
+                                        <p>2376</p>
+                                        <BotaoLike>
+                                            <AiOutlineLike className={"w-100"}/>
+                                        </BotaoLike>
+
+                                    </Likes>
+                                </InfoAdd>
+                            </div>
+                        </Accordion.Collapse>
+                    </Tip>
+                </Accordion>
+
+                <Accordion className="align-self-center col-12 pl-0 pr-0">
+
+                    <Tip className="d-flex row mb-3">
+                        <div className="col-3 pl-0 mt-2">
+                            <img className="rounded-circle" src={imgUser} alt="profile"/>
+                        </div>
+                        <div className="col-7 pl-0 mt-2">
+                            <Text>
+                                Best restaurant in Aveiro
+                            </Text>
+                            <Name>
+                                Anne-Marie
+                            </Name>
+                        </div>
+
+                        <Accordion.Toggle eventKey="0" style={{border: "transparent", backgroundColor: "white"}}
+                                          className="col-2">
+                            <FaChevronDown/>
+                        </Accordion.Toggle>
+
+                        <Accordion.Collapse eventKey="0">
+                            <div>
+                                <h6 className="mt-3">This was the best restaurant I've been, it was a wonderful
+                                    experience, the food is wonderful, the saft is very friendly and very
+                                    attentive. </h6>
+                                <InfoAdd className="d-flex">
+                                    <Date className="col-8 pl-0 ml-0 mb-0">
+                                        04-01-2020 at 23:12
+                                    </Date>
+                                    <Likes className="ml-4 col-md-4 mb-0">
+                                        <p>2376</p>
+                                        <BotaoLike>
+                                            <AiOutlineLike className={"w-100"}/>
+                                        </BotaoLike>
+
+                                    </Likes>
+                                </InfoAdd>
+                            </div>
+                        </Accordion.Collapse>
+                    </Tip>
+                </Accordion>
+
+                <Accordion className="align-self-center col-12 pl-0 pr-0">
+
+                    <Tip className="d-flex row mb-3">
+                        <div className="col-3 pl-0 mt-2">
+                            <img className="rounded-circle" src={imgUser} alt="profile"/>
+                        </div>
+                        <div className="col-7 pl-0 mt-2">
+                            <Text>
+                                Best restaurant in Aveiro
+                            </Text>
+                            <Name>
+                                Anne-Marie
+                            </Name>
+                        </div>
+
+                        <Accordion.Toggle eventKey="0" style={{border: "transparent", backgroundColor: "white"}}
+                                          className="col-2">
+                            <FaChevronDown/>
+                        </Accordion.Toggle>
+
+                        <Accordion.Collapse eventKey="0">
+                            <div>
+                                <h6 className="mt-3">This was the best restaurant I've been, it was a wonderful
+                                    experience, the food is wonderful, the saft is very friendly and very
+                                    attentive. </h6>
+                                <InfoAdd className="d-flex">
+                                    <Date className="col-8 pl-0 ml-0 mb-0">
+                                        04-01-2020 at 23:12
+                                    </Date>
+                                    <Likes className="ml-4 col-md-4 mb-0">
+                                        <p>2376</p>
+                                        <BotaoLike>
+                                            <AiOutlineLike className={"w-100"}/>
+                                        </BotaoLike>
+
+                                    </Likes>
+                                </InfoAdd>
+                            </div>
+                        </Accordion.Collapse>
+                    </Tip>
+                </Accordion>
 
             </Tips>
-        <Navbar />
+            <Navbar/>
         </div>
 
     )
