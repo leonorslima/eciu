@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import imgUser from "../../images/user.png"
 import { FaMapMarkerAlt, FaEdit } from "react-icons/fa";
 import {Link} from "react-router-dom";
+import Navbar from "../../components/Navbar"
+
 
 
 const Button = styled(Link)`
@@ -30,7 +32,7 @@ export default () => {
         <div>
             <Title>PROFILE</Title>
             <div className="text-center mt-5">
-                <img className="mt-4 mb-3 rounded-circle w-50" src={imgUser} />
+                <img className="mt-4 mb-3 rounded-circle w-50" src={imgUser}  alt="profile"/>
                 <div>
                     <Name className="mb-0 pb-0">Joana Sousa</Name>
                     <Info> <FaMapMarkerAlt /> From <b> Aveiro, Portugal</b></Info>
@@ -40,6 +42,7 @@ export default () => {
                     </Button>
                 </div>
             </div>
+            <Navbar />
         </div>
 
 

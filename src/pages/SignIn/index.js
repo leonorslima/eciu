@@ -1,38 +1,81 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Form from "react-bootstrap/Form";
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 import logoEciu from "../../images/logoeciu.png"
+import FirebaseConfig from "../../scripts/FirebaseConfig";
 
-const ButtonConfirm = styled(Link)`
-background-color: #002337;
-color: white;
-border-radius: 2px;
+const ButtonConfirm = styled.button`
+  background-color: #002337;
+  color: white;
+  border-radius: 4px;
+  font-weight: 600;
+  border-color: transparent;`
 
-font-weight: 600;
-  `
+const ButtonSignup = styled(Link)`
+  font-weight: bold;
+  color: #002337;`
 
 export default () => {
+    const [user, setUser] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [emailError, setEmailError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
+//    const [hasAccount, setHasAccount] = useState(false);
+
+
+    const handleLogin = () => {
+        clearErrors()
+
+        FirebaseConfig
+            .auth()
+            .signInWithEmailAndPassword(email, password)
+            .catch(err => {
+                switch (err.code){
+                    case "auth/invalid-email":
+                    case "auth/user-disabled":
+                    case "auth/user-not-found":
+                        setEmailError(err.message);
+                        break;
+                    case "auth/wrong-password":
+                        setPasswordError(err.message);
+                        break;
+                }
+            }
+
+            )
+        console.log(email, password);
+    }
+
+    const clearErrors = () => {
+        setEmailError('');
+        setPasswordError('');
+    }
+
     return (
         <div className="text-center">
-            <div>
-                <img src={logoEciu} className="w-50"/>
+            <div className="mt-5">
+                <img src={logoEciu} className="w-50"  alt="logo"/>
             </div>
-        <div>
+        <div className="mt-2">
             <Form.Group controlId="formBasicEmail" className="mt-5">
-                <Form.Control type="text" placeholder="E-mail" />
+                <Form.Control type="email"  required placeholder="E-mail" value={email} onChange={(e)=> setEmail(e.target.value)}/>
+           <p className="errorMsg">{emailError}</p>
             </Form.Group>
             <Form.Group controlId="formBasicPassword">
-                <Form.Control type="password" placeholder="Password" />
+                <Form.Control type="password"  required placeholder="Password" value={password} onChange={(e)=> setPassword(e.target.value)} />
+            <p className="errorMsg">{passwordError}</p>
             </Form.Group>
         </div>
             <div className="mt-5">
-                <ButtonConfirm className="p-3" to={"/feed"}>
-                    Sign In
-                </ButtonConfirm>
+                     <ButtonConfirm className="p-3" onClick={handleLogin}>
+                        Sign In
+                    </ButtonConfirm>
+                <p className="mt-5">Don't have an account? <ButtonSignup to={"/signup"}>Sign up!</ButtonSignup></p>
+
             </div>
         </div>
 
     )
 }
-

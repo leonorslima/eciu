@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components'
 import imgUser from "../../images/user.png"
+import Navbar from "../../components/Navbar"
+import Header from "../../components/Header"
 
 
 const Title = styled.h4`
@@ -32,6 +34,8 @@ font-size: 16px;
 
 export default () => {
     return (
+        <div>
+            <Header />
         <div className="mt-2 mb-2">
             <Title>COMMUNITY</Title>
             <Description>Here you can find a list of buddies that are available to help you!</Description>
@@ -40,12 +44,12 @@ export default () => {
 
                 <div className="row text-center">
                     <div className="col-6">
-                        <img className="rounded-circle w-100" src={imgUser}/>
+                        <img className="rounded-circle w-100" src={imgUser} alt="profile"/>
                         <Name>Joana Sousa</Name>
                         <Uni>University of Aveiro</Uni>
                     </div>
                     <div className="col-6">
-                        <img className="rounded-circle w-100" src={imgUser}/>
+                        <img className="rounded-circle w-100" src={imgUser} alt="profile"/>
                         <Name>Joana Sousa</Name>
                         <Uni>University of Aveiro</Uni>
 
@@ -54,12 +58,12 @@ export default () => {
 
                 <div className="row text-center">
                     <div className="col-6">
-                        <img className="rounded-circle w-100" src={imgUser}/>
+                        <img className="rounded-circle w-100" src={imgUser} alt="profile"/>
                         <Name>Joana Sousa</Name>
                         <Uni>University of Aveiro</Uni>
                     </div>
                     <div className="col-6">
-                        <img className="rounded-circle w-100" src={imgUser}/>
+                        <img className="rounded-circle w-100" src={imgUser} alt="profile"/>
                         <Name>Joana Sousa</Name>
                         <Uni>University of Aveiro</Uni>
                     </div>
@@ -67,12 +71,12 @@ export default () => {
 
                 <div className="row text-center">
                     <div className="col-6">
-                        <img className="rounded-circle w-100" src={imgUser}/>
+                        <img className="rounded-circle w-100" src={imgUser} alt="profile"/>
                         <Name>Joana Sousa</Name>
                         <Uni>University of Aveiro</Uni>
                     </div>
                     <div className="col-6">
-                        <img className="rounded-circle w-100" src={imgUser}/>
+                        <img className="rounded-circle w-100" src={imgUser} alt="profile"/>
                         <Name>Joana Sousa</Name>
                         <Uni>University of Aveiro</Uni>
                     </div>
@@ -80,7 +84,8 @@ export default () => {
 
 
             </div>
-        </div>
+            <Navbar />
+        </div></div>
     )
 
 }

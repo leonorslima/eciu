@@ -60,7 +60,7 @@ export default () => {
             </div>
             <Tip className="d-flex mb-3">
                 <div className="col-3 pl-0">
-                    <img className="rounded-circle" src={imgUser} />
+                    <img className="rounded-circle" src={imgUser}  alt="profile"/>
                 </div>
                 <div className="col-7 pl-0">
                     <Text>
@@ -77,7 +77,7 @@ export default () => {
 
             <Tip className="d-flex mb-3">
                 <div className="col-3 pl-0">
-                    <img className="rounded-circle" src={imgUser} />
+                    <img className="rounded-circle" src={imgUser}  alt="profile"/>
                 </div>
                 <div className="col-7 pl-0">
                     <Text>
