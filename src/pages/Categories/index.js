@@ -1,5 +1,5 @@
 import '../../App.css'
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link} from "react-router-dom";
 import styled from 'styled-components'
 import imgRestaurants from "../../images/restaurants.jpg"
@@ -10,6 +10,7 @@ import imgLeisure from "../../images/leisure.png"
 import imgHealth from "../../images/health.png"
 import Navbar from "../../components/Navbar"
 import Header from "../../components/Header"
+import {fetchCategory } from "../../FetchAPI";
 
 
 const Label = styled.h3`
@@ -27,52 +28,61 @@ color: #002337;
   `
 
 const Restaurants = styled.div`
-
 background-image: url(${imgRestaurants});
-background-size: cover;
-}
-  `
+background-size: cover;`
+
 const StyledLink = styled(Link)`
 text-decoration: none;
-}
-  `
+`
 
 const Accomodation = styled.div`
 
 background-image: url(${imgAccomodation});
 background-size: cover;
-}
+
   `
 
 const Transports = styled.div`
 
 background-image: url(${imgTransports});
 background-size: cover;
-}
+
   `
 
 const Jobs = styled.div`
 
 background-image: url(${imgJobs});
 background-size: cover;
-}
-  `
+`
 
 const Leisure = styled.div`
 
 background-image: url(${imgLeisure});
 background-size: cover;
-}
-  `
+`
 
 const Health = styled.div`
 
 background-image: url(${imgHealth});
 background-size: cover;
-}
-  `
+`
 
 export default () => {
+    const [posts, setPosts] = useState([]);
+    const [isLoading, setisLoading] = useState(false)
+
+    useEffect(() => {
+        setisLoading(true)
+        fetchCategory()
+            .then(posts => {
+                setPosts(posts);
+                setisLoading(false);
+                console.log(posts);
+            }
+
+             );
+    }, []);
+
     return (
         <div>
             <Header />
@@ -81,9 +91,22 @@ export default () => {
             <div className="mt-4">
             <StyledLink to={"/restaurants"}>
                 <Restaurants>
-                    <Label className="p-4">RESTAURANTS</Label>
+                    <Label className="p-4">{/*{ posts.map(
+                        (Post)=> {
+                            Post.name
+                        }
+
+                    ) }*/}</Label>
                 </Restaurants>
             </StyledLink>
+
+
+
+
+
+
+
+
             <StyledLink to={"/accomodation"}>
                 <Accomodation>
                     <Label className="p-4">ACCOMODATION</Label>
