@@ -17,7 +17,6 @@ border-radius: 2px;
 
 color: #002337;
 font-weight: 500;
-
   `
 
 const Title = styled.h1`
