@@ -108,9 +108,6 @@ overflow: auto;
 white-space: nowrap;
 
 & img {
-height: 60px;
-
-padding: 10px;
 
 }
   `
@@ -175,31 +172,31 @@ export default () => {
             <Subcategories className="d-flex mt-3">
                 <div className="mr-3 text-center">
                 <Sub className="justify-content-center">
-                    <img src={imgAll}  alt="all"/>
+                    <img src={imgAll} style={{height: "58px", paddingTop: "15px"}} alt="all"/>
                 </Sub>
                     <Label>All</Label>
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
-                        <img src={imgNigthlife}  alt="nightlife"/>
+                        <img src={imgNigthlife} style={{height: "59px", paddingTop: "13px"}} alt="nightlife"/>
                     </Sub>
                     <Label>Night Life</Label>
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
-                        <img src={imgCulture}  alt="culture"/>
+                        <img src={imgCulture} style={{height: "57px", paddingTop: "14px"}} alt="culture"/>
                     </Sub>
                     <Label>Culture</Label>
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
-                        <img src={imgSports}  alt="sports"/>
+                        <img src={imgSports} style={{height: "54px", paddingTop: "18px"}} alt="sports"/>
                     </Sub>
                     <Label>Sports</Label>
                 </div>
                 <div className="text-center">
                 <Sub>
-                    <img src={imgSports}  alt="workshops"/>
+                    <img src={imgSports} style={{height: "54px", paddingTop: "18px"}} alt="workshops"/>
                 </Sub>
                 <Label>Workshops</Label>
             </div>

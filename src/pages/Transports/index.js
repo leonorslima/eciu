@@ -176,31 +176,31 @@ export default () => {
             <Subcategories className="d-flex mt-3">
                 <div className="mr-3 text-center">
                     <Sub className="justify-content-center">
-                        <img src={imgAll} alt="all"/>
+                        <img src={imgAll} style={{height: "66px", paddingTop: "20px"}} alt="all"/>
                     </Sub>
                     <Label>All</Label>
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
-                        <img src={imgTaxi} alt="taxi"/>
+                        <img src={imgTaxi} style={{height: "63px", paddingTop: "23px"}} alt="taxi"/>
                     </Sub>
                     <Label>Taxi</Label>
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
-                        <img src={imgTrain} alt="train"/>
+                        <img src={imgTrain} style={{height: "67px", paddingTop: "17px"}} alt="train"/>
                     </Sub>
                     <Label>Train</Label>
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
-                        <img src={imgPlane} alt="plane"/>
+                        <img src={imgPlane} style={{height: "67px", paddingTop: "17px"}} alt="plane"/>
                     </Sub>
                     <Label>Plane</Label>
                 </div>
                 <div className="text-center">
                     <Sub>
-                        <img src={imgPlane} alt="bike"/>
+                        <img src={imgPlane} style={{height: "67px", paddingTop: "17px"}} alt="bike"/>
                     </Sub>
                     <Label>Bike</Label>
                 </div>
@@ -220,7 +220,7 @@ export default () => {
                             </div>
                             <div className="col-7 pl-0 mt-2">
                                 <Text>
-                                    I ride Buga while in Aveiro
+                                    I ride Buga while in Lisbon
                                 </Text>
                                 <Name>
                                     Charlotte de la Croix
