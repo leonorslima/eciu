@@ -89,17 +89,19 @@ export default () => {
             <div className="mt-2 mb-2">
             <Title>CATEGORIES</Title>
             <div className="mt-4">
-            <StyledLink to={"/restaurants"}>
-                <Restaurants>
-                    <Label className="p-4">{/*{ posts.map(
-                        (Post)=> {
-                            Post.name
-                        }
-
-                    ) }*/}</Label>
-                </Restaurants>
-            </StyledLink>
-
+                {posts.map(
+                    (Post)=> {
+                        return(
+                            <StyledLink to={"/restaurants"}>
+                                <Restaurants>
+                                    <Label className="p-4">
+                                        {Post.name}
+                                    </Label>
+                                </Restaurants>
+                            </StyledLink>
+                        )
+                    }
+                ) }
 
 
 

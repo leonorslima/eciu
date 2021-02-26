@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { getAll } = require("../Pedidos/categories");
 
-router.route("/categories")
+router.route("/")
     .get(async (req, res) => {
         const categories = await getAll();
 
