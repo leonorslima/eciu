@@ -5,10 +5,11 @@ const app = express();
 
 
 
-app.use(cors({ origin: 'http://localhost:3001', optionsSuccessStatus: 200 }))
+app.use(cors({ origin: 'http://localhost:3003', optionsSuccessStatus: 200 }))
 app.use(bodyParser.json());
 
 app.use("/categories",
     require("./controllers/categories"),
 );
 app.listen(3002, () => { console.log("Servidor a funcionar!");});
+
