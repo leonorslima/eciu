@@ -20,14 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1b38ebb-c39a-4241-a6e2-bac041dc4679" name="Default Changelist" comment="Edit">
-      <change afterPath="$PROJECT_DIR$/src/images/subcategories/transports_all.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/subcategories/transports_plane.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/subcategories/transports_taxi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/subcategories/transports_train.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Health/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Leisure/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Jobs/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,6 +103,7 @@
       <workItem from="1612953349395" duration="10172000" />
       <workItem from="1613131091776" duration="2212000" />
       <workItem from="1613142375155" duration="3176000" />
+      <workItem from="1614467116678" duration="347000" />
     </task>
     <task id="LOCAL-00001" summary="1st">
       <created>1612356061472</created>
