@@ -94,7 +94,7 @@ export default () => {
                         return(
                             <StyledLink to={"/restaurants"}>
                                 <Restaurants>
-                                    <Label className="p-4">
+                                    <Label className="p-4 text-uppercase">
                                         {Post.name}
                                     </Label>
                                 </Restaurants>
