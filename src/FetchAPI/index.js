@@ -1,7 +1,7 @@
 import React from 'react'
 
 const fetchFromAPI = (resourceType) =>
-    fetch(`http://localhost:3002/${resourceType}`)
+    fetch(`http://localhost:3001/${resourceType}`)
         .then(response => response.json());
 
 
