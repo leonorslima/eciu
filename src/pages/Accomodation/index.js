@@ -114,7 +114,6 @@ overflow: auto;
 white-space: nowrap;
 
 & img {
-height: 60px;
 
 padding: 10px;
 
@@ -179,31 +178,31 @@ export default () => {
             <Subcategories className="d-flex mt-3">
                 <div className="mr-3 text-center">
                     <Sub className="justify-content-center">
-                        <img src={imgAll} alt="todos"/>
+                        <img src={imgAll} style={{height: "60px", paddingTop: "20px"}} alt="todos"/>
                     </Sub>
                     <Label>All</Label>
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
-                        <img src={imgHotels} alt="hotels"/>
+                        <img src={imgHotels} style={{height: "68px", paddingTop: "15px"}} alt="hotels"/>
                     </Sub>
                     <Label>Hotels</Label>
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
-                        <img src={imgRooms}  alt="rooms"/>
+                        <img src={imgRooms} style={{height: "65px", paddingTop: "21px"}} alt="rooms"/>
                     </Sub>
                     <Label>Rooms</Label>
                 </div>
                 <div className="mr-3 text-center">
                     <Sub>
-                        <img src={imgApartments}  alt="apartments"/>
+                        <img src={imgApartments} style={{height: "67px", paddingTop: "15px"}} alt="apartments"/>
                     </Sub>
                     <Label>Apartments</Label>
                 </div>
                 <div className="text-center">
                     <Sub>
-                        <img src={imgApartments}  alt="apartments"/>
+                        <img src={imgApartments} style={{height: "67px", paddingTop: "15px"}} alt="apartments"/>
                     </Sub>
                     <Label>Apartments</Label>
                 </div>
