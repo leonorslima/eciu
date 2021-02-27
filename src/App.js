@@ -23,7 +23,7 @@ import SignIn from "./pages/SignIn";
 import CreatePost from "./pages/CreatePost/index";
 import SearchResults from "./pages/SearchResults/index";
 import Home from "./pages/Home/index";
-
+import PrivateChat from "./pages/PrivateChat/Index";
 
 function App() {
 
@@ -68,6 +68,7 @@ function App() {
                 <Route exact path={"/createpost"} component={CreatePost}/>
                 <Route exact path={"/searchresults"} component={SearchResults}/>
                 <Route exact path={"/home"} component={Home}/>
+                <Route exact path={"/privatechat"} component={PrivateChat}/>
             </Switch>
         </Router>
     </div>
