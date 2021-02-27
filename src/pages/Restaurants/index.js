@@ -1,155 +1,126 @@
-import '../../App.css'
+import '../../App.css';
 import React from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import styled from 'styled-components'
 import {Link} from "react-router-dom";
 import {FaEdit, FaSearch, FaChevronDown} from "react-icons/fa";
-import imgUser from "../../images/user.png"
-import imgVegan from "../../images/subcategories/restaurants_vegan.png"
-import imgAll from "../../images/subcategories/restaurants_all.png"
-import imgFastFood from "../../images/subcategories/restaurants_fastfood.png"
-import imgChinese from "../../images/subcategories/restaurants_chinese.png"
+import imgUser from "../../images/user.png";
+import imgVegan from "../../images/subcategories/restaurants_vegan.png";
+import imgAll from "../../images/subcategories/restaurants_all.png";
+import imgFastFood from "../../images/subcategories/restaurants_fastfood.png";
+import imgChinese from "../../images/subcategories/restaurants_chinese.png";
 import {AiOutlineLike} from "react-icons/ai";
-import Navbar from "../../components/Navbar"
-import HeaderBack from "../../components/HeaderBack"
-
+import Navbar from "../../components/Navbar";
+import HeaderBack from "../../components/HeaderBack";
 
 const Title = styled.h4`
-font-size: 28px;
-font-weight: 800;
-
-color: #002337;
-  `
+  font-size: 28px;
+  font-weight: 800;
+  color: #002337;`
 
 const BtnFollow = styled(Link)`
-color: #F7A70A;
-border: solid 1px #F7A70A;
-border-radius: 2px;
-
-text-align: center;
-
-height: 30px;
-width: 80px;
-  `
+  color: #F7A70A;
+  border: solid 1px #F7A70A;
+  border-radius: 2px;
+  text-align: center;
+  height: 30px;
+  width: 80px;`
 
 const BtnCreate = styled(Link)`
-background-color: #002337;
-color: white;
-border-radius: 2px;
-
-font-weight: 700;
-font-size: 18px;
-text-align: center;
-line-height: 50px;
-
-height: 50px;
-
-  `
+  background-color: #002337;
+  color: white;
+  border-radius: 2px;
+  font-weight: 700;
+  font-size: 18px;
+  text-align: center;
+  line-height: 50px;
+  height: 50px;
+`
 const BtnSearch = styled(Link)`
-background-color: #002337;
-color: white;
-border-radius: 2px;
-
-text-align: center;
-line-height: 50px;
-
-height: 50px;
-  `
+  background-color: #002337;
+  color: white;
+  border-radius: 2px;
+  text-align: center;
+  line-height: 50px;
+  height: 50px;`
 
 const Tips = styled.div`
   `
+
 const TopTips = styled.div`
-background-color: #F7A70A;
-padding-bottom: 5px;
+  background-color: #F7A70A;
+  padding-bottom: 5px;`
 
-  `
 const TopTip = styled.div`
-background-color: white;
-
-& img {
-height: 57px;
-}
-
-margin: 0 20px 0;
-padding: 10px;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  `
+  background-color: white;
+  margin: 0 20px 0;
+  padding: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    & img {
+    height: 57px;
+    }`
 
 const Tip = styled.div`
-background-color: white;
+  background-color: white;
+  margin: 0 0.2rem 0 0.2rem;
+  padding: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    & img {
+    height: 57px;
+    }`
 
-& img {
-height: 57px;
-}
-
-margin: 0 0.2rem 0 0.2rem;
-padding: 10px;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  `
 const Text = styled.p`
-font-weight: 700;
-margin-bottom: 0;
-font-size: 16px;
-overflow: hidden;
-white-space: nowrap;
-text-overflow: ellipsis;
-  `
+  font-weight: 700;
+  margin-bottom: 0;
+  font-size: 16px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;`
 
 const Name = styled.p`
-font-weight: 400;
-margin-bottom: 0;
-  `
+  font-weight: 400;
+  margin-bottom: 0;`
+
 const TitleTopTips = styled.h5`
-font-weight: 700;
-  `
+  font-weight: 700;`
 
 const Subcategories = styled.div`
-overflow: auto;
-white-space: nowrap;
+  overflow: auto;
+  white-space: nowrap;
 
-& img {
-height: 60px;
-
-padding: 10px;
-
-}
-  `
+    & img {
+      height: 60px;
+      padding: 10px;
+    }`
 
 const Sub = styled.div`
-text-align: center;
-justify-content: center;
-border-radius: 50%;
-height: 70px;
-width: 70px;
-// border: 3px solid #F7A70A;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-  `
+  text-align: center;
+  justify-content: center;
+  border-radius: 50%;
+  height: 70px;
+  width: 70px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);`
 
 const InfoAdd = styled.div`
 `
 
 const Label = styled.p`
-font-size: 16px;
-font-weight: 700;
-text-align: center;
-  `
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;`
 
 const Likes = styled.p`
-    display: inline-flex;
-    font-size: 14px;
-    color: #8B8A8A;
-`
+  display: inline-flex;
+  font-size: 14px;
+  color: #8B8A8A;`
 
 const BotaoLike = styled.div`
-width: 1.5rem;
-  height: 1.5rem;
-`
+  width: 1.5rem;
+  height: 1.5rem;`
 
 const Date = styled.p`
   font-size: 14px;
-  color: #8B8A8A;
-`
+  color: #8B8A8A;`
 
 
 export default () => {
@@ -160,7 +131,7 @@ export default () => {
                 <Title className="mt-2 mb-2 mr-5">
                     RESTAURANTS
                 </Title>
-                <BtnFollow className="align-self-center">Follow</BtnFollow>
+                <BtnFollow className="align-self-center text-decoration-none">Follow</BtnFollow>
             </div>
 
             <div className="d-flex text-center mt-4">
@@ -481,11 +452,8 @@ export default () => {
                         </Accordion.Collapse>
                     </Tip>
                 </Accordion>
-
             </Tips>
             <Navbar/>
         </div>
-
     )
-
 }
