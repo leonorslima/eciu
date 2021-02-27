@@ -237,7 +237,7 @@ export default () => {
                 <InputArea>
                     texto para as mensagens
                    <BtnSubmit className="col-2" to ={""}>
-                       <SendIcon/>
+                       <SendIcon />
                    </BtnSubmit>
                 </InputArea>
             </Badge>
