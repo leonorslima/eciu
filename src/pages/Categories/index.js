@@ -2,12 +2,12 @@ import '../../App.css'
 import React, {useState, useEffect} from 'react';
 import {Link} from "react-router-dom";
 import styled from 'styled-components'
-import imgRestaurants from "../../images/restaurants.jpg"
-import imgAccomodation from "../../images/accomodation.png"
-import imgTransports from "../../images/transports.png"
-import imgJobs from "../../images/jobs.png"
-import imgLeisure from "../../images/leisure.png"
-import imgHealth from "../../images/health.png"
+import one from "../../images/1.png"
+import imgAccomodation from "../../images/2.png"
+import imgTransports from "../../images/3.png"
+import imgJobs from "../../images/4.png"
+import imgLeisure from "../../images/5.png"
+import imgHealth from "../../images/6.png"
 import Navbar from "../../components/Navbar"
 import Header from "../../components/Header"
 import {fetchCategory } from "../../FetchAPI";
@@ -28,7 +28,6 @@ color: #002337;
   `
 
 const Restaurants = styled.div`
-background-image: url(${imgRestaurants});
 background-size: cover;`
 
 const StyledLink = styled(Link)`
@@ -92,48 +91,19 @@ export default () => {
                 {posts.map(
                     (Post)=> {
                         return(
-                            <StyledLink to={"/restaurants"}>
-                                <Restaurants>
+                            <StyledLink to={"/" + Post.name}>
+                                <div  style={{backgroundImage: "url(" + Post.imgFundo + ")", backgroundSize: 'cover'}}>
                                     <Label className="p-4 text-uppercase">
                                         {Post.name}
+                                        {console.log(Post.imgFundo)}
+                                        {console.log(Post.name)}
                                     </Label>
-                                </Restaurants>
+                                </div>
                             </StyledLink>
                         )
                     }
-                ) }
-
-
-
-
-
-
-
-            <StyledLink to={"/accomodation"}>
-                <Accomodation>
-                    <Label className="p-4">ACCOMODATION</Label>
-                </Accomodation>
-            </StyledLink>
-            <StyledLink to={"/transports"}>
-                <Transports>
-                    <Label className="p-4">TRANSPORTS</Label>
-                </Transports>
-            </StyledLink>
-            <StyledLink to={"/"}>
-                <Jobs>
-                    <Label className="p-4">JOBS</Label>
-                </Jobs>
-            </StyledLink>
-            <StyledLink to={"/leisure"}>
-                <Leisure>
-                    <Label className="p-4">LEISURE</Label>
-                </Leisure>
-            </StyledLink>
-            <StyledLink to={"/health"}>
-                <Health>
-                    <Label className="p-4">HEALTH</Label>
-                </Health>
-            </StyledLink>
+                )
+                }
             </div>
 
 <Navbar />
