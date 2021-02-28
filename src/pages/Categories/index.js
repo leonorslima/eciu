@@ -16,16 +16,12 @@ import {fetchCategory } from "../../FetchAPI";
 const Label = styled.h3`
 color: white;
 font-weight: bold;
-text-align: center;
-
-  `
+text-align: center;`
 
 const Title = styled.h4`
-
-font-size: 28px;
+  font-size: 28px;
 font-weight: 800;
-color: #002337;
-  `
+color: #002337;`
 
 const Restaurants = styled.div`
 background-size: cover;`
@@ -76,9 +72,7 @@ export default () => {
             .then(posts => {
                 setPosts(posts);
                 setisLoading(false);
-                console.log(posts);
             }
-
              );
     }, []);
 
@@ -95,8 +89,6 @@ export default () => {
                                 <div  style={{backgroundImage: "url(" + Post.imgFundo + ")", backgroundSize: 'cover'}}>
                                     <Label className="p-4 text-uppercase">
                                         {Post.name}
-                                        {console.log(Post.imgFundo)}
-                                        {console.log(Post.name)}
                                     </Label>
                                 </div>
                             </StyledLink>
@@ -106,8 +98,7 @@ export default () => {
                 }
             </div>
 
-<Navbar />
+    <Navbar />
         </div></div>
     )
-
 }
