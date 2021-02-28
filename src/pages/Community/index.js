@@ -4,7 +4,6 @@ import imgUser from "../../images/user.png"
 import Navbar from "../../components/Navbar"
 import Header from "../../components/Header"
 
-
 const Title = styled.h4`
 
 font-size: 28px;
@@ -39,7 +38,6 @@ export default () => {
         <div className="mt-2 mb-2">
             <Title>COMMUNITY</Title>
             <Description>Here you can find a list of buddies that are available to help you!</Description>
-
             <div className="container mt-4">
 
                 <div className="row text-center">
