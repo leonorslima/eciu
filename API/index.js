@@ -12,5 +12,10 @@ app.use("/categories",
     require("./controllers/categories"),
     require("./controllers/posts")
 );
+
+app.use("/users",
+require("./controllers/users")
+    )
+
 app.listen(3001, () => { console.log("Servidor a funcionar!");});
 

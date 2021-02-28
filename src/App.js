@@ -25,7 +25,7 @@ import CreatePost from "./pages/CreatePost/index";
 import SearchResults from "./pages/SearchResults/index";
 import Home from "./pages/Home/index";
 import PrivateChat from "./pages/PrivateChat/Index";
-
+import Jobs from './pages/Jobs/index'
 function App() {
 
     /*useEffect(() => {
@@ -70,6 +70,7 @@ function App() {
                 <Route exact path={"/createpost"} component={CreatePost}/>
                 <Route exact path={"/searchresults"} component={SearchResults}/>
                 <Route exact path={"/home"} component={Home}/>
+                <Route exact path={"/jobs"} component={Jobs} />
                 <Route exact path={"/privatechat"} component={PrivateChat}/>
             </Switch>
         </Router>

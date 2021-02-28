@@ -16,3 +16,5 @@ export const fetchPostsCategory = (id) =>
         .then(response => response.json())*/
 
 export const fetchICategory = (id) => fetchFromAPI('categories');
+
+export const fetchPostUser = () => fetchFromAPI('users');
