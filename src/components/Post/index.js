@@ -12,13 +12,13 @@ import imgChinese from "../../images/subcategories/restaurants_chinese.png";
 import {AiOutlineLike} from "react-icons/ai";
 import Navbar from "../../components/Navbar";
 import HeaderBack from "../../components/HeaderBack";
-import { fetchPostsCategory} from "../../FetchAPI";
+import {fetchPostsCategory} from "../../FetchAPI";
+import {useParams} from "react-router-dom";
 
 const Title = styled.h4`
   font-size: 28px;
   font-weight: 800;
   color: #002337;`
-
 const BtnFollow = styled(Link)`
   color: #F7A70A;
   border: solid 1px #F7A70A;
@@ -26,7 +26,6 @@ const BtnFollow = styled(Link)`
   text-align: center;
   height: 30px;
   width: 80px;`
-
 const BtnCreate = styled(Link)`
   background-color: #002337;
   color: white;
@@ -44,14 +43,11 @@ const BtnSearch = styled(Link)`
   text-align: center;
   line-height: 50px;
   height: 50px;`
-
 const Tips = styled.div`
   `
-
 const TopTips = styled.div`
   background-color: #F7A70A;
   padding-bottom: 5px;`
-
 const TopTip = styled.div`
   background-color: white;
   margin: 0 20px 0;
@@ -60,7 +56,6 @@ const TopTip = styled.div`
     & img {
     height: 57px;
     }`
-
 const Tip = styled.div`
   background-color: white;
   margin: 0 0.2rem 0 0.2rem;
@@ -69,7 +64,6 @@ const Tip = styled.div`
     & img {
     height: 57px;
     }`
-
 const Text = styled.p`
   font-weight: 700;
   margin-bottom: 0;
@@ -77,14 +71,11 @@ const Text = styled.p`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;`
-
 const Name = styled.p`
   font-weight: 400;
   margin-bottom: 0;`
-
 const TitleTopTips = styled.h5`
   font-weight: 700;`
-
 const Subcategories = styled.div`
   overflow: auto;
   white-space: nowrap;
@@ -93,7 +84,6 @@ const Subcategories = styled.div`
       height: 60px;
       padding: 10px;
     }`
-
 const Sub = styled.div`
   text-align: center;
   justify-content: center;
@@ -101,37 +91,33 @@ const Sub = styled.div`
   height: 70px;
   width: 70px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);`
-
 const InfoAdd = styled.div`
 `
-
 const Label = styled.p`
   font-size: 16px;
   font-weight: 700;
   text-align: center;`
-
 const Likes = styled.p`
   display: inline-flex;
   font-size: 14px;
   color: #8B8A8A;`
-
 const BotaoLike = styled.div`
   width: 1.5rem;
   height: 1.5rem;`
-
 const Date = styled.p`
   font-size: 14px;
   color: #8B8A8A;`
-
 
 export default () => {
 
     const [posts, setPosts] = useState([]);
     const [isLoading, setisLoading] = useState(false)
 
+    const {id} = useParams();
+
     useEffect(() => {
         setisLoading(true)
-        fetchPostsCategory()
+        fetchPostsCategory(id)
             .then(posts => {
                     setPosts(posts);
                     setisLoading(false);
@@ -212,7 +198,7 @@ export default () => {
                                     Best restaurant in Aveiro
                                 </Text>
                                 <Name>
-                                  okaaaa
+                                    okaaaa
                                 </Name>
                             </div>
 

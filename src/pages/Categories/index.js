@@ -91,7 +91,7 @@ export default () => {
                 {posts.map(
                     (Post)=> {
                         return(
-                            <StyledLink to={"/" + Post.name}>
+                            <StyledLink to={"/categories/" + Post.id}>
                                 <div  style={{backgroundImage: "url(" + Post.imgFundo + ")", backgroundSize: 'cover'}}>
                                     <Label className="p-4 text-uppercase">
                                         {Post.name}

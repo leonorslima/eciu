@@ -10,6 +10,7 @@ app.use(bodyParser.json());
 
 app.use("/categories",
     require("./controllers/categories"),
+    require("./controllers/posts")
 );
 app.listen(3001, () => { console.log("Servidor a funcionar!");});
 

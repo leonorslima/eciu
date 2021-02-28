@@ -6,6 +6,7 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 import Navbar from "./components/Navbar/index";
 import Header from "./components/Header/index";
+import Post from "./components/Post/index";
 import Feed from "./pages/Feed/index";
 import Categories from "./pages/Categories/index";
 import Community from "./pages/Community/index";
@@ -53,6 +54,7 @@ function App() {
                 <Route exact path={"/"} component={Feed}/>
                 <Route exact path={"/feed"} component={Feed} />
                 <Route exact path={"/categories"} component={Categories} />
+                <Route exact path={"/categories/:id"} component={Post} />
                 <Route exact path={"/community"} component={Community} />
                 <Route exact path={"/chat"} component={Chat}/>
                 <Route exact path={"/myprofile"} component={MyProfile}/>
