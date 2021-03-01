@@ -22,6 +22,15 @@ const BtnFollow = styled(Link)`
   text-align: center;
   height: 30px;
   width: 80px;`
+
+const BtnLike = styled(Link)`
+  border-radius: 2px;
+  text-align: center;
+  height: 30px;
+  background-color: #002337;
+  color: white;
+  `
+
 const BtnCreate = styled(Link)`
   background-color: #002337;
   color: white;
@@ -97,9 +106,11 @@ const Likes = styled.p`
   display: inline-flex;
   font-size: 14px;
   color: #8B8A8A;`
-const BotaoLike = styled.div`
+
+/*const BotaoLike = styled.div`
   width: 1.5rem;
-  height: 1.5rem;`
+  height: 1.5rem;`*/
+
 const Date = styled.p`
   font-size: 14px;
   color: #8B8A8A;`
@@ -210,8 +221,16 @@ export default () => {
                                                                 <Accordion className="align-self-center col-12 pl-0 pr-0">
                                                                     <TopTip className="d-flex row mb-3">
                                                                         <div className="col-3 pl-0 mt-2">
-                                                                            <img className="rounded-circle" src={imgUser}
-                                                                                 alt="profile"/>
+                                                                            {userPoster.map(
+                                                                                (Poster) => {
+                                                                                    if (Poster.idu === Post.userid) {
+                                                                                        return (
+                                                                                            <img className="rounded-circle" src={Poster.profilepic}
+                                                                                                 alt="profile"/>
+                                                                                        )
+                                                                                    }
+                                                                                })}
+
                                                                         </div>
                                                                         <div className="col-7 pl-0 mt-2">
                                                                             <Text>
@@ -242,14 +261,13 @@ export default () => {
                                                                                     <Date className="col-8 pl-0 ml-0 mb-0">
                                                                                         {datapost.toLocaleDateString("en-GB")}
                                                                                     </Date>
+                                                                                    <BtnLike>
                                                                                     <Likes className="ml-4 col-md-4 mb-0">
                                                                                         <p>{Post.likes.length}</p>
-                                                                                        <BotaoLike>
                                                                                             <AiOutlineLike
                                                                                                 className={"w-100"}/>
-                                                                                        </BotaoLike>
 
-                                                                                    </Likes>
+                                                                                    </Likes></BtnLike>
                                                                                 </InfoAdd>
                                                                             </div>
                                                                         </Accordion.Collapse>
@@ -274,8 +292,15 @@ export default () => {
                                                                 <Accordion className="align-self-center col-12 pl-0 pr-0">
                                                                     <TopTip className="d-flex row mb-3">
                                                                         <div className="col-3 pl-0 mt-2">
-                                                                            <img className="rounded-circle" src={imgUser}
-                                                                                 alt="profile"/>
+                                                                            {userPoster.map(
+                                                                                (Poster) => {
+                                                                                    if (Poster.idu === Post.userid) {
+                                                                                        return (
+                                                                                            <img className="rounded-circle" src={Poster.profilepic}
+                                                                                                 alt="profile"/>
+                                                                                        )
+                                                                                    }
+                                                                                })}
                                                                         </div>
                                                                         <div className="col-7 pl-0 mt-2">
                                                                             <Text>
@@ -308,10 +333,10 @@ export default () => {
                                                                                     </Date>
                                                                                     <Likes className="ml-4 col-md-4 mb-0">
                                                                                         <p>{Post.likes.length}</p>
-                                                                                        <BotaoLike>
+                                                                                        {/*<BotaoLike>*/}
                                                                                             <AiOutlineLike
                                                                                                 className={"w-100"}/>
-                                                                                        </BotaoLike>
+                                                                                        {/*</BotaoLike>*/}
 
                                                                                     </Likes>
                                                                                 </InfoAdd>
@@ -360,9 +385,9 @@ export default () => {
                                             </Date>
                                             <Likes className="ml-4 col-md-4 mb-0">
                                                 <p>2376</p>
-                                                <BotaoLike>
+                                                {/*<BotaoLike>*/}
                                                     <AiOutlineLike className={"w-100"}/>
-                                                </BotaoLike>
+                                                {/*</BotaoLike>*/}
 
                                             </Likes>
                                         </InfoAdd>
