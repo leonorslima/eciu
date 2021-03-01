@@ -1,11 +1,7 @@
 import './App.css'
-import React, {useEffect} from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
-
-
-import Navbar from "./components/Navbar/index";
-import Header from "./components/Header/index";
 import Post from "./components/Post/index";
 import Feed from "./pages/Feed/index";
 import Categories from "./pages/Categories/index";
