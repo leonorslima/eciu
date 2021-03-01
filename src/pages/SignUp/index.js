@@ -11,6 +11,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import FirebaseConfig from "../../scripts/FirebaseConfig";
 import {Link} from "react-router-dom";
+import Header from "../../components/Header"
 
 
 const Uni = styled.p`
@@ -234,7 +235,8 @@ export default function HorizontalLabelPositionBelowStepper() {
 
     return (
         <div className="col-12">
-        <div className={classes.root}>
+            <Header />
+            <div className={classes.root}>
 
             <div>
                 {activeStep === steps.length ? (

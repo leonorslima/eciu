@@ -2,6 +2,7 @@ import React from 'react';
 import Form from "react-bootstrap/Form";
 import styled from "styled-components";
 import {Link} from "react-router-dom";
+import Header from "../../components/Header"
 
 const ButtonConfirm = styled(Link)`
 background-color: #002337;
@@ -30,6 +31,7 @@ color: #002337;
 export default () => {
     return (
         <div>
+            <Header />
             <Title className="mt-2">CREATE POST</Title>
             <Form.Control as="select" className="my-1 mr-sm-2" id="inlineFormCustomSelectPref" custom>
                 <option value="0">Choose the category</option>
