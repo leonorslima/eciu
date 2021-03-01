@@ -14,7 +14,7 @@ import Navbar from "../../components/Navbar";
 import HeaderBack from "../../components/HeaderBack";
 import {fetchICategory, fetchPostsCategory, fetchPostUser} from "../../FetchAPI";
 import {useParams} from "react-router-dom";
-import { LoopCircleLoading } from 'react-loadingg';
+import {LoopCircleLoading} from 'react-loadingg';
 
 
 const Title = styled.h4`
@@ -123,106 +123,127 @@ export default () => {
     useEffect(() => {
         setisLoading(true)
         fetchICategory(id)
-            .then(nome => {setNome(nome);})
+            .then(nome => {
+                setNome(nome);
+            })
 
         fetchPostsCategory(id)
-            .then(posts => {setPosts(posts); setisLoading(false)});
+            .then(posts => {
+                setPosts(posts);
+                setisLoading(false)
+            });
 
         fetchPostUser()
-            .then(userPoster =>{setUserPoster(userPoster);})
+            .then(userPoster => {
+                setUserPoster(userPoster);
+            })
     }, []);
 
     return (
         <div>
+
+                        <HeaderBack/>
+                {nome.map(
+                    (Nome) => {
+                        if (Nome.id === id) {
+                            return (
+                                <div className="d-flex">
+                                    <Title className="mt-2 mb-2 mr-5 text-uppercase">
+                                        {Nome.name}
+                                    </Title>
+                                    <BtnFollow className="align-self-center text-decoration-none"
+                                               style={{color: Nome.color, borderColor: Nome.color,}}>Follow</BtnFollow>
+                                </div>
+                            )
+                        }
+                    })}
+
+
+                <div className="d-flex text-center mt-4">
+                    <BtnCreate className="col-9 mr-4" to={"/createpost/" + id}>
+                        <FaEdit className="mr-2"/> Create Post
+                    </BtnCreate>
+                    <BtnSearch className="col-2" to={"/searchresults"}>
+                        <FaSearch/>
+                    </BtnSearch>
+                </div>
+
             {!isLoading ? (
                 <div>
-            <HeaderBack/>
-                    {nome.map(
-                        (Nome)=> {
-                            if (Nome.id === id){
-                               return(
-                                   <div className="d-flex">
-                                       <Title className="mt-2 mb-2 mr-5 text-uppercase">
-                                        {Nome.name}
-                                       </Title>
-                                       <BtnFollow className="align-self-center text-decoration-none" style={{color: Nome.color, borderColor: Nome.color, }}>Follow</BtnFollow>
-                                   </div>
-                               )}})}
-
-
-            <div className="d-flex text-center mt-4">
-                <BtnCreate className="col-9 mr-4" to={"/createpost/"+ id}>
-                    <FaEdit className="mr-2"/> Create Post
-                </BtnCreate>
-                <BtnSearch className="col-2" to={"/searchresults"}>
-                    <FaSearch/>
-                </BtnSearch>
-            </div>
 
             <Subcategories className="d-flex mt-3">
-                <div className="mr-3 text-center">
-                    <Sub className="justify-content-center">
-                        <img src={imgAll} alt="all"/>
-                    </Sub>
-                    <Label>All</Label>
-                </div>
-                <div className="mr-3 text-center">
-                    <Sub>
-                        <img src={imgVegan} alt="vegan"/>
-                    </Sub>
-                    <Label>Vegan</Label>
-                </div>
-                <div className="mr-3 text-center">
-                    <Sub>
-                        <img src={imgFastFood} alt="fastfood"/>
-                    </Sub>
-                    <Label>Fast-Food</Label>
-                </div>
-                <div className="mr-3 text-center">
-                    <Sub>
-                        <img src={imgChinese} alt="chinese"/>
-                    </Sub>
-                    <Label>Chinese</Label>
-                </div>
-                <div className="text-center">
-                    <Sub>
-                        <img src={imgChinese} alt="japanese"/>
-                    </Sub>
-                    <Label>Japanese</Label>
-                </div>
-            </Subcategories>
+                    <div className="mr-3 text-center">
+                        <Sub className="justify-content-center">
+                            <img src={imgAll} alt="all"/>
+                        </Sub>
+                        <Label>All</Label>
+                    </div>
+                    <div className="mr-3 text-center">
+                        <Sub>
+                            <img src={imgVegan} alt="vegan"/>
+                        </Sub>
+                        <Label>Vegan</Label>
+                    </div>
+                    <div className="mr-3 text-center">
+                        <Sub>
+                            <img src={imgFastFood} alt="fastfood"/>
+                        </Sub>
+                        <Label>Fast-Food</Label>
+                    </div>
+                    <div className="mr-3 text-center">
+                        <Sub>
+                            <img src={imgChinese} alt="chinese"/>
+                        </Sub>
+                        <Label>Chinese</Label>
+                    </div>
+                    <div className="text-center">
+                        <Sub>
+                            <img src={imgChinese} alt="japanese"/>
+                        </Sub>
+                        <Label>Japanese</Label>
+                    </div>
+                </Subcategories>
 
-            <Tips>
-                {nome.map(
-                    (Nome)=> {
-                        if (Nome.id === id){
-                            return(
-                                <TopTips className="mb-3"  style={{backgroundColor: Nome.color}}>
-                                    <TitleTopTips className="mt-0 pt-2 pl-3">TOP-TIPS</TitleTopTips>
+
+
+                    <Tips>
+
+                                {nome.map(
+                        (Nome) => {
+                            if (Nome.id === id) {
+                                return (
+                                    <TopTips className="mb-3" style={{backgroundColor: Nome.color}}>
+                                        <TitleTopTips className="mt-0 pt-2 pl-3">TOP-TIPS</TitleTopTips>
                                         {posts.map(
-                                            (Post)=> {
-                                                if (Post.categoryid === id){
+                                            (Post) => {
+                                                if (Post.categoryid === id) {
                                                     const unixTime = Post.date._seconds;
-                                                    var datapost = new window.Date(unixTime*1000);
-                                                    return(
+                                                    var datapost = new window.Date(unixTime * 1000);
+                                                    return (
                                                         <Accordion className="align-self-center col-12 pl-0 pr-0">
                                                             <TopTip className="d-flex row mb-3">
                                                                 <div className="col-3 pl-0 mt-2">
-                                                                    <img className="rounded-circle" src={imgUser} alt="profile"/>
+                                                                    <img className="rounded-circle" src={imgUser}
+                                                                         alt="profile"/>
                                                                 </div>
                                                                 <div className="col-7 pl-0 mt-2">
                                                                     <Text>
                                                                         {Post.title}
                                                                     </Text>
                                                                     {userPoster.map(
-                                                                        (Poster)=> {
-                                                                            if (Poster.idu === Post.userid){
-                                                                                return(
+                                                                        (Poster) => {
+                                                                            if (Poster.idu === Post.userid) {
+                                                                                return (
                                                                                     <Name>{Poster.name}</Name>
-                                                                                )}})}
+                                                                                )
+                                                                            }
+                                                                        })}
                                                                 </div>
 
-                                                                <Accordion.Toggle eventKey="0" style={{border: "transparent", backgroundColor: "white"}}
+                                                                <Accordion.Toggle eventKey="0" style={{
+                                                                    border: "transparent",
+                                                                    backgroundColor: "white"
+                                                                }}
                                                                                   className="col-2">
                                                                     <FaChevronDown/>
                                                                 </Accordion.Toggle>
@@ -248,55 +269,56 @@ export default () => {
                                                         </Accordion>
                                                     )
                                                 }
-                                                })}
+                                            })}
                                     </TopTips>
-                                )}})}
+                                )
+                            }
+                        })}
 
-                <Accordion className="align-self-center col-12 pl-0 pr-0">
+                    <Accordion className="align-self-center col-12 pl-0 pr-0">
 
-                    <Tip className="d-flex row mb-3">
-                        <div className="col-3 pl-0 mt-2">
-                            <img className="rounded-circle" src={imgUser} alt="profile"/>
-                        </div>
-                        <div className="col-7 pl-0 mt-2">
-                            <Text>
-                                Best restaurant in Aveiro
-                            </Text>
-                            <Name>
-                                Anne-Marie
-                            </Name>
-                        </div>
-
-                        <Accordion.Toggle eventKey="0" style={{border: "transparent", backgroundColor: "white"}}
-                                          className="col-2">
-                            <FaChevronDown/>
-                        </Accordion.Toggle>
-
-                        <Accordion.Collapse eventKey="0">
-                            <div>
-                                <h6 className="mt-3">This was the best restaurant I've been, it was a wonderful
-                                    experience, the food is wonderful, the saft is very friendly and very
-                                    attentive. </h6>
-                                <InfoAdd className="d-flex">
-                                    <Date className="col-8 pl-0 ml-0 mb-0">
-                                        04-01-2020 at 23:12
-                                    </Date>
-                                    <Likes className="ml-4 col-md-4 mb-0">
-                                        <p>2376</p>
-                                        <BotaoLike>
-                                            <AiOutlineLike className={"w-100"}/>
-                                        </BotaoLike>
-
-                                    </Likes>
-                                </InfoAdd>
+                        <Tip className="d-flex row mb-3">
+                            <div className="col-3 pl-0 mt-2">
+                                <img className="rounded-circle" src={imgUser} alt="profile"/>
                             </div>
-                        </Accordion.Collapse>
-                    </Tip>
-                </Accordion>
-            </Tips>
-            <Navbar/>
-        </div>
-            ) : <Loading className="mt-5"> <LoopCircleLoading /> </Loading>}
-        </div>
+                            <div className="col-7 pl-0 mt-2">
+                                <Text>
+                                    Best restaurant in Aveiro
+                                </Text>
+                                <Name>
+                                    Anne-Marie
+                                </Name>
+                            </div>
+
+                            <Accordion.Toggle eventKey="0" style={{border: "transparent", backgroundColor: "white"}}
+                                              className="col-2">
+                                <FaChevronDown/>
+                            </Accordion.Toggle>
+
+                            <Accordion.Collapse eventKey="0">
+                                <div>
+                                    <h6 className="mt-3">This was the best restaurant I've been, it was a wonderful
+                                        experience, the food is wonderful, the saft is very friendly and very
+                                        attentive. </h6>
+                                    <InfoAdd className="d-flex">
+                                        <Date className="col-8 pl-0 ml-0 mb-0">
+                                            04-01-2020 at 23:12
+                                        </Date>
+                                        <Likes className="ml-4 col-md-4 mb-0">
+                                            <p>2376</p>
+                                            <BotaoLike>
+                                                <AiOutlineLike className={"w-100"}/>
+                                            </BotaoLike>
+
+                                        </Likes>
+                                    </InfoAdd>
+                                </div>
+                            </Accordion.Collapse>
+                        </Tip>
+                    </Accordion>
+                </Tips>
+                <Navbar/>
+            </div>
+            ) : <Loading className="mt-5"> <LoopCircleLoading/> </Loading>}</div>
     )
 }
