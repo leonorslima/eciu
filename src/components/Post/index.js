@@ -213,8 +213,10 @@ export default () => {
                                             <TopTips className="mb-3" style={{backgroundColor: Nome.color}}>
                                                 <TitleTopTips className="mt-0 pt-2 pl-3">TOP-TIPS</TitleTopTips>
                                                 {posts.map(
+
                                                     (Post) => {
                                                         if (Post.categoryid === id) {
+
                                                             const unixTime = Post.date._seconds;
                                                             var datapost = new window.Date(unixTime * 1000);
                                                             return (

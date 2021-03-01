@@ -1,4 +1,4 @@
-const usersSchema = require('usersSchema');
+const usersSchema = require('./usersSchema');
 const express = require("express");
 const router = express.Router();
 const { getAll, create } = require("../Pedidos/users");
