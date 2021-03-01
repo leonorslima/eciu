@@ -26,5 +26,15 @@ module.exports = {
         const query = await coll.get();
 
         return query.docs.map(doc => ({ ...doc.data(), id: doc.id }))
+    },
+    create: async (body) => {
+        if (!body) {
+            throw new Error("A body must be provided");
+        }
+
+        const coll = getCollection(COLLECTION_NAME);
+        const docRef = await coll.add(body);
+
+        return { id: docRef.id, ...body };
     }
 }

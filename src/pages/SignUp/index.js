@@ -55,7 +55,7 @@ export default function HorizontalLabelPositionBelowStepper() {
             FirebaseConfig
                 .auth()
                 .createUserWithEmailAndPassword(email, password)
-                .then(({ user }) => console.log(user.uid))
+                .then(({user}) => console.log(user.uid))
                 .catch((err) => {
                     switch (err.code){
                         case "auth/email-already-in-use":
@@ -140,6 +140,7 @@ export default function HorizontalLabelPositionBelowStepper() {
                         <Form.Control type="text"
                                       placeholder="Name"
                                       value={name}
+                                      name="name"
                                       onChange={(e)=> setName(e.target.value)}
                         />
                     </Form.Group>
@@ -148,6 +149,7 @@ export default function HorizontalLabelPositionBelowStepper() {
                         <Form.Control type="email"
                                       placeholder="E-mail"
                                       value={email}
+                                      name="email"
                                       onChange={(e)=> setEmail(e.target.value)}/>
                         <p className="errorMsg">{emailError}</p>
                     </Form.Group>
@@ -155,6 +157,7 @@ export default function HorizontalLabelPositionBelowStepper() {
                     <Form.Group controlId="formBasicPassword">
                         <Form.Control type="password"
                                       value={password}
+                                      name="password"
                                       onChange={(e) => setPassword(e.target.value)}
                                       placeholder="Create Password" />
                         <p className="errorMsg">{passwordError}</p>
@@ -164,6 +167,7 @@ export default function HorizontalLabelPositionBelowStepper() {
                     <Form.Group controlId="formBasicPassword">
                         <Form.Control type="password"
                                       value={passwordConfirmation}
+                                      name="passwordconfirm"
                                       onChange={e => setPasswordConfirmation(e.target.value)}
                                       placeholder="Confirm Password" />
                         <p className="errorMsg" > </p>
