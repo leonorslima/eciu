@@ -15,6 +15,8 @@ import HeaderBack from "../../components/HeaderBack";
 import {fetchICategory, fetchPostsCategory, fetchPostUser} from "../../FetchAPI";
 import {useParams} from "react-router-dom";
 import {LoopCircleLoading} from 'react-loadingg';
+import { SemipolarLoading } from 'react-loadingg';
+
 
 
 const Title = styled.h4`
@@ -319,6 +321,6 @@ export default () => {
                 </Tips>
                 <Navbar/>
             </div>
-            ) : <Loading className="mt-5"> <LoopCircleLoading/> </Loading>}</div>
+            ) : <Loading className="mt-5"> <SemipolarLoading color={'#002337'} /> </Loading>} </div>
     )
 }
