@@ -169,7 +169,9 @@ export default () => {
                     <Subcategories className="d-flex mt-3">
                         <div className="mr-3 text-center">
                             <Sub className="justify-content-center">
-                                <img src={"https://i.imgur.com/VtZEsvZ.png"} alt="all"/>
+                                <a onClick={() =>{setFiltro('')}}>
+                                    <img src={"https://i.imgur.com/VtZEsvZ.png"} alt="all"/>
+                                </a>
                             </Sub>
                             <Label>All</Label>
                         </div>
