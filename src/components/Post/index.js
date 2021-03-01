@@ -14,6 +14,8 @@ import Navbar from "../../components/Navbar";
 import HeaderBack from "../../components/HeaderBack";
 import {fetchICategory, fetchPostsCategory, fetchPostUser} from "../../FetchAPI";
 import {useParams} from "react-router-dom";
+import { LoopCircleLoading } from 'react-loadingg';
+
 
 const Title = styled.h4`
   font-size: 28px;
@@ -105,6 +107,11 @@ const Date = styled.p`
   font-size: 14px;
   color: #8B8A8A;`
 
+const Loading = styled.p`
+ margin-left: 2rem;
+  `
+
+
 export default () => {
 
     const [posts, setPosts] = useState([]);
@@ -127,6 +134,8 @@ export default () => {
 
     return (
         <div>
+            {!isLoading ? (
+                <div>
             <HeaderBack/>
                     {nome.map(
                         (Nome)=> {
@@ -139,6 +148,7 @@ export default () => {
                                        <BtnFollow className="align-self-center text-decoration-none" style={{color: Nome.color, borderColor: Nome.color, }}>Follow</BtnFollow>
                                    </div>
                                )}})}
+
 
             <div className="d-flex text-center mt-4">
                 <BtnCreate className="col-9 mr-4" to={"/createpost/"+ id}>
@@ -285,6 +295,8 @@ export default () => {
                 </Accordion>
             </Tips>
             <Navbar/>
+        </div>
+            ) : <Loading className="mt-5"> <LoopCircleLoading /> </Loading>}
         </div>
     )
 }
