@@ -55,6 +55,7 @@ export default function HorizontalLabelPositionBelowStepper() {
             FirebaseConfig
                 .auth()
                 .createUserWithEmailAndPassword(email, password)
+                .then(({ user }) => console.log(user.uid))
                 .catch((err) => {
                     switch (err.code){
                         case "auth/email-already-in-use":
@@ -87,7 +88,6 @@ export default function HorizontalLabelPositionBelowStepper() {
             if(passwordConfirmation === password){
                 handleSignUp();
                 console.log(steps.length);
-                setActiveStep((prevActiveStep) => prevActiveStep + 1)
             }else {
                 console.log("não são iguais")
                 setActiveStep(0);
