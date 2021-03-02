@@ -9,21 +9,17 @@ export const fetchPostsCategory = (id) =>
     fetch(`http://localhost:3001/categories/${id}`)
         .then(response => response.json())
 
-/*export const fetchICategory = (id) =>
-    fetch(`http://localhost:3001/categories/${id}`)
-        .then(response => response.json())*/
-
 export const fetchICategory = (id) => fetchFromAPI('categories');
 
 export const fetchPostUser = () => fetchFromAPI('users');
 
 export const fetchUni = () => fetchFromAPI('universities');
 
-export const createUser = (idu, name, roleid, homeuniversityid, destinyuniversityid) =>
+export const createUser = (idu, name, homeuniversityid) =>
     fetch(`http://localhost:3001/users`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ idu, name, roleid, homeuniversityid, destinyuniversityid }),
+        body: JSON.stringify({ idu, name, homeuniversityid }),
     }).then((response) => response.json());

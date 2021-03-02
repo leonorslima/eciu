@@ -50,8 +50,10 @@ function App() {
                 <Route exact path={"/myprofile"} component={MyProfile}/>
                 <Route exact path={"/editprofile"} component={EditProfile}/>
                 <Route exact path={"/profile"} component={Profile}/>
+                <Route exact path={"/profile/:id"} component={Profile}/>
                 <Route exact path={"/signup"} component={SignUp}/>
                 <Route exact path={"/signin"} component={SignIn}/>
+
                 <Route exact path={"/createpost/:id"} component={CreatePost}/>
                 <Route exact path={"/searchresults"} component={SearchResults}/>
                 <Route exact path={"/home"} component={Home}/>

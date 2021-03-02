@@ -1,13 +1,12 @@
-const usersSchema = require('./usersSchema');
+const UsersSchema = require('../connectDB/UsersSchema');
 const express = require("express");
 const router = express.Router();
-const { getAll, create } = require("../Pedidos/users");
+const { getAll,create } = require("../Pedidos/users");
 
 
 router.route("/")
     .get(async (req, res) => {
         const posts = await getAll();
-
         res.status(200);
         res.json(posts);
         res.end();
@@ -15,7 +14,7 @@ router.route("/")
 
     .post(async (req, res) => {
         try {
-            await usersSchema.validate(req.body);
+            await UsersSchema.validate(req.body);
         } catch (e) {
             res.status(400);
             res.send(e.errors);
@@ -29,5 +28,7 @@ router.route("/")
         res.status(201);
         res.end();
     });
+
+
 
 module.exports = router;

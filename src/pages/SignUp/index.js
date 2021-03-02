@@ -40,7 +40,6 @@ export default function HorizontalLabelPositionBelowStepper() {
     const classes = useStyles();
     const [activeStep, setActiveStep] = React.useState(0);
     const steps = getSteps();
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordConfirmation, setPasswordConfirmation] = useState('');
@@ -51,9 +50,9 @@ export default function HorizontalLabelPositionBelowStepper() {
     const [profile, setProfile] = useState('');
     const [homeuniversityid, setHomeuniversityid] = useState('');
     const [destinyuniversityid, setDestinyuniversityid] = useState('');
-const [universities, setUniversities] = useState([]);
+    const [universities, setUniversities] = useState([]);
 
-    const handleSignUp = (name, profile, homeuniversityid, destinyuniversityid) =>{
+    const handleSignUp = (name, homeuniversityid) =>{
         clearErrors();
 
         if (password === passwordConfirmation){
@@ -62,7 +61,7 @@ const [universities, setUniversities] = useState([]);
                 .createUserWithEmailAndPassword(email, password)
                 .then(({user}) =>
                     //console.log("temos id:" + user.uid),
-                    createUser(user.uid, name, profile, homeuniversityid, destinyuniversityid)
+                    createUser(user.uid, name, homeuniversityid)
                 )
                 .catch((err) => {
                     switch (err.code){
@@ -89,7 +88,7 @@ const [universities, setUniversities] = useState([]);
     const handleNext = () => {
         if (activeStep === 2){
             if(passwordConfirmation === password){
-                handleSignUp(name, profile, homeuniversityid, destinyuniversityid);
+                handleSignUp(name, homeuniversityid);
                 console.log(steps.length);
             }else {
                 console.log("não são iguais")
@@ -192,7 +191,7 @@ const [universities, setUniversities] = useState([]);
                                     {universities.map(
                                         (Uni)=> {
                                                 return(
-                                                    <Form.Check type="radio" label={Uni.name} name="formHorizontalRadios" id="formHorizontalRadios1"/>
+                                                    <Form.Check type="radio" label={Uni.name} onChange={() => setHomeuniversityid(Uni.id)} name="formHorizontalRadios" id="formHorizontalRadios1"/>
                                                 )
                                         }
                                     )
@@ -214,7 +213,7 @@ const [universities, setUniversities] = useState([]);
                                     {universities.map(
                                         (Uni)=> {
                                             return(
-                                                <Form.Check type="radio" label={Uni.name} name="formHorizontalRadios" id="formHorizontalRadios1"/>
+                                                <Form.Check type="radio" label={Uni.name} onChange={() => setDestinyuniversityid(Uni.id)} name="formHorizontalRadios" id="formHorizontalRadios1"/>
                                             )
                                         }
                                     )
