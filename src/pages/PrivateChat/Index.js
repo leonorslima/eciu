@@ -104,14 +104,48 @@ const ChatArea = styled.div`
 `
 const BtnSubmit = styled(Link)`
  position: absolute;
+  margin-left: 260px;
   
 `
-const InputArea = styled.div`
-  background-color: white;
-  color: black;
-  
-  
+const MessageForm = styled.form`
+  display: flex;
+  background-color: #DBDBDB;
 `
+
+  const InputConteiner = styled.div`
+    flex:1;
+    margin:1px;
+  `
+    
+  const ButtonContainer = styled.div`
+      flex: 0 0 6em;
+      margin: 1px 1px 1px 0;
+  `
+
+  const Input = styled.input`
+background: white;
+  border-radius: 3px;
+  border: 1px solid #DBDBDB;
+  box-sizing: border-box;
+  font-size: inherit;
+  height: 100%;
+  outline: none;
+  width: 100%;
+  padding: 0 0 0 4px;
+  `
+
+  const Button = styled.button`
+        background: white;
+        border-radius: 3px;
+        border: 1px solid #DBDBDB;
+        box-sizing: border-box;
+        font-size: inherit;
+        height: 100%;
+        outline: none;
+        width: 100%;
+  `
+
+
 const Me = styled.p`
   font-size: 12px;
   font-weight: 400;
@@ -249,13 +283,16 @@ export default () => {
 
             </ChatArea>
 
-                    <Form.Group >
-
-                        <InputArea className="col-10"as="textarea" rows={1} placeholder="Type your messege here..."/>
-                            <BtnSubmit className="col-2" to ={""}>
+                    <MessageForm  className="MessageForm">
+<InputConteiner className="input-container">
+                        <Input type="text" rows={1} placeholder="Enter your message..."/>
+        </InputConteiner>
+                           <ButtonContainer className="button-container">
+                               <Button type="submit">
                                 <SendIcon />
-                            </BtnSubmit>
-                    </Form.Group>
+                               </Button>
+                           </ButtonContainer>
+                    </MessageForm>
 
             </Badge>
             <Navbar />
