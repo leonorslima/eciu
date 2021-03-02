@@ -182,7 +182,9 @@ export default function HorizontalLabelPositionBelowStepper() {
                             {profile.map(
                                 (Pro)=> {
                                     return(
-                                        <Form.Check type="radio" label={Pro.name}  onChange={() => setProfileid(Pro.id)} name="formHorizontalRadios" id="formHorizontalRadios1" />
+                                        <Form.Check type="radio" label={Pro.name}  onChange={() => setProfileid(Pro.id)} name="formHorizontalRadios" id="formHorizontalRadios1"
+                                        style={{width: "18px", height: "18px"}}
+                                        />
                                     )})}
                         </Col>
                     </Form.Group>

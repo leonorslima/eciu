@@ -40,7 +40,7 @@ export default () => {
             <Header />
             <div className="mt-2 mb-2">
             <Title>CATEGORIES</Title>
-            <div className="mt-4">
+            <div className="mt-4" style={{marginBottom: "4rem"}}>
                 {posts.map(
                     (Post)=> {
                         if(Post.parentcategoryid === null){
