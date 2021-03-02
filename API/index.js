@@ -17,5 +17,10 @@ app.use("/users",
 require("./controllers/users")
     )
 
+app.use("/universities",
+    require("./controllers/universities")
+
+)
+
 app.listen(3001, () => { console.log("Servidor a funcionar!");});
 

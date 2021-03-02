@@ -12,7 +12,7 @@ import Col from "react-bootstrap/Col";
 import FirebaseConfig from "../../scripts/FirebaseConfig";
 import {Link} from "react-router-dom";
 import Header from "../../components/Header"
-
+import {createUser, fetchUni} from '../../FetchAPI'
 
 const Uni = styled.p`
   font-weight: 700;
@@ -48,15 +48,22 @@ export default function HorizontalLabelPositionBelowStepper() {
     const [passwordError, setPasswordError] = useState('');
     const [passwordConfirmationError, setPasswordConfirmationError] = useState('');
     const [name, setName] = useState('');
+    const [profile, setProfile] = useState('');
+    const [homeuniversityid, setHomeuniversityid] = useState('');
+    const [destinyuniversityid, setDestinyuniversityid] = useState('');
+const [universities, setUniversities] = useState([]);
 
-    const handleSignUp = () =>{
+    const handleSignUp = (name, profile, homeuniversityid, destinyuniversityid) =>{
         clearErrors();
 
         if (password === passwordConfirmation){
             FirebaseConfig
                 .auth()
                 .createUserWithEmailAndPassword(email, password)
-                .then(({user}) => console.log(user.uid))
+                .then(({user}) =>
+                    //console.log("temos id:" + user.uid),
+                    createUser(user.uid, name, profile, homeuniversityid, destinyuniversityid)
+                )
                 .catch((err) => {
                     switch (err.code){
                         case "auth/email-already-in-use":
@@ -78,22 +85,16 @@ export default function HorizontalLabelPositionBelowStepper() {
 
 
     }
-    /* const [user, setUser] = useState('');
-    const [hasAccount, setHasAccount] = useState(false);
-
-    */
-
 
     const handleNext = () => {
         if (activeStep === 2){
             if(passwordConfirmation === password){
-                handleSignUp();
+                handleSignUp(name, profile, homeuniversityid, destinyuniversityid);
                 console.log(steps.length);
             }else {
                 console.log("não são iguais")
                 setActiveStep(0);
                 console.log(activeStep)
-
             }
         }else{
             setActiveStep((prevActiveStep) => prevActiveStep + 1)
@@ -106,7 +107,6 @@ export default function HorizontalLabelPositionBelowStepper() {
         setActiveStep((prevActiveStep) => prevActiveStep - 1);
     };
 
-
     const clearErrors = () => {
         setEmailError('');
         setPasswordError('');
@@ -118,20 +118,19 @@ export default function HorizontalLabelPositionBelowStepper() {
                 setUser(user);
             }else {
                 setUser('');
-            }
-
-
-        })
-    }
-
+            }})}
     useEffect(()=>{
         authListener();
     }, []);
-
-
 */
 
-
+    useEffect(() => {
+        fetchUni()
+            .then(universities => {
+                    setUniversities(universities);
+                }
+            );
+    }, []);
 
     function getStepContent(stepIndex) {
         switch (stepIndex) {
@@ -165,7 +164,7 @@ export default function HorizontalLabelPositionBelowStepper() {
 
                     </Form.Group>
 
-                    <Form.Group controlId="formBasicPassword">
+                    <Form.Group controlId="formBasicConfirmPassword">
                         <Form.Control type="password"
                                       value={passwordConfirmation}
                                       name="passwordconfirm"
@@ -176,9 +175,8 @@ export default function HorizontalLabelPositionBelowStepper() {
 
                     <Form.Control as="select" className="my-1 mr-sm-2" id="inlineFormCustomSelectPref" custom>
                         <option value="0">Profile</option>
-                        <option value="1">Travel Student</option>
-                        <option value="2">Buddy</option>
-                        <option value="3">Travel Student & Buddy</option>
+                        <option value="1" name={"Travel Student"}>Travel Student</option>
+                        <option value="2" name={"Buddy"}>Buddy</option>
                     </Form.Control>
 
                 </Form>];
@@ -191,9 +189,14 @@ export default function HorizontalLabelPositionBelowStepper() {
                                     <Uni>Home University</Uni>
                                 </Form.Label>
                                 <Col sm={10}>
-                                    <Form.Check type="radio" label="Universidade " name="formHorizontalRadios" id="formHorizontalRadios1"/>
-                                    <Form.Check type="radio" label="second radio" name="formHorizontalRadios" id="formHorizontalRadios2"/>
-                                    <Form.Check type="radio" label="third radio" name="formHorizontalRadios" id="formHorizontalRadios3"/>
+                                    {universities.map(
+                                        (Uni)=> {
+                                                return(
+                                                    <Form.Check type="radio" label={Uni.name} name="formHorizontalRadios" id="formHorizontalRadios1"/>
+                                                )
+                                        }
+                                    )
+                                    }
                                 </Col>
                             </Form.Group>
                         </fieldset>
@@ -208,24 +211,14 @@ export default function HorizontalLabelPositionBelowStepper() {
                                     <Uni>Destination University</Uni>
                                 </Form.Label>
                                 <Col sm={10}>
-                                    <Form.Check
-                                        type="radio"
-                                        label="Universidade "
-                                        name="formHorizontalRadios"
-                                        id="formHorizontalRadios1"
-                                    />
-                                    <Form.Check
-                                        type="radio"
-                                        label="second radio"
-                                        name="formHorizontalRadios"
-                                        id="formHorizontalRadios2"
-                                    />
-                                    <Form.Check
-                                        type="radio"
-                                        label="third radio"
-                                        name="formHorizontalRadios"
-                                        id="formHorizontalRadios3"
-                                    />
+                                    {universities.map(
+                                        (Uni)=> {
+                                            return(
+                                                <Form.Check type="radio" label={Uni.name} name="formHorizontalRadios" id="formHorizontalRadios1"/>
+                                            )
+                                        }
+                                    )
+                                    }
                                 </Col>
                             </Form.Group>
                         </fieldset>
