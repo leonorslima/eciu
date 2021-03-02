@@ -1,6 +1,7 @@
 import '../../App.css';
 import React, {useEffect, useState} from 'react';
 import Accordion from 'react-bootstrap/Accordion';
+import Button from 'react-bootstrap/Button';
 import styled from 'styled-components'
 import {Link} from "react-router-dom";
 import {FaEdit, FaSearch, FaChevronDown, FaHeart} from "react-icons/fa";
@@ -22,14 +23,6 @@ const BtnFollow = styled(Link)`
   text-align: center;
   height: 30px;
   width: 80px;`
-
-const BtnLike = styled(Link)`
-  border-radius: 2px;
-  text-align: center;
-  height: 30px;
-  background-color: #002337;
-  color: white;
-  `
 
 const BtnCreate = styled(Link)`
   background-color: #002337;
@@ -82,6 +75,7 @@ const Name = styled.p`
   margin-bottom: 0;`
 const TitleTopTips = styled.h5`
   font-weight: 700;`
+
 const Subcategories = styled.div`
   overflow: auto;
   white-space: nowrap;
@@ -106,10 +100,6 @@ const Likes = styled.p`
   display: inline-flex;
   font-size: 14px;
   color: #8B8A8A;`
-
-/*const BotaoLike = styled.div`
-  width: 1.5rem;
-  height: 1.5rem;`*/
 
 const Date = styled.p`
   font-size: 14px;
@@ -181,7 +171,7 @@ export default () => {
                         <div className="mr-3 text-center">
                             <Sub className="justify-content-center">
                                 <a onClick={() =>{setFiltro('')}}>
-                                    <img src={"https://i.imgur.com/VtZEsvZ.png"} alt="all"/>
+                                    <img style={{paddingTop: "17px"}} src={"https://i.imgur.com/I3kzDHd.png"} alt="all"/>
                                 </a>
                             </Sub>
                             <Label>All</Label>
@@ -259,16 +249,16 @@ export default () => {
                                                                         <Accordion.Collapse eventKey="0">
                                                                             <div>
                                                                                 <h6 className="mt-3">{Post.text} </h6>
-                                                                                <InfoAdd className="d-flex">
+                                                                                <InfoAdd className="d-flex align-items-center">
                                                                                     <Date className="col-8 pl-0 ml-0 mb-0">
                                                                                         {datapost.toLocaleDateString("en-GB")}
                                                                                     </Date>
-                                                                                    <BtnLike>
-                                                                                    <Likes className="ml-4 col-md-4 mb-0">
-                                                                                        <p>{Post.likes.length}</p>
-                                                                                            <FaHeart />
-
-                                                                                    </Likes></BtnLike>
+                                                                                    <Button
+                                                                                        style={{backgroundColor: "white", borderColor: "#002337", color: "#002337"}}
+                                                                                        className="col-3 d-flex p-1 align-items-center justify-content-center">
+                                                                                        <FaHeart className="mr-2" />
+                                                                                        <p className="mb-0">    {Post.likes.length}</p>
+                                                                                    </Button>
                                                                                 </InfoAdd>
                                                                             </div>
                                                                         </Accordion.Collapse>
@@ -332,14 +322,12 @@ export default () => {
                                                                                     <Date className="col-8 pl-0 ml-0 mb-0">
                                                                                         {datapost.toLocaleDateString("en-GB")}
                                                                                     </Date>
-                                                                                    <Likes className="ml-4 col-md-4 mb-0">
-                                                                                        <p>{Post.likes.length}</p>
-                                                                                        {/*<BotaoLike>*/}
-                                                                                            <AiOutlineLike
-                                                                                                className={"w-100"}/>
-                                                                                        {/*</BotaoLike>*/}
-
-                                                                                    </Likes>
+                                                                                    <Button
+                                                                                        style={{backgroundColor: "white", borderColor: "#002337", color: "#002337"}}
+                                                                                        className="col-3 d-flex p-1 align-items-center justify-content-center">
+                                                                                        <FaHeart className="mr-2" />
+                                                                                        <p className="mb-0">    {Post.likes.length}</p>
+                                                                                    </Button>
                                                                                 </InfoAdd>
                                                                             </div>
                                                                         </Accordion.Collapse>

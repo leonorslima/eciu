@@ -57,43 +57,51 @@ const ChatUser = styled.div`
   margin: 0px 0px 0px 150px;
   
 
+
+
+  padding: 10px;
+ 
+
+`
+const FotoRight = styled.div`
   & img {
     height: 40px;
     right: 0;
     float: right;
-    border-radius: 50%;
+
     object-fit: cover;
     margin-left: 60px;
-    
-    
-   
-  }
 
-  padding: 10px;
- 
 
-`
+
+  } 
+
+  `
+
+
+
 const ChatOther = styled.div`
   background-color: #DBDBDB;
   border-radius: 15px;
   margin: 0px 150px 0px 0px;
-
-
-
-  & img {
-    height: 40px;
-    left: 0;
-
-    border-radius: 50%;
-    object-fit: cover;
-   
-  }
-
-  padding: 10px;
- 
+  
 
 `
 
+const FotoLeft = styled.div`
+    & img {
+    height: 40px;
+    right: 0;
+    float: right;
+
+    object-fit: cover;
+    margin-left: 60px;
+
+
+
+}
+
+`
 
 const Badge = styled.div`
  
@@ -170,9 +178,9 @@ export default () => {
                     </Text>
 
                 </div>
-                <div className="col-2">
+                <FotoRight className="col-2">
                     <img className="rounded-circle" src={imgUser}  alt="profile"/>
-                </div>
+                </FotoRight>
                 <div className="col-8 text-fluid">
 
                     <Text>
@@ -185,9 +193,9 @@ export default () => {
 
             </ChatUser>
             <ChatOther className="d-flex mb-3">
-                <div className="col-2 pl-0">
+                <FotoLeft className ="col-2 pl-0">
                     <img className="rounded-circle" src={imgUser}  alt="profile"/>
-                </div>
+                </FotoLeft>
                 <div className="col-8 pl-0">
                     <Text>
                         Hello Edward!
@@ -214,14 +222,14 @@ export default () => {
                     </Text>
 
                 </div>
-                <div className="col-2 pl-0">
+                <FotoRight className="col-2 pl-0">
                     <img className="rounded-circle" src={imgUser}  alt="profile"/>
-                </div>
+                </FotoRight>
             </ChatUser>
             <ChatOther className="d-flex mb-3">
-                <div className="col-2 pl-0">
+                <FotoLeft className="col-2 pl-0">
                     <img className="rounded-circle" src={imgUser}  alt="profile"/>
-                </div>
+                </FotoLeft>
                 <div className="col-8 pl-0">
                     <Text>
                         The place is nice, so is the food.                    </Text>
@@ -245,9 +253,9 @@ export default () => {
                     </Text>
 
                 </div>
-                <div className="col-2 pl-0">
+                <FotoRight className="col-2 pl-0">
                     <img className="rounded-circle" src={imgUser}  alt="profile"/>
-                </div>
+                </FotoRight>
 
             </ChatUser>
             </ChatArea>
