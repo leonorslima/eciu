@@ -12,7 +12,7 @@ import Col from "react-bootstrap/Col";
 import FirebaseConfig from "../../scripts/FirebaseConfig";
 import {Link} from "react-router-dom";
 import Header from "../../components/Header"
-import {createUser, fetchUni} from '../../FetchAPI'
+import {createUser, fetchUni, fetchProfile} from '../../FetchAPI'
 
 const Uni = styled.p`
   font-weight: 700;
@@ -47,21 +47,20 @@ export default function HorizontalLabelPositionBelowStepper() {
     const [passwordError, setPasswordError] = useState('');
     const [passwordConfirmationError, setPasswordConfirmationError] = useState('');
     const [name, setName] = useState('');
-    const [profile, setProfile] = useState('');
+    const [profile, setProfile] = useState([]);
+    const [profileid, setProfileid] = useState('');
     const [homeuniversityid, setHomeuniversityid] = useState('');
     const [destinyuniversityid, setDestinyuniversityid] = useState('');
     const [universities, setUniversities] = useState([]);
 
-    const handleSignUp = (name, homeuniversityid) =>{
+    const handleSignUp = (name, profileid, homeuniversityid, destinyuniversityid) =>{
         clearErrors();
-
         if (password === passwordConfirmation){
             FirebaseConfig
                 .auth()
                 .createUserWithEmailAndPassword(email, password)
                 .then(({user}) =>
-                    //console.log("temos id:" + user.uid),
-                    createUser(user.uid, name, homeuniversityid)
+                    createUser(user.uid, name, profileid, homeuniversityid, destinyuniversityid)
                 )
                 .catch((err) => {
                     switch (err.code){
@@ -73,10 +72,7 @@ export default function HorizontalLabelPositionBelowStepper() {
                             setPasswordError(err.message);
                             break;
                     }
-
                 });
-               console.log(name);
-
         }else{
             setPasswordConfirmationError("Your passwords are different!");
             console.log(passwordConfirmationError);
@@ -88,7 +84,8 @@ export default function HorizontalLabelPositionBelowStepper() {
     const handleNext = () => {
         if (activeStep === 2){
             if(passwordConfirmation === password){
-                handleSignUp(name, homeuniversityid);
+                handleSignUp(name, profileid, homeuniversityid, destinyuniversityid);
+                setActiveStep((prevActiveStep) => prevActiveStep + 1)
                 console.log(steps.length);
             }else {
                 console.log("não são iguais")
@@ -129,6 +126,11 @@ export default function HorizontalLabelPositionBelowStepper() {
                     setUniversities(universities);
                 }
             );
+        fetchProfile()
+            .then(profile => {
+                setProfile(profile)
+            })
+
     }, []);
 
     function getStepContent(stepIndex) {
@@ -172,11 +174,18 @@ export default function HorizontalLabelPositionBelowStepper() {
                         <p className="errorMsg" > </p>
                     </Form.Group>
 
-                    <Form.Control as="select" className="my-1 mr-sm-2" id="inlineFormCustomSelectPref" custom>
-                        <option value="0">Profile</option>
-                        <option value="1" name={"Travel Student"}>Travel Student</option>
-                        <option value="2" name={"Buddy"}>Buddy</option>
-                    </Form.Control>
+                    <Form.Group className="my-1 mr-sm-2" id="inlineform" custom >
+                        <Form.Label as="legend">
+                            <Uni>Profile</Uni>
+                        </Form.Label>
+                        <Col sm={10}>
+                            {profile.map(
+                                (Pro)=> {
+                                    return(
+                                        <Form.Check type="radio" label={Pro.name}  onChange={() => setProfileid(Pro.id)} name="formHorizontalRadios" id="formHorizontalRadios1" />
+                                    )})}
+                        </Col>
+                    </Form.Group>
 
                 </Form>];
             case 1:
@@ -192,10 +201,7 @@ export default function HorizontalLabelPositionBelowStepper() {
                                         (Uni)=> {
                                                 return(
                                                     <Form.Check type="radio" label={Uni.name} onChange={() => setHomeuniversityid(Uni.id)} name="formHorizontalRadios" id="formHorizontalRadios1"/>
-                                                )
-                                        }
-                                    )
-                                    }
+                                                )})}
                                 </Col>
                             </Form.Group>
                         </fieldset>
@@ -238,7 +244,7 @@ export default function HorizontalLabelPositionBelowStepper() {
                 {activeStep === steps.length ? (
                     <div style={{textAlign:"center", marginTop: 270}}>
                         <Typography className={classes.instructions}>Registo efetuado com sucesso!</Typography>
-                        <Button> <Link to={"/feed"}> Continuar</Link></Button>
+                        <Button> <Link to={"/categories"}> Continuar</Link></Button>
                     </div>
                 ) : (
                     <div>
