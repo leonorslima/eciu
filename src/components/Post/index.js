@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import styled from 'styled-components'
 import {Link} from "react-router-dom";
-import {FaEdit, FaSearch, FaChevronDown} from "react-icons/fa";
+import {FaEdit, FaSearch, FaChevronDown, FaHeart} from "react-icons/fa";
 import imgUser from "../../images/user.png";
 import {AiOutlineLike} from "react-icons/ai";
 import Navbar from "../../components/Navbar";
@@ -266,8 +266,7 @@ export default () => {
                                                                                     <BtnLike>
                                                                                     <Likes className="ml-4 col-md-4 mb-0">
                                                                                         <p>{Post.likes.length}</p>
-                                                                                            <AiOutlineLike
-                                                                                                className={"w-100"}/>
+                                                                                            <FaHeart />
 
                                                                                     </Likes></BtnLike>
                                                                                 </InfoAdd>
