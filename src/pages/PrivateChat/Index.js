@@ -197,7 +197,7 @@ export default () => {
             </Other>
 
             <ChatArea>
-                <div className="align-text-top text-right col-2">
+                <div className=" align-text-top text-right col-2">
                     <Me >
                         You
                     </Me>
