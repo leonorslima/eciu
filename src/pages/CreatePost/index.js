@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Form from "react-bootstrap/Form";
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 import Header from "../../components/Header"
+import {fetchCategory} from "../../FetchAPI";
 
 const ButtonConfirm = styled(Link)`
 background-color: #002337;
@@ -11,7 +12,6 @@ border-radius: 2px;
 
 font-weight: 600;
   `
-
 const ButtonCancel = styled(Link)`
 border: 2px solid #002337;
 border-radius: 2px;
@@ -20,7 +20,6 @@ color: #002337;
 font-weight: 500;
 
   `
-
 const Title = styled.h4`
 
 font-size: 28px;
@@ -29,37 +28,62 @@ color: #002337;
   `
 
 export default () => {
+    const [cat, setCat] = useState([]);
+    const [catselected, Setcatselected] = useState('');
+    const [hasAccess, setHasAccess] = useState(false);
+
+    useEffect(() => {
+        fetchCategory()
+            .then(cat => {
+                    setCat(cat);
+            });
+    }, []);
+
     return (
         <div>
             <Header />
             <Title className="mt-2">CREATE POST</Title>
-            <Form.Control as="select" className="my-1 mr-sm-2" id="inlineFormCustomSelectPref" custom>
+
+
+            <Form.Control as="select"  value={catselected} onChange={e => {Setcatselected(e.target.value); setHasAccess(true)}} className="my-1 mr-sm-2" id="inlineFormCustomSelectPref" custom>
                 <option value="0">Choose the category</option>
-                <option value="1">Restaurants</option>
-                <option value="2">Accomodation</option>
-                <option value="3">Transports</option>
-                <option value="4">Jobs</option>
-                <option value="5">Leisure</option>
-                <option value="6">Health</option>
+                {cat.map(
+                    (Cat)=> {
+                        if(Cat.parentcategoryid === null){
+                            return(
+                                <option value={Cat.id}>{Cat.name}</option>
+                            )}})}
             </Form.Control>
 
-            <Form.Control as="select" className="my-1 mr-sm-2" id="inlineFormCustomSelectPref" custom>
-                <option value="0">Choose the subcategory</option>
-                <option value="1">Vegan</option>
-                <option value="2">Fast-Food</option>
-                <option value="3">Chinese</option>
-                <option value="4">Japanese</option>
-            </Form.Control>
+            {!hasAccess ? (
+                    <Form.Control as="select" className="my-1 mr-sm-2" id="inlineFormCustomSelectPref" custom disabled>
+                        <option value="0">Choose the subcategory</option>
+                        {cat.map(
+                            (Cat)=> {
+                                if(Cat.parentcategoryid !== null && Cat.parentcategoryid === catselected){
+                                    return(
+                                        <option value={Cat.id}>{Cat.name}</option>
+                                    )}})}
+
+                    </Form.Control>
+                ) : (
+                    <Form.Control as="select" className="my-1 mr-sm-2" id="inlineFormCustomSelectPref" custom >
+                        <option value="0">Choose the subcategory</option>
+                        {cat.map(
+                            (Cat)=> {
+                                if(Cat.parentcategoryid !== null && Cat.parentcategoryid === catselected){
+                                    return(
+                                        <option value={Cat.id}>{Cat.name}</option>
+                                    )}})}
+                    </Form.Control>
+                )}
+
 
             <Form.Group controlId="formBasicTitle" className="mt-5">
-                <Form.Control type="text" placeholder="Post Title" />
+                <Form.Control type="text" name={"title"} placeholder="Post Title" />
             </Form.Group>
             <Form.Group controlId="exampleForm.ControlTextarea1">
-                <Form.Control as="textarea" rows={3} placeholder="Write your post here"/>
-            </Form.Group>
-
-            <Form.Group>
-                <Form.File id="exampleFormControlFile1" label="" />
+                <Form.Control as="textarea" name={"text"} rows={3} placeholder="Write your post here"/>
             </Form.Group>
 
             <div className="d-flex justify-content-center">
@@ -67,7 +91,7 @@ export default () => {
                  Cancel
             </ButtonCancel>
 
-            <ButtonConfirm className="mt-5 ml-4 p-2" to={"/"}>
+            <ButtonConfirm className="mt-5 ml-4 p-2" >
                 Publish
             </ButtonConfirm>
             </div>

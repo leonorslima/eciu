@@ -2,9 +2,10 @@ import React, {useState, useEffect} from 'react';
 import Form from "react-bootstrap/Form";
 import styled from "styled-components";
 import {Link} from "react-router-dom";
+import {Redirect} from "react-router-dom";
+
 import logoEciu from "../../images/logoeciu.png"
 import FirebaseConfig from "../../scripts/FirebaseConfig";
-import {createUser} from "../../FetchAPI";
 
 const ButtonConfirm = styled.button`
   background-color: #002337;
@@ -22,7 +23,6 @@ export default () => {
     const [password, setPassword] = useState('');
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
-//    const [hasAccount, setHasAccount] = useState(false);
 
 
     const handleLogin = () => {
@@ -39,16 +39,11 @@ export default () => {
                 switch (err.code){
                     case "auth/invalid-email":
                     case "auth/user-disabled":
-                    case "auth/user-not-found":
-                        setEmailError(err.message);
+                    case "auth/user-not-found": setEmailError(err.message);
                         break;
-                    case "auth/wrong-password":
-                        setPasswordError(err.message);
+                    case "auth/wrong-password": setPasswordError(err.message);
                         break;
-                }
-            }
-
-            )
+                }})
         console.log(email, password);
     }
 
@@ -77,9 +72,7 @@ export default () => {
                         Sign In
                     </ButtonConfirm>
                 <p className="mt-5">Don't have an account? <ButtonSignup to={"/signup"}>Sign up!</ButtonSignup></p>
-
             </div>
         </div>
-
     )
 }

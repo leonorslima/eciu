@@ -40,8 +40,19 @@ function App() {
         }
 
     }, [props.users, props.setCurrentUser]);
-*/
 
+
+    const authListener =() =>{
+        FirebaseConfig.auth().onAuthStateChanged((user)=>{
+            if(user){
+                setUser(user);
+            }else {
+                setUser('');
+            }})}
+    useEffect(()=>{
+        authListener();
+    }, []);
+*/
     return (
         <FirebaseAuthProvider firebase={firebase} {...FirebaseConfig}>
             {
