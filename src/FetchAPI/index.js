@@ -27,11 +27,11 @@ export const createUser = (idu, name, profileid, homeuniversityid, destinyuniver
     }).then((response) => response.json());
 
 
-export const createPost = (categoryid, subcategoryid, title, text) =>
+export const createPost = (categoryid, subcategoryid, title, text, likes, date) =>
     fetch(`http://localhost:3001/posts`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ categoryid, subcategoryid, title, text }),
+        body: JSON.stringify({ categoryid, subcategoryid, title, text, likes, date }),
     }).then((response) => response.json());

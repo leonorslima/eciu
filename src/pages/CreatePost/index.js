@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Form from "react-bootstrap/Form";
 import styled from "styled-components";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import Header from "../../components/Header"
 import {fetchCategory, createPost} from "../../FetchAPI";
 import Typography from "@material-ui/core/Typography";
@@ -14,7 +14,7 @@ border-radius: 2px;
 
 font-weight: 600;
   `
-const ButtonCancel = styled(Link)`
+const ButtonCancel = styled.button`
 border: 2px solid #002337;
 border-radius: 2px;
 
@@ -30,6 +30,12 @@ color: #002337;
   `
 
 export default () => {
+
+    let history = useHistory();
+    const goToPreviousPath = () => {
+        history.goBack()
+    }
+
     const [cat, setCat] = useState([]);
     const [catselected, Setcatselected] = useState('');
     const [hasAccess, setHasAccess] = useState(false);
@@ -37,12 +43,24 @@ export default () => {
     const [text, setText] = useState('');
     const [Subcat, setSubcat] = useState('');
     const [feedback, setFeedback] = useState('');
+    const [likes, setlikes] = useState([]);
+    const [date, setDate] = useState('')
+
 
     useEffect(() => {
         fetchCategory()
             .then(cat => {
                     setCat(cat);
             });
+
+
+        let today = new Date();
+        let dd = today.getDate();
+        let m = today.getMonth();
+        let yyyy = today.getFullYear()
+
+        setDate(dd +'-'+ m+'-'+ yyyy)
+
     }, []);
 
 
@@ -50,12 +68,14 @@ export default () => {
         if (catselected !== ''&& Subcat !== '' && title !== '' && text !== ''){
             console.log(catselected, Subcat, title, text);
 
-            createPost(catselected, Subcat, title, text)
+
+            createPost(catselected, Subcat, title, text, likes, date)
                 .then(setFeedback("Your post was created!"))
 
         }
 
     }
+
 
     return (
         <div>
@@ -137,7 +157,7 @@ export default () => {
                         </Form.Group>
 
                         <div className="d-flex justify-content-center">
-                            <ButtonCancel className="mt-5 mr-4 p-2" to={"/"}>
+                            <ButtonCancel className="mt-5 mr-4 p-2" onClick={goToPreviousPath}>
                                 Cancel
                             </ButtonCancel>
 

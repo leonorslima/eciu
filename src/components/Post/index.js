@@ -203,8 +203,8 @@ export default () => {
                                                     (Post) => {
                                                         if (Post.categoryid === id) {
 
-                                                            const unixTime = Post.date._seconds;
-                                                            var datapost = new window.Date(unixTime * 1000);
+                                                        //    const unixTime = Post.date._seconds;
+                                                          //  var datapost = new window.Date(unixTime * 1000);
                                                             return (
                                                                 <Accordion className="align-self-center col-12 pl-0 pr-0">
                                                                     <TopTip className="d-flex row mb-3">
@@ -247,7 +247,8 @@ export default () => {
                                                                                 <h6 className="mt-3">{Post.text} </h6>
                                                                                 <InfoAdd className="d-flex align-items-center">
                                                                                     <Date className="col-8 pl-0 ml-0 mb-0">
-                                                                                        {datapost.toLocaleDateString("en-GB")}
+                                                                                        {/*{datapost.toLocaleDateString("en-GB")}*/}
+                                                                                        {Post.date}
                                                                                     </Date>
                                                                                     <Button
                                                                                         style={{backgroundColor: "white", borderColor: "#002337", color: "#002337"}}
