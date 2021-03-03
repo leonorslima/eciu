@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
 import imgUser from "../../images/user.png"
-import { FaMapMarkerAlt, FaEdit } from "react-icons/fa";
+import { FaMapMarkerAlt, FaEdit, FaSignOutAlt } from "react-icons/fa";
 import {Link} from "react-router-dom";
 import Navbar from "../../components/Navbar"
 import Header from "../../components/Header"
@@ -41,6 +41,9 @@ export default () => {
                     <Info className="mb-5"> Buddy since 2018 </Info>
                     <Button className="mt-5 p-3" to={"/editprofile"}>
                         <FaEdit /> Edit Information
+                    </Button>
+                    <Button className="mt-5 p-3">
+                        <FaSignOutAlt />
                     </Button>
                 </div>
             </div>
