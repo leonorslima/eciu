@@ -60,7 +60,9 @@ export default function HorizontalLabelPositionBelowStepper() {
                 .auth()
                 .createUserWithEmailAndPassword(email, password)
                 .then(({user}) =>
-                    createUser(user.uid, name, profileid, homeuniversityid, destinyuniversityid)
+                    createUser(user.uid, name, profileid, homeuniversityid, destinyuniversityid),
+                    ok()
+
                 )
                 .catch((err) => {
                     switch (err.code){
@@ -81,21 +83,22 @@ export default function HorizontalLabelPositionBelowStepper() {
 
     }
 
+    const ok = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep + 1)
+
+    }
+
     const handleNext = () => {
         if (activeStep === 2){
-            if(passwordConfirmation === password){
-                handleSignUp(name, profileid, homeuniversityid, destinyuniversityid);
-                setActiveStep((prevActiveStep) => prevActiveStep + 1)
+            if(passwordConfirmation === password && password !== '' && passwordConfirmation !==''){
+                handleSignUp(name, profileid, homeuniversityid, destinyuniversityid)
                 console.log(steps.length);
             }else {
-                console.log("não são iguais")
                 setActiveStep(0);
-                console.log(activeStep)
+                setPasswordConfirmationError("Please fill out all fields!");
             }
         }else{
             setActiveStep((prevActiveStep) => prevActiveStep + 1)
-            console.log(activeStep)
-
         }
     };
 
@@ -106,7 +109,9 @@ export default function HorizontalLabelPositionBelowStepper() {
     const clearErrors = () => {
         setEmailError('');
         setPasswordError('');
-    } /*
+    }
+
+    /*
 
     const authListener =() =>{
         FirebaseConfig.auth().onAuthStateChanged((user)=>{
@@ -171,8 +176,9 @@ export default function HorizontalLabelPositionBelowStepper() {
                                       name="passwordconfirm"
                                       onChange={e => setPasswordConfirmation(e.target.value)}
                                       placeholder="Confirm Password" />
-                        <p className="errorMsg" > </p>
+                        <p className="errorMsg">{passwordConfirmationError}</p>
                     </Form.Group>
+
 
                     <Form.Group className="my-1 mr-sm-2" id="inlineform" custom >
                         <Form.Label as="legend">

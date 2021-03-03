@@ -4,6 +4,7 @@ import imgUser from "../../images/user.png";
 import SendIcon from '@material-ui/icons/Send';
 import Navbar from "../../components/Navbar";
 import {Link} from "react-router-dom";
+import Form from "react-bootstrap/Form";
 
 
 
@@ -19,10 +20,8 @@ const UniD = styled.div`
 
 const Other = styled.div`
   background-color: white;
- display-flex: flex;
+
   align-items: center;
-  padding: 2px;
-  
   
   border-bottom: 0.5px solid #8B8A8A;
 
@@ -43,24 +42,17 @@ const Text = styled.span`
   font-size: 16px;
   overflow-y: auto;
   color: black;
+ border-radius: 2px;
   
-
 `
-
-
-
 
 const ChatUser = styled.div`
   background-color:#DBDBDB;
-  padding: 2px;
-  border-radius: 15px;
-  margin: 0px 0px 0px 150px;
-  
+  padding: 5px;
+  margin: 0px 70px 0.5px 70px;
+  box-sizing: border-box;
+  border-radius: 5px;
 
-
-
-  padding: 10px;
- 
 
 `
 const FotoRight = styled.div`
@@ -68,11 +60,9 @@ const FotoRight = styled.div`
     height: 40px;
     right: 0;
     float: right;
-
     object-fit: cover;
-    margin-left: 60px;
-
-
+    margin-right: -275px;
+    margin-top: -60px;
 
   } 
 
@@ -82,8 +72,10 @@ const FotoRight = styled.div`
 
 const ChatOther = styled.div`
   background-color: #DBDBDB;
-  border-radius: 15px;
-  margin: 0px 150px 0px 0px;
+  border-radius: 5px;
+  margin: 0px 100px 0.5px 45px;
+  box-sizing: border-box;
+  padding: 5px;
   
 
 `
@@ -93,11 +85,9 @@ const FotoLeft = styled.div`
     height: 40px;
     right: 0;
     float: right;
-
     object-fit: cover;
-    margin-left: 60px;
-
-
+      margin-top: -60px;
+      
 
 }
 
@@ -111,32 +101,72 @@ const ChatArea = styled.div`
     background: white;
  overflow-y: auto;
   
- 
-  
 `
 const BtnSubmit = styled(Link)`
- 
+ position: absolute;
+  margin-left: 260px;
   
 `
-const InputArea = styled.div`
-  background-color: white;
-  color: black;
+const MessageForm = styled.form`
+  display: flex;
+  background-color: #DBDBDB;
+`
 
- 
-  
-`
+  const InputConteiner = styled.div`
+    flex:1;
+    margin:1px;
+  `
+    
+  const ButtonContainer = styled.div`
+      flex: 0 0 6em;
+      margin: 1px 1px 1px 0;
+  `
+
+  const Input = styled.input`
+background: white;
+  border-radius: 3px;
+  border: 1px solid #DBDBDB;
+  box-sizing: border-box;
+  font-size: inherit;
+  height: 100%;
+  outline: none;
+  width: 100%;
+  padding: 0 0 0 4px;
+  `
+
+  const Button = styled.button`
+        background: white;
+        border-radius: 3px;
+        border: 1px solid #DBDBDB;
+        box-sizing: border-box;
+        font-size: inherit;
+        height: 100%;
+        outline: none;
+        width: 100%;
+  `
+
+
 const Me = styled.p`
   font-size: 12px;
   font-weight: 400;
   color: #8B8A8A;
-  float: left;
+  margin-right: -228px;
+  margin-bottom: 0px;
+ 
   
 `
-const Mensagem = styled.div`
-  border-radius: 2px;
-  border: #DBDBDB;
-  color : black;
+const User = styled.p`
+  font-size: 12px;
+  font-weight: 400;
+  color: #8B8A8A;
+  margin-left: -20px;
+  margin-top: -25px;
 `
+
+const textarea = styled.input``
+
+
+
 
 
 
@@ -146,7 +176,7 @@ export default () => {
 
             <Other className="d-flex mb-3">
                 <div className="col-3 pl-0 ml-3">
-                    <img className="rounded-circle" src={imgUser}  alt="profile"/>
+                    <img className="rounded-circle img-fluid" src={imgUser}  alt="profile"/>
                 </div>
                 <div className="col-8 pl-0">
                     <Text>
@@ -163,109 +193,107 @@ export default () => {
             </Other>
             <Badge>
             <ChatArea>
-            < ChatUser className="d-flex mb-3">
-                <div className="align-text-top col-2">
+                <div className="align-text-top text-right col-2">
                     <Me >
                         You
                     </Me>
                 </div>
-                <div className="col-8 text-fluid">
-
-                    <Text>
+                < ChatUser className="d-flex mb-4">
+                <div className="col-10 text-fluid">
+                    <Text >
                         Hi Joana!
                         I’m Edward, I need a little help from you.
                         Can I count on you?
                     </Text>
-
                 </div>
+                </ChatUser>
                 <FotoRight className="col-2">
                     <img className="rounded-circle" src={imgUser}  alt="profile"/>
                 </FotoRight>
-                <div className="col-8 text-fluid">
 
-                    <Text>
-                        Hi Joana!
-                        I’m Edward, I need a little help from you.
-                        Can I count on you?
-                    </Text>
-
+            <ChatOther className="d-flex mb-4">
+                <div className="align-text-top text-right col-2">
+                    <User >
+                        Joana
+                    </User>
                 </div>
-
-            </ChatUser>
-            <ChatOther className="d-flex mb-3">
-                <FotoLeft className ="col-2 pl-0">
-                    <img className="rounded-circle" src={imgUser}  alt="profile"/>
-                </FotoLeft>
-                <div className="col-8 pl-0">
+                <div className="col-10 pl-0">
                     <Text>
                         Hello Edward!
                         What do you need?
                     </Text>
 
                 </div>
-                <div className="align-self-top col-2 pr-0">
-                    <Me >
-                        Joana
-                    </Me>
-                </div>
-            </ChatOther>
-            <ChatUser className="d-flex mb-3">
-                <div className="align-self-top col-2 pr-0">
-                    <Me >
-                        You
-                    </Me>
-                </div>
-
-                <div className="col-8 pl-0">
-                    <Text>
-                        I saw your comment about Convivio and I’d like you to tell me more about it...
-                    </Text>
-
-                </div>
-                <FotoRight className="col-2 pl-0">
-                    <img className="rounded-circle" src={imgUser}  alt="profile"/>
-                </FotoRight>
-            </ChatUser>
-            <ChatOther className="d-flex mb-3">
-                <FotoLeft className="col-2 pl-0">
-                    <img className="rounded-circle" src={imgUser}  alt="profile"/>
+                </ChatOther>
+                <FotoLeft className ="col-2 pl-0">
+                    <img className="rounded-circle img-fluid" src={imgUser}  alt="profile"/>
                 </FotoLeft>
-                <div className="col-8 pl-0">
-                    <Text>
-                        The place is nice, so is the food.                    </Text>
 
-                </div>
-                <div className="align-self-center col-2 pr-0">
-                    <Me >
-                        Joana
-                    </Me>
-                </div>
-            </ChatOther>
-            <ChatUser className="d-flex mb-3">
-                <div className="align-self-center col-2 pr-0">
+
+                <div className="align-text-top text-right col-2">
                     <Me >
                         You
                     </Me>
                 </div>
-                <div className="col-8 pl-0">
-                    <Text>
-                        Thank you!
-                    </Text>
+                < ChatUser className="d-flex mb-4">
+                    <div className="col-10 text-fluid">
+                        <Text >
+                          I saw your comment about Convivio and I'd like you to tell me more about it
+                        </Text>
 
-                </div>
-                <FotoRight className="col-2 pl-0">
+                    </div>
+                </ChatUser>
+                <FotoRight className="col-2">
                     <img className="rounded-circle" src={imgUser}  alt="profile"/>
                 </FotoRight>
 
-            </ChatUser>
-            </ChatArea>
-                <InputArea>
+                <ChatOther className="d-flex mb-4">
+                    <div className="align-text-top text-right col-2">
+                        <User >
+                            Joana
+                        </User>
+                    </div>
+                    <div className="col-10 pl-0">
+                        <Text>
+                            The place is nice, so is the food.
+                        </Text>
 
-                    <Mensagem> texto para as mensagens </Mensagem>
-                   <BtnSubmit className="col-2" to ={""}>
-                       <SendIcon />
-                   </BtnSubmit>
-                </InputArea>
+                    </div>
+                </ChatOther>
+                <FotoLeft className ="col-2 pl-0">
+                    <img className="rounded-circle img-fluid" src={imgUser}  alt="profile"/>
+                </FotoLeft>
+
+                <div className="align-text-top text-right col-2">
+                    <Me >
+                        You
+                    </Me>
+                </div>
+                < ChatUser className="d-flex mb-4">
+                    <div className="col-10 text-fluid">
+                        <Text >
+                           Thanks!
+                        </Text>
+
+                    </div>
+                </ChatUser>
+                <FotoRight className="col-2">
+                    <img className="rounded-circle" src={imgUser}  alt="profile"/>
+                </FotoRight>
+
+            </ChatArea>
+
+                    <MessageForm  className="MessageForm">
+<InputConteiner className="input-container">
+                        <Input type="text" rows={1} placeholder="Enter your message..."/>
+        </InputConteiner>
+                           <ButtonContainer className="button-container">
+                               <Button type="submit">
+                                <SendIcon />
+                               </Button>
+                           </ButtonContainer>
+                    </MessageForm>
+
             </Badge>
             <Navbar />
         </div>

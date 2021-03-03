@@ -4,6 +4,7 @@ import styled from "styled-components";
 import {Link} from "react-router-dom";
 import logoEciu from "../../images/logoeciu.png"
 import FirebaseConfig from "../../scripts/FirebaseConfig";
+import {createUser} from "../../FetchAPI";
 
 const ButtonConfirm = styled.button`
   background-color: #002337;
@@ -11,7 +12,6 @@ const ButtonConfirm = styled.button`
   border-radius: 4px;
   font-weight: 600;
   border-color: transparent;`
-
 const ButtonSignup = styled(Link)`
   font-weight: bold;
   color: #002337;`
@@ -31,6 +31,10 @@ export default () => {
         FirebaseConfig
             .auth()
             .signInWithEmailAndPassword(email, password)
+            .then(({user}) =>
+                setUser(user.uid),
+                window.location.href = "/categories"
+            )
             .catch(err => {
                 switch (err.code){
                     case "auth/invalid-email":
