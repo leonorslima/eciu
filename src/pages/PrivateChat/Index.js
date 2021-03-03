@@ -3,8 +3,9 @@ import styled from 'styled-components'
 import imgUser from "../../images/user.png";
 import SendIcon from '@material-ui/icons/Send';
 import Navbar from "../../components/Navbar";
-import {Link} from "react-router-dom";
-import Form from "react-bootstrap/Form";
+import {Link, useHistory} from "react-router-dom";
+import {FaChevronLeft} from "react-icons/fa";
+
 
 
 
@@ -93,10 +94,7 @@ const FotoLeft = styled.div`
 
 `
 
-const Badge = styled.div`
- 
-  
-`
+
 const ChatArea = styled.div`
     background: white;
  overflow-y: auto;
@@ -107,7 +105,7 @@ const BtnSubmit = styled(Link)`
   margin-left: 260px;
   
 `
-const MessageForm = styled.form`
+const MessageForm = styled.div`
   display: flex;
   background-color: #DBDBDB;
 `
@@ -143,6 +141,7 @@ background: white;
         height: 100%;
         outline: none;
         width: 100%;
+   
   `
 
 
@@ -161,24 +160,29 @@ const User = styled.p`
   color: #8B8A8A;
   margin-left: -20px;
   margin-top: -25px;
+  
 `
-
-const textarea = styled.input``
-
-
-
 
 
 
 export default () => {
+    let history = useHistory();
+    const goToPreviousPath = () => {
+        history.goBack()
+    }
+
     return (
         <div>
+            <div>
 
-            <Other className="d-flex mb-3">
-                <div className="col-3 pl-0 ml-3">
+            <Other className="container-fluid d-flex mb-3">
+                <div className="col-2" onClick={goToPreviousPath}>
+                <FaChevronLeft />
+            </div>
+                <div className="col-3 p-1">
                     <img className="rounded-circle img-fluid" src={imgUser}  alt="profile"/>
                 </div>
-                <div className="col-8 pl-0">
+                <div className="col-6">
                     <Text>
                       Joana Sousa
                     </Text>
@@ -191,7 +195,7 @@ export default () => {
                 </div>
 
             </Other>
-            <Badge>
+
             <ChatArea>
                 <div className="align-text-top text-right col-2">
                     <Me >
@@ -281,9 +285,9 @@ export default () => {
                     <img className="rounded-circle" src={imgUser}  alt="profile"/>
                 </FotoRight>
 
-            </ChatArea>
 
-                    <MessageForm  className="MessageForm">
+
+                    <MessageForm  className="MessageForm ">
 <InputConteiner className="input-container">
                         <Input type="text" rows={1} placeholder="Enter your message..."/>
         </InputConteiner>
@@ -294,9 +298,18 @@ export default () => {
                            </ButtonContainer>
                     </MessageForm>
 
-            </Badge>
+            </ChatArea>
+                <br/>
+                <br/>
+                <br/>
+
+
+
+
+
+
             <Navbar />
-        </div>
+        </div></div>
     )
 
 }
