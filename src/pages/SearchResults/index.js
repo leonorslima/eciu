@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Form from "react-bootstrap/Form";
 import imgUser from "../../images/user.png";
 import {FaChevronDown} from "react-icons/fa";
+import HeaderBack from "../../components/HeaderBack"
 
 const Title = styled.h4`
 font-size: 28px;
@@ -47,6 +48,7 @@ margin-bottom: 0;
 export default () => {
     return (
         <div>
+            <HeaderBack />
             <Title className="mt-2 mb-2">SEARCH RESULTS</Title>
             <div>
                 <Form.Group controlId="formBasicSearch">
