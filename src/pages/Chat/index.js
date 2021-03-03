@@ -35,7 +35,7 @@ const Tip = styled.div`
   }
 
   padding: 10px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
   
   `
 
@@ -52,12 +52,12 @@ export default () => {
        <div>
            <HeaderBack />
            <div>
-               <Title>PRIVATE CHAT</Title>
+               <Title className="mb-5 mt-4">PRIVATE CHAT</Title>
 
            </div>
 
 
-    <Tip className="d-flex mb-3">
+    <Tip className="d-flex mb-3 mt-4">
         <div className="col-3 pl-0">
             <img className="rounded-circle" src={imgUser}  alt="profile"/>
         </div>
