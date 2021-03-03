@@ -25,3 +25,13 @@ export const createUser = (idu, name, profileid, homeuniversityid, destinyuniver
         },
         body: JSON.stringify({ idu, name, profileid, homeuniversityid, destinyuniversityid }),
     }).then((response) => response.json());
+
+
+export const createPost = (categoryid, subcategoryid, title, text) =>
+    fetch(`http://localhost:3001/posts`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ categoryid, subcategoryid, title, text }),
+    }).then((response) => response.json());

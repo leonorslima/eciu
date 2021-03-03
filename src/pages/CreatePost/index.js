@@ -3,9 +3,11 @@ import Form from "react-bootstrap/Form";
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 import Header from "../../components/Header"
-import {fetchCategory} from "../../FetchAPI";
+import {fetchCategory, createPost} from "../../FetchAPI";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
 
-const ButtonConfirm = styled(Link)`
+const ButtonConfirm = styled.button`
 background-color: #002337;
 color: white;
 border-radius: 2px;
@@ -31,6 +33,10 @@ export default () => {
     const [cat, setCat] = useState([]);
     const [catselected, Setcatselected] = useState('');
     const [hasAccess, setHasAccess] = useState(false);
+    const [title, setTitle] = useState('');
+    const [text, setText] = useState('');
+    const [Subcat, setSubcat] = useState('');
+    const [feedback, setFeedback] = useState('');
 
     useEffect(() => {
         fetchCategory()
@@ -39,62 +45,111 @@ export default () => {
             });
     }, []);
 
+
+    const handlePublish = () => {
+        if (catselected !== ''&& Subcat !== '' && title !== '' && text !== ''){
+            console.log(catselected, Subcat, title, text);
+
+            createPost(catselected, Subcat, title, text)
+                .then(setFeedback("Your post was created!"))
+
+        }
+
+    }
+
     return (
         <div>
             <Header />
-            <Title className="mt-2">CREATE POST</Title>
 
 
-            <Form.Control as="select"  value={catselected} onChange={e => {Setcatselected(e.target.value); setHasAccess(true)}} className="my-1 mr-sm-2" id="inlineFormCustomSelectPref" custom>
-                <option value="0">Choose the category</option>
-                {cat.map(
-                    (Cat)=> {
-                        if(Cat.parentcategoryid === null){
-                            return(
-                                <option value={Cat.id}>{Cat.name}</option>
-                            )}})}
-            </Form.Control>
-
-            {!hasAccess ? (
-                    <Form.Control as="select" className="my-1 mr-sm-2" id="inlineFormCustomSelectPref" custom disabled>
-                        <option value="0">Choose the subcategory</option>
-                        {cat.map(
-                            (Cat)=> {
-                                if(Cat.parentcategoryid !== null && Cat.parentcategoryid === catselected){
-                                    return(
-                                        <option value={Cat.id}>{Cat.name}</option>
-                                    )}})}
-
-                    </Form.Control>
+            {
+                feedback !== '' ? (
+                    <div style={{textAlign:"center", marginTop: 270}}>
+                        <Typography >{feedback}</Typography>
+                        <Button> <Link to={"/categories"}> Continuar</Link></Button>
+                    </div>
                 ) : (
-                    <Form.Control as="select" className="my-1 mr-sm-2" id="inlineFormCustomSelectPref" custom >
-                        <option value="0">Choose the subcategory</option>
-                        {cat.map(
-                            (Cat)=> {
-                                if(Cat.parentcategoryid !== null && Cat.parentcategoryid === catselected){
-                                    return(
-                                        <option value={Cat.id}>{Cat.name}</option>
-                                    )}})}
-                    </Form.Control>
-                )}
+
+                    <div>
+                        <Title className="mt-2">CREATE POST</Title>
 
 
-            <Form.Group controlId="formBasicTitle" className="mt-5">
-                <Form.Control type="text" name={"title"} placeholder="Post Title" />
-            </Form.Group>
-            <Form.Group controlId="exampleForm.ControlTextarea1">
-                <Form.Control as="textarea" name={"text"} rows={3} placeholder="Write your post here"/>
-            </Form.Group>
+                        <Form.Control as="select" value={catselected} onChange={e => {
+                            Setcatselected(e.target.value);
+                            setHasAccess(true)
+                        }} className="my-1 mr-sm-2" id="inlineFormCustomSelectPref" custom>
+                            <option value="0">Choose the category</option>
+                            {cat.map(
+                                (Cat) => {
+                                    if (Cat.parentcategoryid === null) {
+                                        return (
+                                            <option value={Cat.id}>{Cat.name}</option>
+                                        )
+                                    }
+                                })}
+                        </Form.Control>
 
-            <div className="d-flex justify-content-center">
-            <ButtonCancel className="mt-5 mr-4 p-2" to={"/"}>
-                 Cancel
-            </ButtonCancel>
+                        {!hasAccess ? (
+                            <Form.Control as="select" className="my-1 mr-sm-2" id="inlineFormCustomSelectPref" custom
+                                          disabled>
+                                <option value="0">Choose the subcategory</option>
+                                {cat.map(
+                                    (Cat) => {
+                                        if (Cat.parentcategoryid !== null && Cat.parentcategoryid === catselected) {
+                                            return (
+                                                <option value={Cat.id}>{Cat.name}</option>
+                                            )
+                                        }
+                                    })}
 
-            <ButtonConfirm className="mt-5 ml-4 p-2" >
-                Publish
-            </ButtonConfirm>
-            </div>
+                            </Form.Control>
+                        ) : (
+                            <Form.Control as="select" className="my-1 mr-sm-2" id="inlineFormCustomSelectPref"
+                                          value={setSubcat} onChange={e => {
+                                setSubcat(e.target.value)
+                            }} custom>
+                                <option value="0">Choose the subcategory</option>
+                                {cat.map(
+                                    (SubCat) => {
+                                        if (SubCat.parentcategoryid !== null && SubCat.parentcategoryid === catselected) {
+                                            return (
+                                                <option value={SubCat.id} name={SubCat.id}>{SubCat.name}</option>
+                                            )
+                                        }
+                                    })}
+                            </Form.Control>
+                        )}
+
+
+                        <Form.Group controlId="formBasicTitle" className="mt-5">
+                            <Form.Control type="text"
+                                          value={title}
+                                          name="title"
+                                          onChange={(e) => setTitle(e.target.value)}
+                                          placeholder="Post Title"/>
+                        </Form.Group>
+                        <Form.Group controlId="exampleForm.ControlTextarea1">
+                            <Form.Control as="textarea"
+                                          value={text}
+                                          name="text"
+                                          onChange={(e) => setText(e.target.value)}
+                                          rows={3} placeholder="Write your post here"/>
+                        </Form.Group>
+
+                        <div className="d-flex justify-content-center">
+                            <ButtonCancel className="mt-5 mr-4 p-2" to={"/"}>
+                                Cancel
+                            </ButtonCancel>
+
+                            <ButtonConfirm className="mt-5 ml-4 p-2" onClick={handlePublish}>
+                                Publish
+                            </ButtonConfirm>
+                        </div>
+                    </div>
+
+                )
+            }
+
         </div>
     )
 

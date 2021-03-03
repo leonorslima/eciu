@@ -23,7 +23,6 @@ const BtnFollow = styled(Link)`
   text-align: center;
   height: 30px;
   width: 80px;`
-
 const BtnCreate = styled(Link)`
   background-color: #002337;
   color: white;
@@ -75,7 +74,6 @@ const Name = styled.p`
   margin-bottom: 0;`
 const TitleTopTips = styled.h5`
   font-weight: 700;`
-
 const Subcategories = styled.div`
   overflow: auto;
   white-space: nowrap;
@@ -100,7 +98,6 @@ const Likes = styled.p`
   display: inline-flex;
   font-size: 14px;
   color: #8B8A8A;`
-
 const Date = styled.p`
   font-size: 14px;
   color: #8B8A8A;`
@@ -120,7 +117,6 @@ export default () => {
         setisLoading(true)
         fetchICategory(id)
             .then(nome => {
-
                 setNome(nome);
             })
 

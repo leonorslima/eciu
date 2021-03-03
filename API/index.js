@@ -24,5 +24,9 @@ app.use("/universities",
 app.use("/profiles",
     require("./controllers/profiles"))
 
+app.use("/posts",
+    require("./controllers/posts"),
+    require("./controllers/pubs"))
+
 app.listen(3001, () => { console.log("Servidor a funcionar!");});
 

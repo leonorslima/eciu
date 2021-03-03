@@ -1,9 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Form from "react-bootstrap/Form";
 import styled from "styled-components";
 import {Link} from "react-router-dom";
-import {Redirect} from "react-router-dom";
-
 import logoEciu from "../../images/logoeciu.png"
 import FirebaseConfig from "../../scripts/FirebaseConfig";
 
@@ -34,14 +32,17 @@ export default () => {
             .then(({user}) =>
                 setUser(user.uid),
                 window.location.href = "/categories"
+
             )
             .catch(err => {
                 switch (err.code){
                     case "auth/invalid-email":
                     case "auth/user-disabled":
-                    case "auth/user-not-found": setEmailError(err.message);
+                    case "auth/user-not-found":
+                        setEmailError(err.message);
                         break;
-                    case "auth/wrong-password": setPasswordError(err.message);
+                    case "auth/wrong-password":
+                        setPasswordError(err.message);
                         break;
                 }})
         console.log(email, password);
@@ -51,6 +52,7 @@ export default () => {
         setEmailError('');
         setPasswordError('');
     }
+
 
     return (
         <div className="text-center">
@@ -72,7 +74,9 @@ export default () => {
                         Sign In
                     </ButtonConfirm>
                 <p className="mt-5">Don't have an account? <ButtonSignup to={"/signup"}>Sign up!</ButtonSignup></p>
+
             </div>
         </div>
+
     )
 }
