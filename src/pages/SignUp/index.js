@@ -52,6 +52,8 @@ export default function HorizontalLabelPositionBelowStepper() {
     const [homeuniversityid, setHomeuniversityid] = useState('');
     const [destinyuniversityid, setDestinyuniversityid] = useState('');
     const [universities, setUniversities] = useState([]);
+    const [profilepic, setProfilepic] = useState('https://i.imgur.com/lkNJhjo.png');
+
 
     const handleSignUp = (name, profileid, homeuniversityid, destinyuniversityid) =>{
         clearErrors();
@@ -60,7 +62,7 @@ export default function HorizontalLabelPositionBelowStepper() {
                 .auth()
                 .createUserWithEmailAndPassword(email, password)
                 .then(({user}) =>
-                    createUser(user.uid, name, profileid, homeuniversityid, destinyuniversityid),
+                    createUser(user.uid, name, profileid, homeuniversityid, destinyuniversityid, profilepic),
                     ok()
 
                 )

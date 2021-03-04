@@ -17,13 +17,13 @@ export const fetchUni = () => fetchFromAPI('universities');
 
 export const fetchProfile = () => fetchFromAPI('profiles');
 
-export const createUser = (idu, name, profileid, homeuniversityid, destinyuniversityid) =>
+export const createUser = (idu, name, profileid, homeuniversityid, destinyuniversityid, profilepic) =>
     fetch(`http://localhost:3001/users`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ idu, name, profileid, homeuniversityid, destinyuniversityid }),
+        body: JSON.stringify({ idu, name, profileid, homeuniversityid, destinyuniversityid, profilepic }),
     }).then((response) => response.json());
 
 
