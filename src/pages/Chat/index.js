@@ -3,14 +3,12 @@ import styled from 'styled-components'
 import imgUser from "../../images/user.png";
 import Navbar from "../../components/Navbar";
 import HeaderBack from "../../components/HeaderBack";
-
-
+import {Link} from "react-router-dom";
 
 const Title = styled.h1`
   font-size: 28px;
   font-weight: 800;
   color: #002337;`
-
 const Text = styled.p`
   font-weight: 700;
   margin-bottom: 0;
@@ -18,16 +16,17 @@ const Text = styled.p`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  
-  `
+  text-decoration: none !important;
 
+`
 const Name = styled.p`
   font-weight: 400;
-  margin-bottom: 0;`
-
-
-const Tip = styled.div`
+  margin-bottom: 0;
+  text-decoration: none !important;
+`
+const Tip = styled(Link)`
   background-color: white;
+  text-decoration: none !important;
 
 
   & img {
@@ -38,14 +37,10 @@ const Tip = styled.div`
 
   
   `
-
-
 const Data = styled.p`
   font-size: 10px;
   font-weight: 800;
   color: #8B8A8A;`
-
-
 
 export default () => {
     return (
@@ -57,17 +52,17 @@ export default () => {
            </div>
 
 
-    <Tip className="d-flex mb-3 mt-4">
+    <Tip className="d-flex mb-3 mt-4" to={"/privatechat"}>
         <div className="col-3 pl-0">
             <img className="rounded-circle" src={imgUser}  alt="profile"/>
         </div>
         <div className="col-7 pl-0">
-            <Text>
-                Best restaurant in Aveiro
-            </Text>
             <Name>
-                Anne-Marie
+                Joana Rodrigues
             </Name>
+            <Text>
+                Convívio has a really nice vibe!
+            </Text>
         </div>
         <div className="align-self-center col-2 pr-0">
             <Data>
@@ -80,12 +75,12 @@ export default () => {
             <img className="rounded-circle" src={imgUser}  alt="profile"/>
         </div>
         <div className="col-7 pl-0">
-            <Text>
-                Best restaurant in Aveiro
-            </Text>
             <Name>
-                Anne-Marie
+                Leonor Lima
             </Name>
+            <Text>
+                Yes! I can't recommend Saladas+ enough ...
+            </Text>
         </div>
         <div className="align-self-center col-2 pr-0">
             <Data>
@@ -98,11 +93,29 @@ export default () => {
                    <img className="rounded-circle" src={imgUser}  alt="profile"/>
                </div>
                <div className="col-7 pl-0">
-                   <Text>
-                       Best restaurant in Aveiro
-                   </Text>
                    <Name>
-                       Anne-Marie
+                       Sara Vilarinho
+                   </Name>
+                   <Text>
+                       If you go to Piano Café at night be careful...
+                   </Text>
+               </div>
+               <div className="align-self-center col-2 pr-0">
+                   <Data>
+                       01/02
+                   </Data>
+               </div>
+           </Tip>
+           <Tip className="d-flex mb-3">
+               <div className="col-3 pl-0">
+                   <img className="rounded-circle" src={imgUser}  alt="profile"/>
+               </div>
+               <div className="col-7 pl-0">
+                   <Name>
+                       Daniel Nunes
+                   </Name>
+                   <Name>
+                       The university is really ...
                    </Name>
                </div>
                <div className="align-self-center col-2 pr-0">
@@ -116,11 +129,11 @@ export default () => {
                    <img className="rounded-circle" src={imgUser}  alt="profile"/>
                </div>
                <div className="col-7 pl-0">
-                   <Text>
-                       Best restaurant in Aveiro
-                   </Text>
                    <Name>
-                       Anne-Marie
+                       Mariana Bastos
+                   </Name>
+                   <Name>
+                       Have you checked out...
                    </Name>
                </div>
                <div className="align-self-center col-2 pr-0">
@@ -129,42 +142,7 @@ export default () => {
                    </Data>
                </div>
            </Tip>
-           <Tip className="d-flex mb-3">
-               <div className="col-3 pl-0">
-                   <img className="rounded-circle" src={imgUser}  alt="profile"/>
-               </div>
-               <div className="col-7 pl-0">
-                   <Text>
-                       Best restaurant in Aveiro
-                   </Text>
-                   <Name>
-                       Anne-Marie
-                   </Name>
-               </div>
-               <div className="align-self-center col-2 pr-0">
-                   <Data>
-                       01/02
-                   </Data>
-               </div>
-           </Tip>
-           <Tip className="d-flex mb-3">
-               <div className="col-3 pl-0">
-                   <img className="rounded-circle" src={imgUser}  alt="profile"/>
-               </div>
-               <div className="col-7 pl-0">
-                   <Text>
-                       Best restaurant in Aveiro
-                   </Text>
-                   <Name>
-                       Anne-Marie
-                   </Name>
-               </div>
-               <div className="align-self-center col-2 pr-0">
-                   <Data>
-                       01/02
-                   </Data>
-               </div>
-           </Tip>
+
            <Navbar />
        </div>
     )
