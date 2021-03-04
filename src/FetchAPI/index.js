@@ -9,6 +9,11 @@ export const fetchPostsCategory = (id) =>
     fetch(`http://localhost:3001/categories/${id}`)
         .then(response => response.json())
 
+export const fetchUtilizador = (id) =>
+    fetch(`http://localhost:3001/users/${id}`)
+        .then(response => response.json())
+
+
 export const fetchICategory = (id) => fetchFromAPI('categories');
 
 export const fetchPostUser = () => fetchFromAPI('users');
@@ -27,11 +32,20 @@ export const createUser = (idu, name, profileid, homeuniversityid, destinyuniver
     }).then((response) => response.json());
 
 
-export const createPost = (categoryid, subcategoryid, title, text, likes, date) =>
+export const createPost = (categoryid, subcategoryid, title, text, likes, date, userid) =>
     fetch(`http://localhost:3001/posts`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ categoryid, subcategoryid, title, text, likes, date }),
+        body: JSON.stringify({ categoryid, subcategoryid, title, text, likes, date, userid }),
+    }).then((response) => response.json());
+
+export const updatePost = (id, likes) =>
+    fetch(`http://localhost:3001/posts/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({id, likes}),
     }).then((response) => response.json());

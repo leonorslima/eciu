@@ -37,5 +37,20 @@ module.exports = {
         const docRef = await coll.add(body);
 
         return { id: docRef.id, ...body };
+    },
+    update: async (id, body) => {
+        if (!id) {
+            throw new Error("An ID must be provided");
+        }
+
+        if (!body) {
+            throw new Error("A body must be provided");
+        }
+
+        const coll = getCollection(COLLECTION_NAME);
+        const doc = getDocumentFromCollection(coll, id);
+
+        await doc.update(body);
+        return true;
     }
 }

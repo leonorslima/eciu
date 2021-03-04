@@ -6,6 +6,8 @@ import Header from "../../components/Header"
 import {fetchCategory, createPost} from "../../FetchAPI";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
+import {useAuthState} from "react-firebase-hooks/auth";
+import firebase from "firebase";
 
 const ButtonConfirm = styled.button`
 background-color: #002337;
@@ -31,6 +33,10 @@ color: #002337;
 
 export default () => {
 
+    const [user, loading, error] = useAuthState(firebase.auth());
+   // console.log({user})
+
+
     let history = useHistory();
     const goToPreviousPath = () => {
         history.goBack()
@@ -44,7 +50,7 @@ export default () => {
     const [Subcat, setSubcat] = useState('');
     const [feedback, setFeedback] = useState('');
     const [likes, setlikes] = useState([]);
-    const [date, setDate] = useState('')
+    const [date, setDate] = useState('');
 
 
     useEffect(() => {
@@ -53,16 +59,12 @@ export default () => {
                     setCat(cat);
             });
 
-
         let today = new Date();
         let dd = today.getDate();
         let m = today.getMonth();
         let yyyy = today.getFullYear()
 
         setDate(dd +'-'+ m+'-'+ yyyy)
-
-
-
     }, []);
 
 
@@ -71,7 +73,7 @@ export default () => {
             console.log(catselected, Subcat, title, text);
 
 
-            createPost(catselected, Subcat, title, text, likes, date)
+            createPost(catselected, Subcat, title, text, likes, date, user.uid)
                 .then(setFeedback("Your post was created!"))
 
         }

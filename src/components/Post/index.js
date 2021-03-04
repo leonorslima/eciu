@@ -9,10 +9,9 @@ import imgUser from "../../images/user.png";
 import {AiOutlineLike, AiFillLike} from "react-icons/ai";
 import Navbar from "../../components/Navbar";
 import HeaderBack from "../../components/HeaderBack";
-import {fetchICategory, fetchPostsCategory, fetchPostUser} from "../../FetchAPI";
+import {fetchICategory, fetchPostsCategory, fetchPostUser, updatePost} from "../../FetchAPI";
 import {useParams} from "react-router-dom";
 import {SemipolarLoading} from 'react-loadingg';
-import {Component} from "@firebase/component";
 import {useAuthState} from "react-firebase-hooks/auth";
 import firebase from "firebase";
 
@@ -112,13 +111,21 @@ const Loading = styled.p`
 export default () => {
 
     const [user, loading, error] = useAuthState(firebase.auth());
-    console.log(user);
+    console.log(user.uid);
 
     const [liked, setLiked] = useState(false);
 
-    const handleLike = () => {
+
+    const handleLike = (id, userid) => {
         if (liked === false) {
             setLiked(true)
+
+            const ref = firebase.database().ref("/posts/"+id);
+            ref.child("likes").push(userid);
+
+            updatePost(id, userid)
+
+
         } else {
             setLiked(false)
         }
@@ -130,6 +137,7 @@ export default () => {
     const [userPoster, setUserPoster] = useState([])
     const [filtro, setFiltro] = useState('');
     const {id} = useParams();
+
 
 
     useEffect(() => {
@@ -149,6 +157,8 @@ export default () => {
             .then(userPoster => {
                 setUserPoster(userPoster);
             })
+
+
     }, []);
 
 

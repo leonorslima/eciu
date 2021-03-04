@@ -15,6 +15,7 @@ app.use("/categories",
 
 app.use("/users",
     require("./controllers/users"),
+    require("./controllers/user")
     )
 
 app.use("/universities",

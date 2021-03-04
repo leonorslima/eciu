@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components'
-import imgUser from "../../images/user.png"
 import Navbar from "../../components/Navbar"
 import Header from "../../components/Header"
-import {fetchPostUser} from "../../FetchAPI";
+import {fetchPostUser, fetchUni} from "../../FetchAPI";
 import {SemipolarLoading} from 'react-loadingg';
+import {Link} from "react-router-dom";
 
 const Title = styled.h4`
 
@@ -32,9 +32,14 @@ font-size: 16px;
 const Loading = styled.p`
   margin-left: 2rem;
 `
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`
 export default () => {
     const [isLoading, setisLoading] = useState(false);
-    const [buddies, setBuddies] = useState([])
+    const [buddies, setBuddies] = useState([]);
+    const [universities, setUniversities] = useState([]);
+
 
     useEffect(() => {
         setisLoading(true)
@@ -43,6 +48,12 @@ export default () => {
                 setisLoading(false)
                 setBuddies(buddies);
             })
+        fetchUni()
+            .then(universities => {
+                    setisLoading(false);
+                    setUniversities(universities);
+                }
+            );
     }, []);
 
     return (
@@ -58,10 +69,22 @@ export default () => {
                         {buddies.map(
                             (Buddy) => {
                                 return (
-                                    <div className="col-6">
-                                        <img className="rounded-circle w-100" src={Buddy.profilepic} alt="profile"/>
-                                        <Name>{Buddy.name}</Name>
-                                        <Uni>University of Aveiro</Uni>
+                                    <div className="col-6" >
+                                        <StyledLink to={'/users/'+Buddy.id}>
+                                            <img className="rounded-circle w-100" src={Buddy.profilepic} alt="profile"/>
+                                            <Name>{Buddy.name}</Name>
+
+                                            {universities.map(
+                                                (uni) => {
+                                                    if (uni.id === Buddy.homeuniversityid){
+                                                        return(
+                                                            <Uni>{uni.name}</Uni>
+                                                        )
+                                                    }
+                                                }
+                                            )}
+
+                                        </StyledLink>
                                     </div>
                                 )
                             })}

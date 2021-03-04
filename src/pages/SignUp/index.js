@@ -113,20 +113,6 @@ export default function HorizontalLabelPositionBelowStepper() {
         setPasswordError('');
     }
 
-    /*
-
-    const authListener =() =>{
-        FirebaseConfig.auth().onAuthStateChanged((user)=>{
-            if(user){
-                setUser(user);
-            }else {
-                setUser('');
-            }})}
-    useEffect(()=>{
-        authListener();
-    }, []);
-*/
-
     useEffect(() => {
         fetchUni()
             .then(universities => {

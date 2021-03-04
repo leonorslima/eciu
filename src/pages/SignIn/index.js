@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Form from "react-bootstrap/Form";
 import styled from "styled-components";
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import logoEciu from "../../images/logoeciu.png"
 import firebase from 'firebase';
 
@@ -27,7 +27,8 @@ export default function SignIn ({ setUser }) {
         firebase
             .auth()
             .signInWithEmailAndPassword(email, password)
-
+            .then(
+                window.location.href = "/categories")
             .catch(err => {
                 switch (err.code){
                     case "auth/invalid-email":

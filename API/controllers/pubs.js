@@ -9,7 +9,16 @@ router.route("/")
         res.json(publicacao);
         res.status(201);
         res.end();
-    });
+    })
+    .put(async (req, res) => {
+
+        await update(req.params.id, req.body);
+
+        res.json({ id: req.params.id, ...req.body });
+        res.status(200);
+        res.end();
+    })
+;
 
 
 

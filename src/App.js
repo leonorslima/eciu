@@ -7,7 +7,7 @@ import Feed from "./pages/Feed/index";
 import Categories from "./pages/Categories/index";
 import Community from "./pages/Community/index";
 import Chat from "./pages/Chat/index";
-import Profile from "./pages/Profile/index";
+import User from "./pages/User/index";
 import MyProfile from "./pages/MyProfile/index";
 import EditProfile from "./pages/EditProfile/index";
 import SignUp from "./pages/SignUp/index";
@@ -23,11 +23,13 @@ const RedirectAuth = () =>{
     const [user, loading, error] = useAuthState(firebase.auth());
     const history = useHistory();
 
+
     useEffect(() => {
         if(user || loading || history.location.pathname.indexOf('signin') !== -1){
             return
         }
-        history.push('/signin')
+        history.push('/signin');
+
     }, [user, loading])
 
     return null
@@ -47,8 +49,7 @@ function App() {
                     <Route exact path={"/chat"} component={Chat}/>
                     <Route exact path={"/myprofile"} component={MyProfile}/>
                     <Route exact path={"/editprofile"} component={EditProfile}/>
-                    <Route exact path={"/profile"} component={Profile}/>
-                    <Route exact path={"/profile/:id"} component={Profile}/>
+                    <Route exact path={"/users/:id"} component={User}/>
                     <Route exact path={"/signup"} component={SignUp}/>
                     <Route exact path={"/signin"}  component={SignIn}/>
                     <Route exact path={"/createpost/:id"} component={CreatePost}/>
