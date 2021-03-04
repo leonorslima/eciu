@@ -13,6 +13,8 @@ import {fetchICategory, fetchPostsCategory, fetchPostUser} from "../../FetchAPI"
 import {useParams} from "react-router-dom";
 import {SemipolarLoading} from 'react-loadingg';
 import {Component} from "@firebase/component";
+import {useAuthState} from "react-firebase-hooks/auth";
+import firebase from "firebase";
 
 const Title = styled.h4`
   font-size: 28px;
@@ -107,12 +109,10 @@ const Loading = styled.p`
 `
 
 
-
-
-
 export default () => {
 
-
+    const [user, loading, error] = useAuthState(firebase.auth());
+    console.log(user);
 
     const [liked, setLiked] = useState(false);
 
@@ -130,7 +130,6 @@ export default () => {
     const [userPoster, setUserPoster] = useState([])
     const [filtro, setFiltro] = useState('');
     const {id} = useParams();
-
 
 
     useEffect(() => {
@@ -151,8 +150,6 @@ export default () => {
                 setUserPoster(userPoster);
             })
     }, []);
-
-
 
 
     return (
@@ -189,8 +186,11 @@ export default () => {
                     <Subcategories className="d-flex mt-3">
                         <div className="mr-3 text-center">
                             <Sub className="justify-content-center">
-                                <a onClick={() =>{setFiltro('')}}>
-                                    <img style={{paddingTop: "17px"}} src={"https://i.imgur.com/I3kzDHd.png"} alt="all"/>
+                                <a onClick={() => {
+                                    setFiltro('')
+                                }}>
+                                    <img style={{paddingTop: "17px"}} src={"https://i.imgur.com/I3kzDHd.png"}
+                                         alt="all"/>
                                 </a>
                             </Sub>
                             <Label>All</Label>
@@ -201,13 +201,16 @@ export default () => {
                                     return (
                                         <div className="mr-3 text-center">
                                             <Sub className="justify-content-center">
-                                                <a onClick={()=> {setFiltro(Nome.id)}}>
+                                                <a onClick={() => {
+                                                    setFiltro(Nome.id)
+                                                }}>
                                                     <img src={Nome.img} alt="all"/>
                                                 </a>
                                             </Sub>
                                             <Label>{Nome.name}</Label>
                                         </div>
-                                    )}
+                                    )
+                                }
                             })}
                     </Subcategories>
 
@@ -217,27 +220,29 @@ export default () => {
                             (Nome) => {
                                 if (Nome.id === id) {
                                     console.log(filtro);
-                                    if(filtro === ''){
+                                    if (filtro === '') {
                                         return (
                                             <TopTips className="mb-3" style={{backgroundColor: Nome.color}}>
                                                 <TitleTopTips className="mt-0 pt-2 pl-3">TOP-TIPS</TitleTopTips>
                                                 {posts.map(
-
                                                     (Post) => {
                                                         if (Post.categoryid === id) {
 
-                                                        //    const unixTime = Post.date._seconds;
-                                                          //  var datapost = new window.Date(unixTime * 1000);
+                                                            //    const unixTime = Post.date._seconds;
+                                                            //  var datapost = new window.Date(unixTime * 1000);
                                                             return (
-                                                                <Accordion className="align-self-center col-12 pl-0 pr-0">
+                                                                <Accordion
+                                                                    className="align-self-center col-12 pl-0 pr-0">
                                                                     <TopTip className="d-flex row mb-3">
                                                                         <div className="col-3 pl-0 mt-2">
                                                                             {userPoster.map(
                                                                                 (Poster) => {
                                                                                     if (Poster.idu === Post.userid) {
                                                                                         return (
-                                                                                            <img className="rounded-circle" src={Poster.profilepic}
-                                                                                                 alt="profile"/>
+                                                                                            <img
+                                                                                                className="rounded-circle"
+                                                                                                src={Poster.profilepic}
+                                                                                                alt="profile"/>
                                                                                         )
                                                                                     }
                                                                                 })}
@@ -268,17 +273,26 @@ export default () => {
                                                                         <Accordion.Collapse eventKey="0">
                                                                             <div>
                                                                                 <h6 className="mt-3">{Post.text} </h6>
-                                                                                <InfoAdd className="d-flex align-items-center">
-                                                                                    <Date className="col-8 pl-0 ml-0 mb-0">
+                                                                                <InfoAdd
+                                                                                    className="d-flex align-items-center">
+                                                                                    <Date
+                                                                                        className="col-8 pl-0 ml-0 mb-0">
                                                                                         {/*{datapost.toLocaleDateString("en-GB")}*/}
                                                                                         {Post.date}
                                                                                     </Date>
 
                                                                                     <Button
-                                                                                        onClick= {handleLike}
-                                                                                        style={{backgroundColor: "white", borderColor: "#002337", color: "#002337"}}
+                                                                                        onClick={handleLike}
+                                                                                        style={{
+                                                                                            backgroundColor: "white",
+                                                                                            borderColor: "#002337",
+                                                                                            color: "#002337"
+                                                                                        }}
                                                                                         className="col-3 d-flex p-1 align-items-center justify-content-center">
-                                                                                        {liked ? <AiFillLike className="mr-2" /> : <AiOutlineLike className="mr-2" />}
+                                                                                        {liked ? <AiFillLike
+                                                                                                className="mr-2"/> :
+                                                                                            <AiOutlineLike
+                                                                                                className="mr-2"/>}
                                                                                         <p className="mb-0">    {Post.likes.length}</p>
                                                                                     </Button>
                                                                                 </InfoAdd>
@@ -291,7 +305,7 @@ export default () => {
                                                     })}
                                             </TopTips>
                                         )
-                                    }else {
+                                    } else {
                                         return (
                                             <TopTips className="mb-3" style={{backgroundColor: Nome.color}}>
                                                 <TitleTopTips className="mt-0 pt-2 pl-3">TOP-TIPS</TitleTopTips>
@@ -302,15 +316,18 @@ export default () => {
                                                             const unixTime = Post.date._seconds;
                                                             var datapost = new window.Date(unixTime * 1000);
                                                             return (
-                                                                <Accordion className="align-self-center col-12 pl-0 pr-0">
+                                                                <Accordion
+                                                                    className="align-self-center col-12 pl-0 pr-0">
                                                                     <TopTip className="d-flex row mb-3">
                                                                         <div className="col-3 pl-0 mt-2">
                                                                             {userPoster.map(
                                                                                 (Poster) => {
                                                                                     if (Poster.idu === Post.userid) {
                                                                                         return (
-                                                                                            <img className="rounded-circle" src={Poster.profilepic}
-                                                                                                 alt="profile"/>
+                                                                                            <img
+                                                                                                className="rounded-circle"
+                                                                                                src={Poster.profilepic}
+                                                                                                alt="profile"/>
                                                                                         )
                                                                                     }
                                                                                 })}
@@ -341,13 +358,18 @@ export default () => {
                                                                             <div>
                                                                                 <h6 className="mt-3">{Post.text} </h6>
                                                                                 <InfoAdd className="d-flex">
-                                                                                    <Date className="col-8 pl-0 ml-0 mb-0">
+                                                                                    <Date
+                                                                                        className="col-8 pl-0 ml-0 mb-0">
                                                                                         {datapost.toLocaleDateString("en-GB")}
                                                                                     </Date>
                                                                                     <Button
-                                                                                        style={{backgroundColor: "white", borderColor: "#002337", color: "#002337"}}
+                                                                                        style={{
+                                                                                            backgroundColor: "white",
+                                                                                            borderColor: "#002337",
+                                                                                            color: "#002337"
+                                                                                        }}
                                                                                         className="col-3 d-flex p-1 align-items-center justify-content-center">
-                                                                                        <FaHeart className="mr-2" />
+                                                                                        <FaHeart className="mr-2"/>
                                                                                         <p className="mb-0">    {Post.likes.length}</p>
                                                                                     </Button>
                                                                                 </InfoAdd>
@@ -397,7 +419,7 @@ export default () => {
                                             <Likes className="ml-4 col-md-4 mb-0">
                                                 <p>2376</p>
                                                 {/*<BotaoLike>*/}
-                                                    <AiOutlineLike className={"w-100"}/>
+                                                <AiOutlineLike className={"w-100"}/>
                                                 {/*</BotaoLike>*/}
 
                                             </Likes>

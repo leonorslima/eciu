@@ -1,7 +1,7 @@
 import firebase from 'firebase';
 
 
-var firebaseConfig = {
+var initializeFirebase = {
         apiKey: "AIzaSyC0AFItD29TxbntOwVmVFZItIaWY3iSnis",
         authDomain: "eciu-buddy.firebaseapp.com",
         projectId: "eciu-buddy",
@@ -12,6 +12,5 @@ var firebaseConfig = {
 
 };
 
-const FirebaseConfig = firebase.initializeApp(firebaseConfig);
 
-export default FirebaseConfig;
+export default () => firebase.initializeApp(initializeFirebase);

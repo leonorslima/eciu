@@ -3,8 +3,7 @@ import Form from "react-bootstrap/Form";
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 import logoEciu from "../../images/logoeciu.png"
-import FirebaseConfig from "../../scripts/FirebaseConfig";
-
+import firebase from 'firebase';
 
 const ButtonConfirm = styled.button`
   background-color: #002337;
@@ -17,32 +16,18 @@ const ButtonSignup = styled(Link)`
   color: #002337;`
 
 export default function SignIn ({ setUser }) {
-
-    //const [user, setUser] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
 
-
-    /*const handleLogin = () =>  {
-        console.log(props);
-        props.handleLogin(email, password)
-    }*/
-
     const handleLogin = () => {
         clearErrors()
 
-        FirebaseConfig
+        firebase
             .auth()
             .signInWithEmailAndPassword(email, password)
-            .then(user => {
-                   // setUser(user.user.uid)
-                    console.log(user.user.uid)}
-                    //window.location.href = "/categories"
 
-
-            )
             .catch(err => {
                 switch (err.code){
                     case "auth/invalid-email":

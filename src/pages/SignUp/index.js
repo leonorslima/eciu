@@ -9,10 +9,10 @@ import Form from "react-bootstrap/Form"
 import styled from "styled-components";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import FirebaseConfig from "../../scripts/FirebaseConfig";
 import {Link} from "react-router-dom";
 import Header from "../../components/Header"
-import {createUser, fetchUni, fetchProfile} from '../../FetchAPI'
+import {createUser, fetchUni, fetchProfile} from '../../FetchAPI';
+import firebase from 'firebase'
 
 const Uni = styled.p`
   font-weight: 700;
@@ -58,7 +58,7 @@ export default function HorizontalLabelPositionBelowStepper() {
     const handleSignUp = (name, profileid, homeuniversityid, destinyuniversityid) =>{
         clearErrors();
         if (password === passwordConfirmation){
-            FirebaseConfig
+            firebase
                 .auth()
                 .createUserWithEmailAndPassword(email, password)
                 .then(({user}) =>
