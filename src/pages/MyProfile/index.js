@@ -9,7 +9,12 @@ import {createUser, fetchPostUser} from "../../FetchAPI";
 import {useAuthState} from "react-firebase-hooks/auth";
 import firebase from "firebase";
 import {SemipolarLoading} from "react-loadingg";
+import logoEciu from "../../images/logoeciu.png"
+import logoUa from "../../images/logoua.png";
 
+const LogEciu = styled.img`
+height: 46px;
+  `
 
 const Button = styled(Link)`
 background-color: #002337;
@@ -31,6 +36,16 @@ const Loading = styled.p`
   margin-left: 2rem;
 `
 
+const BtnSO = styled(Link)`
+color: #002337;
+border: 1px solid #002337;
+border-radius: 3px;
+`
+
+const Logout = styled.div`
+text-align: end;
+`
+
 export default () => {
     const [isLoading, setisLoading] = useState(false);
     const [userSigned,setUserSigned] = useState([]);
@@ -47,7 +62,21 @@ export default () => {
 
     return (
         <div>
-            <Header />
+            <div className="container mt-3">
+                <div className="row align-items-center">
+                    <div className="col-4">
+                    </div>
+                    <div className="col-4">
+                        <LogEciu src={logoEciu}  alt="logoeciu"/>
+                    </div>
+                    <Logout className="col-4">
+                        <BtnSO className="p-2">
+                            <FaSignOutAlt />
+                        </BtnSO>
+                    </Logout>
+                </div>
+            </div>
+
             <Title className="mt-2 mb-2">MY PROFILE</Title>
             <div className="text-center mt-5">
                 <img className="mt-4 mb-3 rounded-circle w-50" src={imgUser}  alt="profile" />
@@ -74,9 +103,7 @@ export default () => {
                     <Button className="mt-5 p-3" to={"/editprofile"}>
                         Edit Information
                     </Button>
-                    <Button className="mt-5 p-3">
-                        <FaSignOutAlt />
-                    </Button>
+
                 </div>
             </div>
             <Navbar />
