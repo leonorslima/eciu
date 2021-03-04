@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import {FaMapMarkerAlt, FaEdit} from "react-icons/fa";
 import {Link, useParams} from "react-router-dom";
 import Navbar from "../../components/Navbar"
+import HeaderBack from "../../components/HeaderBack"
 import {fetchUni, fetchUtilizador} from "../../FetchAPI";
 import {SemipolarLoading} from "react-loadingg";
 
@@ -22,7 +23,7 @@ const Title = styled.h1`
   font-size: 28px;
   font-weight: 800;
   color: #002337;
-  margin-top: 4rem`
+  `
 const Loading = styled.p`
   margin-left: 2rem;
 `
@@ -53,8 +54,9 @@ export default () => {
     return (
 
         <div>
+            <HeaderBack />
             {!isLoading ? (
-                <div>
+                <div className="mt-2">
                     <Title>PROFILE</Title>
                     {utilizador.map(
                         (Utilizador) => {
@@ -66,8 +68,8 @@ export default () => {
                                             <img className="mt-4 mb-3 rounded-circle w-50"
                                                  src={Utilizador.profilepic} alt="profile"/>
                                             <div>
-                                                <Name className="mb-0 pb-0">{Utilizador.name}</Name>
-                                                <Info>
+                                                <Name className="mb-0 pb-0 mb-2">{Utilizador.name}</Name>
+                                                <Info className="mb-5">
                                                     <FaMapMarkerAlt/> From <b>
                                                     {universities.map(
                                                         (uni) => {
@@ -80,7 +82,7 @@ export default () => {
                                                     )}
                                                 </b></Info>
                                                 <Info className="mb-5"> Buddy since 2018 </Info>
-                                                <Button className="mt-5 p-3" to={"/"}>
+                                                <Button className="mt-5 p-3" to={"/privatechat"}>
                                                     <FaEdit/> Send a Message
                                                 </Button>
                                             </div>
