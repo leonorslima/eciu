@@ -143,8 +143,12 @@ export default function HorizontalLabelPositionBelowStepper() {
     function getStepContent(stepIndex) {
         switch (stepIndex) {
             case 0:
-                return [<Form className="mt-4">
-                    <Form.Group controlId="formBasicName">
+                return [
+                    <Form className="mt-4">
+                        <Form.Label as="legend">
+                            <Uni>Personal Information</Uni>
+                        </Form.Label>
+                        <Form.Group controlId="formBasicName">
                         <Form.Control type="text"
                                       placeholder="Name"
                                       value={name}
@@ -257,7 +261,7 @@ export default function HorizontalLabelPositionBelowStepper() {
                         <Button> <Link to={"/categories"}> Continuar</Link></Button>
                     </div>
                 ) : (
-                    <div>
+                    <div >
                         <Stepper activeStep={activeStep} alternativeLabel>
                             {steps.map((label) => (
                                 <Step key={label}>
@@ -266,9 +270,10 @@ export default function HorizontalLabelPositionBelowStepper() {
                             ))}
                         </Stepper>
 
-                        <div>
+                        <div  style={{marginTop: '4rem'}}>
+
                             <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
-                            <div className="d-flex">
+                            <div className="d-flex" >
                                 <div className="col-6">
                                 <Button disabled={activeStep === 0} onClick={handleBack} className={classes.backButton}>
                                     Back
