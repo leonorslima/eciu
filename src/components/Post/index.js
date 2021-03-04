@@ -6,12 +6,13 @@ import styled from 'styled-components'
 import {Link} from "react-router-dom";
 import {FaEdit, FaSearch, FaChevronDown, FaHeart} from "react-icons/fa";
 import imgUser from "../../images/user.png";
-import {AiOutlineLike} from "react-icons/ai";
+import {AiOutlineLike, AiFillLike} from "react-icons/ai";
 import Navbar from "../../components/Navbar";
 import HeaderBack from "../../components/HeaderBack";
 import {fetchICategory, fetchPostsCategory, fetchPostUser} from "../../FetchAPI";
 import {useParams} from "react-router-dom";
 import {SemipolarLoading} from 'react-loadingg';
+import {Component} from "@firebase/component";
 
 const Title = styled.h4`
   font-size: 28px;
@@ -105,13 +106,32 @@ const Loading = styled.p`
   margin-left: 2rem;
 `
 
+
+
+
+
 export default () => {
+
+
+
+    const [liked, setLiked] = useState(false);
+
+    const handleLike = () => {
+        if (liked === false) {
+            setLiked(true)
+        } else {
+            setLiked(false)
+        }
+    }
+
     const [posts, setPosts] = useState([]);
     const [isLoading, setisLoading] = useState(false);
     const [nome, setNome] = useState([]);
     const [userPoster, setUserPoster] = useState([])
     const [filtro, setFiltro] = useState('');
     const {id} = useParams();
+
+
 
     useEffect(() => {
         setisLoading(true)
@@ -131,6 +151,9 @@ export default () => {
                 setUserPoster(userPoster);
             })
     }, []);
+
+
+
 
     return (
         <div>
@@ -250,10 +273,12 @@ export default () => {
                                                                                         {/*{datapost.toLocaleDateString("en-GB")}*/}
                                                                                         {Post.date}
                                                                                     </Date>
+
                                                                                     <Button
+                                                                                        onClick= {handleLike}
                                                                                         style={{backgroundColor: "white", borderColor: "#002337", color: "#002337"}}
                                                                                         className="col-3 d-flex p-1 align-items-center justify-content-center">
-                                                                                        <FaHeart className="mr-2" />
+                                                                                        {liked ? <AiFillLike className="mr-2" /> : <AiOutlineLike className="mr-2" />}
                                                                                         <p className="mb-0">    {Post.likes.length}</p>
                                                                                     </Button>
                                                                                 </InfoAdd>
