@@ -41,7 +41,6 @@ function App() {
             <Router>
                 <RedirectAuth />
                 <Switch>
-                    <Route exact path={"/"} component={Feed}/>
                     <Route exact path={"/feed"} component={Feed}/>
                     <Route exact path={"/categories"} component={Categories}/>
                     <Route exact path={"/categories/:id"} component={Post}/>
@@ -54,7 +53,7 @@ function App() {
                     <Route exact path={"/signin"}  component={SignIn}/>
                     <Route exact path={"/createpost/:id"} component={CreatePost}/>
                     <Route exact path={"/searchresults"} component={SearchResults}/>
-                    <Route exact path={"/home"} component={Home}/>
+                    <Route exact path={"/"} component={Home}/>
                     <Route exact path={"/privatechat"} component={PrivateChat}/>
                 </Switch>
             </Router>
