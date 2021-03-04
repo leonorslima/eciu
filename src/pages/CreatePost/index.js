@@ -61,6 +61,8 @@ export default () => {
 
         setDate(dd +'-'+ m+'-'+ yyyy)
 
+
+
     }, []);
 
 
@@ -86,7 +88,7 @@ export default () => {
                 feedback !== '' ? (
                     <div style={{textAlign:"center", marginTop: 270}}>
                         <Typography >{feedback}</Typography>
-                        <Button> <Link to={"/categories"}> Continuar</Link></Button>
+                        <Button  onClick={goToPreviousPath}> Continuar</Button>
                     </div>
                 ) : (
 
