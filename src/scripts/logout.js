@@ -1,6 +1,4 @@
-/*
-import FirebaseConfig from "./FirebaseConfig";
 
-const handleLogout = () =>{
-    FirebaseConfig.auth().signOut();
-    }*/
+const logout = () => {
+    firebase.auth().signOut();
+};

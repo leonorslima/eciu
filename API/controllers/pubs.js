@@ -1,9 +1,16 @@
 const express = require("express");
 const router = express.Router();
-const {create } = require("../Pedidos/posts");
+const {create, getAll, update } = require("../Pedidos/posts");
 
 
 router.route("/")
+    .get(async (req, res) => {
+        const posts = await getAll();
+
+        res.status(200);
+        res.json(posts);
+        res.end();
+    })
     .post(async (req, res) => {
         const publicacao = await create(req.body);
         res.json(publicacao);
@@ -18,6 +25,7 @@ router.route("/")
         res.status(200);
         res.end();
     })
+
 ;
 
 

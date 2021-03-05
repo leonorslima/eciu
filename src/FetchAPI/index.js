@@ -9,10 +9,14 @@ export const fetchPostsCategory = (id) =>
     fetch(`http://localhost:3001/categories/${id}`)
         .then(response => response.json())
 
+
+
 export const fetchUtilizador = (id) =>
     fetch(`http://localhost:3001/users/${id}`)
         .then(response => response.json())
 
+
+export const fetchPostsCategories = () => fetchFromAPI('posts');
 
 export const fetchICategory = (id) => fetchFromAPI('categories');
 

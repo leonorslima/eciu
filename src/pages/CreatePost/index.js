@@ -31,6 +31,13 @@ font-weight: 800;
 color: #002337;
   `
 
+const Buttoned = styled.button`
+background-color: #002337;
+color: white;
+border-radius: 4px;
+font-weight: 600;
+margin-top: 3rem;`
+
 export default () => {
 
     const [user, loading, error] = useAuthState(firebase.auth());
@@ -90,7 +97,10 @@ export default () => {
                 feedback !== '' ? (
                     <div style={{textAlign:"center", marginTop: 270}}>
                         <Typography >{feedback}</Typography>
-                        <Button  onClick={goToPreviousPath}> Continuar</Button>
+
+                        <Buttoned className="p-3" onClick={goToPreviousPath}>
+                            Continuar
+                        </Buttoned>
                     </div>
                 ) : (
 
@@ -114,24 +124,22 @@ export default () => {
                         </Form.Control>
 
                         {!hasAccess ? (
-                            <Form.Control as="select" className="my-1 mr-sm-2" id="inlineFormCustomSelectPref" custom
+                            <Form.Control as="select" className="my-1 mr-sm-2" id="inlineFormCustomSelectPrefe" custom
                                           disabled>
                                 <option value="0">Choose the subcategory</option>
                                 {cat.map(
-                                    (Cat) => {
-                                        if (Cat.parentcategoryid !== null && Cat.parentcategoryid === catselected) {
+                                    (SubCat) => {
+                                        if (SubCat.parentcategoryid !== null && SubCat.parentcategoryid === catselected) {
                                             return (
-                                                <option value={Cat.id}>{Cat.name}</option>
+                                                <option value={SubCat.id}>{SubCat.name}</option>
                                             )
                                         }
                                     })}
 
                             </Form.Control>
                         ) : (
-                            <Form.Control as="select" className="my-1 mr-sm-2" id="inlineFormCustomSelectPref"
-                                          value={setSubcat} onChange={e => {
-                                setSubcat(e.target.value)
-                            }} custom>
+                            <Form.Control as="select" className="my-1 mr-sm-2" id="inlineFormCustomSelectPrefe"
+                                          value={Subcat} onChange={e => setSubcat(e.target.value)} custom>
                                 <option value="0">Choose the subcategory</option>
                                 {cat.map(
                                     (SubCat) => {

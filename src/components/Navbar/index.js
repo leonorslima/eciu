@@ -2,6 +2,8 @@ import React from 'react';
 import Navbar from 'react-bootstrap/Nav';
 import styled from 'styled-components'
 import { FaHome, FaThList, FaUsers, FaComments, FaUser } from "react-icons/fa";
+import {useAuthState} from "react-firebase-hooks/auth";
+import firebase from "firebase";
 
 const Navtext = styled.p`
 font-size: 13px;
@@ -16,6 +18,8 @@ const IconNav = styled(Navbar.Link)`
 
 
 export default () => {
+    const [user, loading, error] = useAuthState(firebase.auth());
+
 
     return (
     <Navbar justify defaultActiveKey="/feed" className="fixed-bottom bg-white">
@@ -48,7 +52,7 @@ export default () => {
             </IconNav>
         </Navbar.Item >
         <Navbar.Item>
-            <IconNav href="/myprofile">
+            <IconNav href="/myprofile/" >
                 <FaUser color="#002337" style={{width: '100%'}} />
                 <br />
                 <Navtext>Profile</Navtext>

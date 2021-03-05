@@ -111,19 +111,13 @@ const Loading = styled.p`
 export default () => {
 
     const [user, loading, error] = useAuthState(firebase.auth());
-    console.log(user.uid);
 
     const [liked, setLiked] = useState(false);
 
 
-    const handleLike = (id, userid) => {
+    const handleLike = () => {
         if (liked === false) {
             setLiked(true)
-
-            const ref = firebase.database().ref("/posts/"+id);
-            ref.child("likes").push(userid);
-
-            updatePost(id, userid)
 
 
         } else {
@@ -237,9 +231,6 @@ export default () => {
                                                 {posts.map(
                                                     (Post) => {
                                                         if (Post.categoryid === id) {
-
-                                                            //    const unixTime = Post.date._seconds;
-                                                            //  var datapost = new window.Date(unixTime * 1000);
                                                             return (
                                                                 <Accordion
                                                                     className="align-self-center col-12 pl-0 pr-0">
@@ -295,7 +286,7 @@ export default () => {
                                                                                         onClick={handleLike}
                                                                                         style={{
                                                                                             backgroundColor: "white",
-                                                                                            borderColor: "#002337",
+                                                                                            borderColor: "white",
                                                                                             color: "#002337"
                                                                                         }}
                                                                                         className="col-3 d-flex p-1 align-items-center justify-content-center">
@@ -397,7 +388,7 @@ export default () => {
                                 }
                             })}
 
-                        <Accordion className="align-self-center col-12 pl-0 pr-0">
+                        <Accordion className="align-self-center col-12 pl-0 pr-0" style={{marginBottom: "4rem"}}>
 
                             <Tip className="d-flex row mb-3">
                                 <div className="col-3 pl-0 mt-2">
