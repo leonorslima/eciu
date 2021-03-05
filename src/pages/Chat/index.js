@@ -17,12 +17,14 @@ const Text = styled.p`
   white-space: nowrap;
   text-overflow: ellipsis;
   text-decoration: none !important;
+  color: #002337;
 
 `
 const Name = styled.p`
   font-weight: 400;
   margin-bottom: 0;
   text-decoration: none !important;
+  color: #002337;
 `
 const Tip = styled(Link)`
   background-color: white;

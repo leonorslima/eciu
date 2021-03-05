@@ -173,7 +173,7 @@ export default () => {
 
     return (
         <div>
-            <div>
+            <div className="mt-3">
 
             <Other className="container-fluid d-flex mb-3">
                 <div className="col-2" onClick={goToPreviousPath}>
@@ -187,7 +187,7 @@ export default () => {
                       Joana Sousa
                     </Text>
                     <UniO className="py-0">
-                        Aveiro University
+                        University of Aveiro
                     </UniO>
                     <UniD className="py-0">
                        INSA
