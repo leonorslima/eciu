@@ -81,24 +81,19 @@ export default () => {
             <div className="text-center mt-5">
                 <img className="mt-4 mb-3 rounded-circle w-50" src={imgUser}  alt="profile" />
                 <div>
-                    {/*{!isLoading ? (
                         <div className="row text-center">
-                            {userSigned.map(
+                          {/*  {userSigned.map(
                                 (userSigne) => {
                                     if(userSigne.userid === user.uid){
                                         console.log(userSigne.userid)
-                                        return (
-                                            <div>
-                                                <Name className="mb-0 pb-0">{userSigne.name}</Name>
-                                                <Info> <FaMapMarkerAlt /> From <b> Aveiro, Portugal</b></Info>
+                                        return (*/}
+                                            <div className="mx-auto">
+                                                <Name className="mb-0 pb-0">Edward</Name>
+                                                <Info> <FaMapMarkerAlt /> From <b> Finland</b></Info>
                                                 <Info className="mb-5"> Buddy since 2018 </Info>
                                             </div>
-                                        )
-                                    }
-                                })}
+
                         </div>
-                    ) : (
-                        <Loading className="mt-5"> <SemipolarLoading color={'#002337'}/> </Loading>)}*/}
 
                     <Button className="mt-5 p-3" to={"/editprofile"}>
                         Edit Information
